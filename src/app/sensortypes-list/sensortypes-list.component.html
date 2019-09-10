@@ -1,0 +1,24 @@
+<p-panel header="Sensor types definitions">
+  <p-table [columns]="cols" [value]="sensorTypes$ | async" [rowHover]="true">
+    <ng-template pTemplate="header" let-columns>
+      <tr>
+        <th *ngFor="let col of columns">
+          {{col.header}}
+        </th>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="body" let-rowData let-columns="columns">
+      <tr [pSelectableRow]="rowData">
+        <td *ngFor="let col of columns" (click)="onRowSelected(rowData)">
+          {{rowData[col.field]}}
+        </td>
+      </tr>
+    </ng-template>
+
+  </p-table>
+
+  <p-footer>
+    <button pButton class="ui-button-info" type="button" (click)="onCreateNew()" label="New"></button>
+  </p-footer>
+</p-panel>

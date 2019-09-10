@@ -1,0 +1,73 @@
+<p-toast [style]="{marginTop: '80px', width: '350px'}"></p-toast>
+
+<p-dialog header="Delete SensorType?" [(visible)]="displayDeleteDialog" [modal]="true" [responsive]="true" [style]="{width: '350px', minWidth: '200px'}" [minY]="70"
+          [maximizable]="true" [baseZIndex]="10000">
+  <p>Are you sure, you want to delete this SensorType?</p>
+  <p-footer>
+    <button pButton class="ui-button-danger" type="button" (click)="onDelete()" label="Yes"></button>
+    <button pButton class="ui-button-info" type="button" (click)="displayDeleteDialog=false" label="No"></button>
+  </p-footer>
+</p-dialog>
+
+<p-dialog header="Cannot delete" [(visible)]="displayCannotDeleteDialog" [modal]="true" [responsive]="true" [style]="{width: '350px', minWidth: '200px'}" [minY]="70"
+          [maximizable]="true" [baseZIndex]="10000">
+  <p>Cannot delete sensor type, because it is currently used by {{amountOfUsingSensors}} </p>
+  <p-footer>
+    <button pButton class="ui-button-info" type="button" (click)="displayCannotDeleteDialog=false" label="OK"></button>
+  </p-footer>
+</p-dialog>
+
+<form [formGroup]="model" (ngSubmit)="onSubmit()">
+  <p-panel header="{{headerTitle}}">
+        <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
+          <div class="ui-grid-row">
+            <div class="ui-grid-col-2">
+              Name:
+            </div>
+            <div class="ui-grid-col-6">
+              <input pInputText type="text" placeholder="Required" formControlName="name"/>
+            </div>
+            <div class="ui-grid-col-4">
+              <p-message severity="error" text="Name is required" *ngIf="!model.controls['name'].valid&&model.controls['name'].dirty"></p-message>
+            </div>
+          </div>
+          <div class="ui-grid-row">
+            <div class="ui-grid-col-2">
+              Type:
+            </div>
+            <div class="ui-grid-col-6">
+              <input pInputText type="text" [readOnly]="readOnlyType" placeholder="Required" formControlName="type" [pTooltip]="readOnlyToolTip"/>
+            </div>
+            <div class="ui-grid-col-4">
+              <p-message severity="error" text="Type is required" *ngIf="!model.controls['type'].valid&&model.controls['type'].dirty"></p-message>
+            </div>
+          </div>
+          <div class="ui-grid-row">
+            <div class="ui-grid-col-2">
+              Topic:
+            </div>
+            <div class="ui-grid-col-6">
+              <input pInputText type="text" placeholder="Required" formControlName="topic"/>
+            </div>
+            <div class="ui-grid-col-4">
+              <p-message severity="error" text="Topic is required" *ngIf="!model.controls['topic'].valid&&model.controls['topic'].dirty"></p-message>
+            </div>
+          </div>
+          <div class="ui-grid-row">
+            <div class="ui-grid-col-2">
+              Description:
+            </div>
+            <div class="ui-grid-col-6">
+              <textarea pInputTextarea type="text" [autoResize]="false" [rows]="3" formControlName="description"></textarea>
+            </div>
+            <div class="ui-grid-col-4"></div>
+          </div>
+
+        </div>
+    <p-footer>
+      <button pButton class="ui-button-info" type="button" (click)="navigateToTypeList()" label="Back"></button>&nbsp;
+      <button pButton class="ui-button-warning" type="submit" [disabled]="!model.valid" label="{{submitButtonLabel}}"></button>&nbsp;
+      <button pButton class="ui-button-warning" type="button" (click)="showDialog()" [hidden]="hideDeleteButton()" label="Delete"></button>
+    </p-footer>
+  </p-panel>
+</form>

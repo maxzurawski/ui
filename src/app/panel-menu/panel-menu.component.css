@@ -1,0 +1,7 @@
+.selected-menu-item {
+  background: lightgrey !important;
+}
+
+.unselected-menu-item {
+  background: none;
+}
