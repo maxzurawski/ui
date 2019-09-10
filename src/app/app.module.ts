@@ -23,10 +23,12 @@ import {StoreModule} from "@ngrx/store";
 import {EffectsModule} from "@ngrx/effects";
 import {reducers} from "./store/reducers";
 import {effects} from "./store/effects";
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import { SensortypesDetailsComponent } from './sensortypes-details/sensortypes-details.component';
 import {ToastModule} from "primeng/toast";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {SensorTypesService} from "./service/sensor-types.service";
+import {HttpErrorInterceptorServiceService} from "./interceptors/http-error-interceptor-service.service";
 
 @NgModule({
   declarations: [
@@ -59,7 +61,10 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     InputTextareaModule,
     ReactiveFormsModule
   ],
-  providers: [MessageService],
+  providers: [MessageService,
+    SensorTypesService,
+    {provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptorServiceService, multi: true},
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

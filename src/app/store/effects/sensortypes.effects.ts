@@ -51,7 +51,7 @@ export class SensortypesEffects {
       const id = payload.id;
       return this.service.delete(id).pipe(
         map( result => {
-          if (result.status === 200) {
+          if (result) {
             return new DataActions.DeleteSensorTypeSuccessful({id});
           }
           return new DataActions.DeleteSensorTypeFailure({error: 'Could not delete sensortype with id: ' + id});
