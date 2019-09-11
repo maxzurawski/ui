@@ -20,14 +20,6 @@ export class SensorTypesService {
       }));
   }
 
-  getById(id): Observable<SensorType> {
-    return this.httpClient.get<SensorType>(SensorTypesService.API_SUFFIX + '/' + id).pipe(
-      catchError( err => {
-        return EMPTY;
-      })
-    );
-  }
-
   update(sensorType: SensorType): Observable<SensorType> {
     return this.httpClient.put<SensorType>(SensorTypesService.API_SUFFIX + '/' + sensorType.id, sensorType);
   }
