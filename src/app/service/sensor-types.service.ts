@@ -20,12 +20,12 @@ export class SensorTypesService {
       }));
   }
 
-  update(sensorType: SensorType): Observable<SensorType> {
-    return this.httpClient.put<SensorType>(SensorTypesService.API_SUFFIX + '/' + sensorType.id, sensorType);
-  }
-
   save(sensorType: SensorType): Observable<SensorType> {
     return this.httpClient.post<SensorType>(SensorTypesService.API_SUFFIX + '/new', sensorType);
+  }
+
+  update(sensorType: SensorType): Observable<SensorType> {
+    return this.httpClient.put<SensorType>(SensorTypesService.API_SUFFIX + '/' + sensorType.id, sensorType);
   }
 
   delete(id: number): Observable<any> {
