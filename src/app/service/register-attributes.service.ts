@@ -16,10 +16,6 @@ export class RegisterAttributesService {
     return this.httpClient.get<AttributeDictionary[]>(RegisterAttributesService.API_SUFFIX);
   }
 
-  getBySymbol(symbol: string): Observable<AttributeDictionary> {
-    return this.httpClient.get<AttributeDictionary>(RegisterAttributesService.API_SUFFIX + symbol);
-  }
-
   update(symbol: string, attribute: AttributeDictionary): Observable<AttributeDictionary> {
     return this.httpClient.put<AttributeDictionary>(RegisterAttributesService.API_SUFFIX + symbol, attribute);
   }
