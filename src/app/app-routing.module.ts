@@ -3,11 +3,15 @@ import { Routes, RouterModule } from '@angular/router';
 import {AboutComponent} from "./about/about.component";
 import {SensortypesListComponent} from "./sensortypes-list/sensortypes-list.component";
 import {SensortypesDetailsComponent} from "./sensortypes-details/sensortypes-details.component";
+import {AttributesDictionaryListComponent} from "./attributes-dictionary-list/attributes-dictionary-list.component";
+import {AttributesDictionaryDetailsComponent} from "./attributes-dictionary-details/attributes-dictionary-details.component";
 
 const routes: Routes = [
   { path:'', component: AboutComponent},
   { path: 'types', component: SensortypesListComponent},
   { path: 'types/:id', component: SensortypesDetailsComponent},
+  { path: 'attributes', component: AttributesDictionaryListComponent},
+  { path: 'attributes/:symbol', component: AttributesDictionaryDetailsComponent},
   { path:'about', component: AboutComponent}
 ];
 

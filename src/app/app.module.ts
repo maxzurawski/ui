@@ -29,6 +29,8 @@ import {ToastModule} from "primeng/toast";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {SensorTypesService} from "./service/sensor-types.service";
 import {HttpErrorInterceptorServiceService} from "./interceptors/http-error-interceptor-service.service";
+import { AttributesDictionaryListComponent } from './attributes-dictionary-list/attributes-dictionary-list.component';
+import { AttributesDictionaryDetailsComponent } from './attributes-dictionary-details/attributes-dictionary-details.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import {HttpErrorInterceptorServiceService} from "./interceptors/http-error-inte
     FooterComponent,
     AboutComponent,
     SensortypesListComponent,
-    SensortypesDetailsComponent
+    SensortypesDetailsComponent,
+    AttributesDictionaryListComponent,
+    AttributesDictionaryDetailsComponent
   ],
   imports: [
     BrowserModule,
