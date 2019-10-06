@@ -29,7 +29,7 @@ export class SensorsService {
   }
 
   public save(sensor: Sensor): Observable<Sensor> {
-    return this.httpClient.post<Sensor>(this.API_SUFFIX + sensor.uuid, sensor);
+    return this.httpClient.post<Sensor>(this.API_SUFFIX, sensor);
   }
 
 }

@@ -2585,7 +2585,7 @@ let SensorsService = class SensorsService {
         return this.httpClient.put(this.API_SUFFIX + sensor.uuid, sensor);
     }
     save(sensor) {
-        return this.httpClient.post(this.API_SUFFIX + sensor.uuid, sensor);
+        return this.httpClient.post(this.API_SUFFIX, sensor);
     }
 };
 SensorsService.ctorParameters = () => [
