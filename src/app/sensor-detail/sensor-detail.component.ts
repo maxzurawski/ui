@@ -8,7 +8,7 @@ import {
   getAttributesLoaded,
   getSensorAttributeAfterUpdate,
   getSensorTypesLoaded,
-  getSingleSensor, getUuids,
+  getSingleSensor,
   State
 } from '../store/reducers';
 import {SensorType} from '../model/SensorType';
