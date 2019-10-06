@@ -5,6 +5,7 @@ import {SensortypesListComponent} from "./sensortypes-list/sensortypes-list.comp
 import {SensortypesDetailsComponent} from "./sensortypes-details/sensortypes-details.component";
 import {AttributesDictionaryListComponent} from "./attributes-dictionary-list/attributes-dictionary-list.component";
 import {AttributesDictionaryDetailsComponent} from "./attributes-dictionary-details/attributes-dictionary-details.component";
+import {SensorsListComponent} from "./sensors-list/sensors-list.component";
 
 const routes: Routes = [
   { path:'', component: AboutComponent},
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'types/:id', component: SensortypesDetailsComponent},
   { path: 'attributes', component: AttributesDictionaryListComponent},
   { path: 'attributes/:symbol', component: AttributesDictionaryDetailsComponent},
+  { path: 'sensors', component: SensorsListComponent},
   { path:'about', component: AboutComponent}
 ];
 

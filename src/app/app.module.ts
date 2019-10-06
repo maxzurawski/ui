@@ -31,6 +31,7 @@ import {SensorTypesService} from "./service/sensor-types.service";
 import {HttpErrorInterceptorServiceService} from "./interceptors/http-error-interceptor-service.service";
 import { AttributesDictionaryListComponent } from './attributes-dictionary-list/attributes-dictionary-list.component';
 import { AttributesDictionaryDetailsComponent } from './attributes-dictionary-details/attributes-dictionary-details.component';
+import { SensorsListComponent } from './sensors-list/sensors-list.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { AttributesDictionaryDetailsComponent } from './attributes-dictionary-de
     SensortypesListComponent,
     SensortypesDetailsComponent,
     AttributesDictionaryListComponent,
-    AttributesDictionaryDetailsComponent
+    AttributesDictionaryDetailsComponent,
+    SensorsListComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,32 @@
+<p-panel header="Sensors">
+  <p-table [columns]="cols" [value]="sensors" [rowHover]="true" dataKey="type">
+    <ng-template pTemplate="header" let-columns>
+      <tr>
+        <th *ngFor="let col of columns">
+          {{col.header}}
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-rowIndex="rowIndex" let-expanded="expanded" let-columns="columns">
+      <tr class="custom-widget-header" *ngIf="rowGroupMetadata[rowData.type].index === rowIndex">
+        <td colspan="3">
+          <a href="#" [pRowToggler]="rowData" [style.display]="'block'">
+            <i [ngClass]="expanded ? 'pi pi-fw pi-chevron-circle-down' : 'pi pi-fw pi-chevron-circle-right'"></i>
+            <span>{{rowData.type}}</span>
+          </a>
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="rowexpansion"  let-rowData let-rowIndex="rowIndex" let-columns="columns">
+      <tr [pSelectableRow]="rowData">
+        <td *ngFor="let col of columns" (click)="selectedRow(rowData)">
+          {{rowData[col.field]}}
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+
+  <p-footer>
+    <button pButton class="ui-button-info" type="button" (click)="onCreateNew()" label="New"></button>
+  </p-footer>
+</p-panel>

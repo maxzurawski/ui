@@ -1,16 +1,20 @@
 import * as fromSensorTypes from './sensortypes.reducer';
 import * as fromAttributes from './attributes.reducer';
+import * as fromSensors from './sensors.reducer';
+
 
 import {ActionReducerMap, createSelector} from '@ngrx/store';
 
 export interface State {
   sensortypes: fromSensorTypes.SensortypesState;
   attributes: fromAttributes.AttributesState;
+  sensors: fromSensors.SensorsState;
 }
 
 export const reducers: ActionReducerMap<State> = {
   sensortypes: fromSensorTypes.sensortypesReducer,
-  attributes: fromAttributes.attributesReducer
+  attributes: fromAttributes.attributesReducer,
+  sensors: fromSensors.sensorsReducer,
 };
 
 // NOTE: SensortypesState and selectors
@@ -26,3 +30,8 @@ export const getAllAttributes = createSelector(getAttributesState, fromAttribute
 export const getAttributesLoaded = createSelector(getAttributesState, fromAttributes.getHasLoaded);
 export const getSingleAttribute = createSelector(getAttributesState,
   (attributes, props) => attributes.items.find( obj => obj.symbol === props.symbol));
+
+// NOTE: SensorsState and selectors
+export const getSensorsState = (state: State) => state.sensors;
+export const getAllSensors = createSelector(getSensorsState, fromSensors.getAllItems);
+export const getSensorsLoaded = createSelector(getSensorsState, fromSensors.getHasLoaded);
