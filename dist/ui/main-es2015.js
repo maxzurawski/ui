@@ -312,6 +312,32 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/attributes-dictionary-details/attributes-dictionary-details.component.html":
+/*!**********************************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/attributes-dictionary-details/attributes-dictionary-details.component.html ***!
+  \**********************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<p-toast [style]=\"{marginTop: '80px', width: '350px'}\"></p-toast>\n\n<form [formGroup]=\"model\" (ngSubmit)=\"onSubmit()\">\n  <p-panel header=\"{{headerTitle}}\">\n    <div class=\"general-panel-container\">\n      <p-panel header=\"Settings\">\n        <div class=\"ui-grid ui-grid-responsive ui-grid-pad ui-fluid\" style=\"margin: 10px 0px\">\n          <div class=\"ui-grid-row\">\n            <div class=\"ui-grid-col-2\">\n              Name:\n            </div>\n            <div class=\"ui-grid-col-6\">\n              <input pInputText type=\"text\" placeholder=\"Required\" formControlName=\"name\"/>\n            </div>\n            <div class=\"ui-grid-col-4\">\n              <p-message severity=\"error\" text=\"Name is required\" *ngIf=\"!model.controls['name'].valid&&model.controls['name'].dirty\"></p-message>\n            </div>\n          </div>\n          <div class=\"ui-grid-row\">\n            <div class=\"ui-grid-col-2\">\n              Symbol:\n            </div>\n            <div class=\"ui-grid-col-6\">\n              <input pInputText type=\"text\" placeholder=\"Required\" [attr.disabled]=\"isEditAndCreationDisabled\" formControlName=\"symbol\"/>\n            </div>\n            <div class=\"ui-grid-col-4\">\n              <p-message severity=\"error\" text=\"Symbol is required\" *ngIf=\"!model.controls['symbol'].valid&&model.controls['symbol'].dirty\"></p-message>\n            </div>\n          </div>\n          <div class=\"ui-grid-row\">\n            <div class=\"ui-grid-col-2\">\n              Description:\n            </div>\n            <div class=\"ui-grid-col-6\">\n              <textarea pInputTextarea type=\"text\" [autoResize]=\"false\" [cols]=\"3\" formControlName=\"description\"></textarea>\n            </div>\n            <div class=\"ui-grid-col-4\"></div>\n          </div>\n\n        </div>\n      </p-panel>\n    </div>\n\n    <p-footer>\n      <button pButton class=\"ui-button-info\" (click)=\"onBack()\" label=\"Back\"></button> &nbsp;\n      <button pButton class=\"ui-button-warning\" type=\"submit\" [disabled]=\"!model.valid\" label=\"{{submitButtonLabel}}\"></button> &nbsp;\n    </p-footer>\n  </p-panel>\n</form>\n");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/attributes-dictionary-list/attributes-dictionary-list.component.html":
+/*!****************************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/attributes-dictionary-list/attributes-dictionary-list.component.html ***!
+  \****************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<p-panel header=\"Attributes dictionary\">\n  <p-table [columns]=\"cols\" [value]=\"attributes$ | async\" [rowHover]=\"true\" dataKey=\"symbol\">\n\n    <ng-template pTemplate=\"header\" let-columns>\n      <tr>\n        <th *ngFor=\"let col of columns\">\n          {{col.header}}\n        </th>\n      </tr>\n    </ng-template>\n\n    <ng-template pTemplate=\"body\" let-rowData let-columns=\"columns\">\n      <tr [pSelectableRow]=\"rowData\">\n        <td *ngFor=\"let col of columns\" (click)=\"onRowClicked(rowData)\">\n          {{rowData[col.field]}}\n        </td>\n      </tr>\n    </ng-template>\n  </p-table>\n</p-panel>\n");
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/footer/footer.component.html":
 /*!************************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/footer/footer.component.html ***!
@@ -348,6 +374,45 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ("<p-panelMenu [model]=\"items\" [style]=\"{'width':'200px'}\" [multiple]=\"true\"></p-panelMenu>\n");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/sensor-detail-attribute-dialog/sensor-detail-attribute-dialog.component.html":
+/*!************************************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/sensor-detail-attribute-dialog/sensor-detail-attribute-dialog.component.html ***!
+  \************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<form [formGroup]=\"model\">\n  <div class=\"ui-grid ui-grid-responsive ui-grid-pad ui-fluid\" style=\"margin: 10px 0px\">\n    <div class=\"ui-grid-row\">\n      <div class=\"ui-grid-col-2\">\n        Attribute:\n      </div>\n      <div class=\"ui-grid-col-6\">\n        <p-dropdown [options]=\"attributesLeft\" [disabled]=\"dropdownDisabled\" optionLabel=\"symbol\" formControlName=\"attribute\" placeholder=\"Select attribute to add...\" (ngModelChange)=\"onModelChanged()\"></p-dropdown>\n      </div>\n      <div class=\"ui-grid-col-4\">\n        <p-message severity=\"error\" text=\"Attribute required\" *ngIf=\"!model.controls['attribute'].valid&&model.controls['attribute'].dirty\"></p-message>\n      </div>\n    </div>\n    <div class=\"ui-grid-row\">\n      <div class=\"ui-grid-col-2\">\n        Value:\n      </div>\n      <div class=\"ui-grid-col-6\" *ngIf=\"getInputtype() === null\">\n        <input pInputText type=\"text\" placeholder=\"Required\" disabled=\"true\" formControlName=\"value\"/>\n      </div>\n      <div class=\"ui-grid-col-6\" *ngIf=\"getInputtype() === 'boolean'\">\n        <p-inputSwitch formControlName=\"value\"></p-inputSwitch>\n      </div>\n      <div class=\"ui-grid-col-6\" *ngIf=\"getInputtype() === 'positive_numeric'\">\n        <p-spinner size=\"30\" formControlName=\"value\" [min]=\"0\"></p-spinner>\n      </div>\n      <div class=\"ui-grid-col-6\" *ngIf=\"getInputtype() === 'numeric'\">\n        <p-spinner size=\"30\" formControlName=\"value\" step=\"0.5\" formatInput=\"true\"></p-spinner>\n      </div>\n      <div class=\"ui-grid-col-6\" *ngIf=\"getInputtype() === 'ip'\">\n        <input pInputText type=\"text\" formControlName=\"value\" pattern=\"\\b((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\\.|$)){4}\\b\"/>\n      </div>\n\n      <div class=\"ui-grid-col-4\">\n        <p-message severity=\"error\" text=\"Value is required\" *ngIf=\"!model.controls['value'].valid&&model.controls['value'].dirty\"></p-message>\n      </div>\n    </div>\n  </div>\n  <br/>\n  <br/>\n  <br/>\n  <br/>\n  <div class=\"custom-dialog-component-footer\">\n    <button pButton class=\"ui-button-warning\" type=\"button\" [disabled]=\"!model.valid\" (click)=\"onSubmitNewAttribute()\" label=\"OK\"></button> &nbsp;\n    <button pButton class=\"ui-button-warning\" type=\"button\" (click)=\"onCancelNewAttribute()\" label=\"Cancel\"></button>\n  </div>\n</form>\n");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/sensor-detail/sensor-detail.component.html":
+/*!**************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/sensor-detail/sensor-detail.component.html ***!
+  \**************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<p-toast [style]=\"{marginTop: '80px', width: '350px'}\"></p-toast>\n\n<p-dialog header=\"{{attributeDialogTitle}}\" [(visible)]=\"attributeDialogVisible\" [modal]=\"true\" [responsive]=\"true\" [style]=\"{width: '600px', minHeight: '150px'}\" [minY]=\"70\"\n          [maximizable]=\"true\" [resizable]=\"true\" [baseZIndex]=\"10000\">\n  <app-sensor-detail-attribute-dialog *ngIf=\"attributeDialogVisible\"></app-sensor-detail-attribute-dialog>\n</p-dialog>\n\n<div class=\"delete-dialog-box\">\n  <p-dialog header=\"Delete Sensor?\" [(visible)]=\"displayDeleteDialog\" [modal]=\"true\" [responsive]=\"true\" [style]=\"{width: '350px', minWidth: '200px'}\" [minY]=\"70\"\n            [maximizable]=\"true\" [baseZIndex]=\"10000\">\n    <p>Are you sure, you want to delete this Sensor?</p>\n    <p-footer>\n      <button pButton class=\"ui-button-danger\" type=\"button\" (click)=\"onDelete()\" label=\"Yes\"></button>\n      <button pButton class=\"ui-button-info\" type=\"button\" (click)=\"displayDeleteDialog=false\" label=\"No\"></button>\n    </p-footer>\n  </p-dialog>\n</div>\n\n<form [formGroup]=\"model\">\n  <p-panel header=\"{{headerTitle}}\" >\n    <div class=\"general-panel-container\">\n      <p-panel header=\"General settings\">\n        <div class=\"ui-grid ui-grid-responsive ui-grid-pad ui-fluid\" style=\"margin: 10px 0px\">\n          <div class=\"ui-grid-row\">\n            <div class=\"ui-grid-col-2\">\n              Name:\n            </div>\n            <div class=\"ui-grid-col-6\">\n              <input pInputText type=\"text\" placeholder=\"Required\" formControlName=\"name\"/>\n            </div>\n            <div class=\"ui-grid-col-4\">\n              <p-message severity=\"error\" text=\"Name is required\" *ngIf=\"!model.controls['name'].valid&&model.controls['name'].dirty\"></p-message>\n            </div>\n          </div>\n          <div class=\"ui-grid-row\">\n            <div class=\"ui-grid-col-2\">\n              Uuid:\n            </div>\n            <div class=\"ui-grid-col-6\">\n              <input pInputText type=\"text\" placeholder=\"Required\" formControlName=\"uuid\" [readOnly]=\"disableUnmmutableControl\" [pTooltip]=\"disabledUuidTooltip\"/>\n            </div>\n            <div class=\"ui-grid-col-4\">\n              <p-message severity=\"error\" text=\"Uuid is required\" *ngIf=\"isNewMode() &&  model.hasError('invalid', 'uuid')\" text=\"{{model.get('uuid').errors.invalid}}\"></p-message>\n              <p-message severity=\"error\" text=\"Valid, not registered uuid is required\" *ngIf=\"!model.controls['uuid'].valid&&model.controls['uuid'].dirty\"></p-message>\n            </div>\n          </div>\n          <div class=\"ui-grid-row\">\n            <div class=\"ui-grid-col-2\">\n              Type:\n            </div>\n            <div class=\"ui-grid-col-6\">\n              <p-dropdown [options]=\"sensorTypes\" optionLabel=\"type\" [disabled]=\"disableUnmmutableControl\" formControlName=\"sensorType\" [pTooltip]=\"disabledSensorTypeTooltip\" placeholder=\"Select type to add...\" (ngModelChange)=\"onSensorTypeChanged()\"></p-dropdown>\n            </div>\n            <div class=\"ui-grid-col-4\">\n              <p-message severity=\"error\" text=\"Type is required\" *ngIf=\"!model.controls['sensorType'].valid&&model.controls['sensorType'].dirty\"></p-message>\n            </div>\n          </div>\n          <div class=\"ui-grid-row\">\n            <div class=\"ui-grid-col-2\">\n              Description:\n            </div>\n            <div class=\"ui-grid-col-6\">\n              <textarea pInputTextarea type=\"text\" [autoResize]=\"false\" [rows]=\"3\" formControlName=\"description\"></textarea>\n            </div>\n            <div class=\"ui-grid-col-4\"></div>\n          </div>\n        </div>\n      </p-panel>\n      <br/>\n      <p-panel header=\"Sensor's attributes\">\n        <p-table [value]=\"attributesModel.controls\" [rowHover]=\"true\">\n          <ng-template pTemplate=\"header\">\n            <tr>\n              <th>Symbol</th>\n              <th>Value</th>\n              <th style=\"width: 15%; text-align: center\">Actions</th>\n            </tr>\n          </ng-template>\n          <ng-template pTemplate=\"body\" let-attribute>\n            <tr [hidden]=\"hideAttributesPanel()\">\n              <td>{{attribute.get('symbol').value}}</td>\n              <td>{{attribute.get('value').value}}</td>\n              <td style=\"text-align: right\">\n                <button pButton class=\"ui-button-warning\" type=\"button\" icon=\"pi pi-pencil\" (click)=\"openUpdateAttributeDialog(attribute.value)\" pTooltip=\"change value\"></button> &nbsp;\n                <button pButton class=\"ui-button-danger\" type=\"button\" icon=\"pi pi-trash\" (click)=\"removeAttributeFromList(attribute.get('symbol').value)\" pTooltip=\"remove from attribute's list\"></button>\n              </td>\n            </tr>\n          </ng-template>\n        </p-table>\n        <p-footer class=\"text-right\">\n          <button pButton class=\"ui-button-success\" type=\"button\" icon=\"pi pi-plus\" (click)=\"onAddNewAttribute()\" pTooltip=\"add new attribute\"></button>\n        </p-footer>\n      </p-panel>\n    </div>\n    <p-footer>\n      <button pButton class=\"ui-button-info\" type=\"button\" (click)=\"backToSensors()\" label=\"Back\"></button>&nbsp;\n      <button pButton class=\"ui-button-warning\" type=\"button\" [disabled]=\"!model.valid\" label=\"{{saveBtnLabel}}\" (click)=\"onSubmit()\"></button>&nbsp;\n      <button pButton class=\"ui-button-warning\" type=\"button\" [hidden]=\"isNewMode()\" (click)=\"displayDeleteDialog = true\" label=\"Delete\"></button>&nbsp;\n    </p-footer>\n  </p-panel>\n</form>\n\n<br/>\n");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/sensors-list/sensors-list.component.html":
+/*!************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/sensors-list/sensors-list.component.html ***!
+  \************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<p-panel header=\"Sensors\">\n  <p-table [columns]=\"cols\" [value]=\"sensors\" [rowHover]=\"true\" dataKey=\"type\">\n    <ng-template pTemplate=\"header\" let-columns>\n      <tr>\n        <th *ngFor=\"let col of columns\">\n          {{col.header}}\n        </th>\n      </tr>\n    </ng-template>\n    <ng-template pTemplate=\"body\" let-rowData let-rowIndex=\"rowIndex\" let-expanded=\"expanded\" let-columns=\"columns\">\n      <tr class=\"custom-widget-header\" *ngIf=\"rowGroupMetadata[rowData.type].index === rowIndex\">\n        <td colspan=\"3\">\n          <a href=\"#\" [pRowToggler]=\"rowData\" [style.display]=\"'block'\">\n            <i [ngClass]=\"expanded ? 'pi pi-fw pi-chevron-circle-down' : 'pi pi-fw pi-chevron-circle-right'\"></i>\n            <span>{{rowData.type}}</span>\n          </a>\n        </td>\n      </tr>\n    </ng-template>\n    <ng-template pTemplate=\"rowexpansion\"  let-rowData let-rowIndex=\"rowIndex\" let-columns=\"columns\">\n      <tr [pSelectableRow]=\"rowData\">\n        <td *ngFor=\"let col of columns\" (click)=\"selectedRow(rowData)\">\n          {{rowData[col.field]}}\n        </td>\n      </tr>\n    </ng-template>\n  </p-table>\n\n  <p-footer>\n    <button pButton class=\"ui-button-info\" type=\"button\" (click)=\"onCreateNew()\" label=\"New\"></button>\n  </p-footer>\n</p-panel>\n");
 
 /***/ }),
 
@@ -691,6 +756,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _about_about_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./about/about.component */ "./src/app/about/about.component.ts");
 /* harmony import */ var _sensortypes_list_sensortypes_list_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./sensortypes-list/sensortypes-list.component */ "./src/app/sensortypes-list/sensortypes-list.component.ts");
 /* harmony import */ var _sensortypes_details_sensortypes_details_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./sensortypes-details/sensortypes-details.component */ "./src/app/sensortypes-details/sensortypes-details.component.ts");
+/* harmony import */ var _attributes_dictionary_list_attributes_dictionary_list_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./attributes-dictionary-list/attributes-dictionary-list.component */ "./src/app/attributes-dictionary-list/attributes-dictionary-list.component.ts");
+/* harmony import */ var _attributes_dictionary_details_attributes_dictionary_details_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./attributes-dictionary-details/attributes-dictionary-details.component */ "./src/app/attributes-dictionary-details/attributes-dictionary-details.component.ts");
+/* harmony import */ var _sensors_list_sensors_list_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./sensors-list/sensors-list.component */ "./src/app/sensors-list/sensors-list.component.ts");
+/* harmony import */ var _sensor_detail_sensor_detail_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./sensor-detail/sensor-detail.component */ "./src/app/sensor-detail/sensor-detail.component.ts");
+
+
+
+
 
 
 
@@ -701,6 +774,10 @@ const routes = [
     { path: '', component: _about_about_component__WEBPACK_IMPORTED_MODULE_3__["AboutComponent"] },
     { path: 'types', component: _sensortypes_list_sensortypes_list_component__WEBPACK_IMPORTED_MODULE_4__["SensortypesListComponent"] },
     { path: 'types/:id', component: _sensortypes_details_sensortypes_details_component__WEBPACK_IMPORTED_MODULE_5__["SensortypesDetailsComponent"] },
+    { path: 'attributes', component: _attributes_dictionary_list_attributes_dictionary_list_component__WEBPACK_IMPORTED_MODULE_6__["AttributesDictionaryListComponent"] },
+    { path: 'attributes/:symbol', component: _attributes_dictionary_details_attributes_dictionary_details_component__WEBPACK_IMPORTED_MODULE_7__["AttributesDictionaryDetailsComponent"] },
+    { path: 'sensors', component: _sensors_list_sensors_list_component__WEBPACK_IMPORTED_MODULE_8__["SensorsListComponent"] },
+    { path: 'sensors/:id', component: _sensor_detail_sensor_detail_component__WEBPACK_IMPORTED_MODULE_9__["SensorDetailComponent"] },
     { path: 'about', component: _about_about_component__WEBPACK_IMPORTED_MODULE_3__["AboutComponent"] }
 ];
 let AppRoutingModule = class AppRoutingModule {
@@ -796,6 +873,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
 /* harmony import */ var _service_sensor_types_service__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./service/sensor-types.service */ "./src/app/service/sensor-types.service.ts");
 /* harmony import */ var _interceptors_http_error_interceptor_service_service__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./interceptors/http-error-interceptor-service.service */ "./src/app/interceptors/http-error-interceptor-service.service.ts");
+/* harmony import */ var _attributes_dictionary_list_attributes_dictionary_list_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./attributes-dictionary-list/attributes-dictionary-list.component */ "./src/app/attributes-dictionary-list/attributes-dictionary-list.component.ts");
+/* harmony import */ var _attributes_dictionary_details_attributes_dictionary_details_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./attributes-dictionary-details/attributes-dictionary-details.component */ "./src/app/attributes-dictionary-details/attributes-dictionary-details.component.ts");
+/* harmony import */ var _sensors_list_sensors_list_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./sensors-list/sensors-list.component */ "./src/app/sensors-list/sensors-list.component.ts");
+/* harmony import */ var _sensor_detail_sensor_detail_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./sensor-detail/sensor-detail.component */ "./src/app/sensor-detail/sensor-detail.component.ts");
+/* harmony import */ var _sensor_detail_attribute_dialog_sensor_detail_attribute_dialog_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./sensor-detail-attribute-dialog/sensor-detail-attribute-dialog.component */ "./src/app/sensor-detail-attribute-dialog/sensor-detail-attribute-dialog.component.ts");
+
+
+
+
+
 
 
 
@@ -830,7 +917,12 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _footer_footer_component__WEBPACK_IMPORTED_MODULE_7__["FooterComponent"],
             _about_about_component__WEBPACK_IMPORTED_MODULE_10__["AboutComponent"],
             _sensortypes_list_sensortypes_list_component__WEBPACK_IMPORTED_MODULE_11__["SensortypesListComponent"],
-            _sensortypes_details_sensortypes_details_component__WEBPACK_IMPORTED_MODULE_18__["SensortypesDetailsComponent"]
+            _sensortypes_details_sensortypes_details_component__WEBPACK_IMPORTED_MODULE_18__["SensortypesDetailsComponent"],
+            _attributes_dictionary_list_attributes_dictionary_list_component__WEBPACK_IMPORTED_MODULE_23__["AttributesDictionaryListComponent"],
+            _attributes_dictionary_details_attributes_dictionary_details_component__WEBPACK_IMPORTED_MODULE_24__["AttributesDictionaryDetailsComponent"],
+            _sensors_list_sensors_list_component__WEBPACK_IMPORTED_MODULE_25__["SensorsListComponent"],
+            _sensor_detail_sensor_detail_component__WEBPACK_IMPORTED_MODULE_26__["SensorDetailComponent"],
+            _sensor_detail_attribute_dialog_sensor_detail_attribute_dialog_component__WEBPACK_IMPORTED_MODULE_27__["SensorDetailAttributeDialogComponent"]
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
@@ -851,7 +943,10 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             primeng_primeng__WEBPACK_IMPORTED_MODULE_8__["TooltipModule"],
             primeng_primeng__WEBPACK_IMPORTED_MODULE_8__["InputTextModule"],
             primeng_primeng__WEBPACK_IMPORTED_MODULE_8__["InputTextareaModule"],
-            _angular_forms__WEBPACK_IMPORTED_MODULE_20__["ReactiveFormsModule"]
+            _angular_forms__WEBPACK_IMPORTED_MODULE_20__["ReactiveFormsModule"],
+            primeng_primeng__WEBPACK_IMPORTED_MODULE_8__["DropdownModule"],
+            primeng_primeng__WEBPACK_IMPORTED_MODULE_8__["InputSwitchModule"],
+            primeng_primeng__WEBPACK_IMPORTED_MODULE_8__["SpinnerModule"]
         ],
         providers: [primeng_primeng__WEBPACK_IMPORTED_MODULE_8__["MessageService"],
             _service_sensor_types_service__WEBPACK_IMPORTED_MODULE_21__["SensorTypesService"],
@@ -861,6 +956,196 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     })
 ], AppModule);
 
+
+
+/***/ }),
+
+/***/ "./src/app/attributes-dictionary-details/attributes-dictionary-details.component.css":
+/*!*******************************************************************************************!*\
+  !*** ./src/app/attributes-dictionary-details/attributes-dictionary-details.component.css ***!
+  \*******************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2F0dHJpYnV0ZXMtZGljdGlvbmFyeS1kZXRhaWxzL2F0dHJpYnV0ZXMtZGljdGlvbmFyeS1kZXRhaWxzLmNvbXBvbmVudC5jc3MifQ== */");
+
+/***/ }),
+
+/***/ "./src/app/attributes-dictionary-details/attributes-dictionary-details.component.ts":
+/*!******************************************************************************************!*\
+  !*** ./src/app/attributes-dictionary-details/attributes-dictionary-details.component.ts ***!
+  \******************************************************************************************/
+/*! exports provided: AttributesDictionaryDetailsComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AttributesDictionaryDetailsComponent", function() { return AttributesDictionaryDetailsComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _ngrx_store__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ngrx/store */ "./node_modules/@ngrx/store/fesm2015/store.js");
+/* harmony import */ var _store_reducers__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../store/reducers */ "./src/app/store/reducers/index.ts");
+/* harmony import */ var _store_actions__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../store/actions */ "./src/app/store/actions/index.ts");
+
+
+
+
+
+
+
+let AttributesDictionaryDetailsComponent = class AttributesDictionaryDetailsComponent {
+    constructor(router, route, fb, store) {
+        this.router = router;
+        this.route = route;
+        this.fb = fb;
+        this.store = store;
+        this.model = this.fb.group({
+            name: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required),
+            symbol: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required),
+            description: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]()
+        });
+    }
+    ngOnInit() {
+        this.mode = this.route.snapshot.paramMap.get('symbol');
+        this.initLabels();
+        this.store.select(_store_reducers__WEBPACK_IMPORTED_MODULE_5__["getSingleAttribute"], { symbol: this.mode }).subscribe(data => {
+            this.model.patchValue(data);
+        });
+    }
+    initLabels() {
+        this.headerTitle = 'Editing attribute ' + this.mode;
+        this.submitButtonLabel = 'Update';
+    }
+    onBack() {
+        this.router.navigate(['attributes/']);
+    }
+    onSubmit() {
+        const data = this.model.value;
+        this.store.dispatch(new _store_actions__WEBPACK_IMPORTED_MODULE_6__["UpdateAttribute"]({ data }));
+    }
+    isEditAndCreationDisabled() {
+        return true;
+    }
+};
+AttributesDictionaryDetailsComponent.ctorParameters = () => [
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"] },
+    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"] },
+    { type: _ngrx_store__WEBPACK_IMPORTED_MODULE_4__["Store"] }
+];
+AttributesDictionaryDetailsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-attributes-dictionary-details',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./attributes-dictionary-details.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/attributes-dictionary-details/attributes-dictionary-details.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./attributes-dictionary-details.component.css */ "./src/app/attributes-dictionary-details/attributes-dictionary-details.component.css")).default]
+    }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"],
+        _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"],
+        _ngrx_store__WEBPACK_IMPORTED_MODULE_4__["Store"]])
+], AttributesDictionaryDetailsComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/attributes-dictionary-list/attributes-dictionary-list.component.css":
+/*!*************************************************************************************!*\
+  !*** ./src/app/attributes-dictionary-list/attributes-dictionary-list.component.css ***!
+  \*************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2F0dHJpYnV0ZXMtZGljdGlvbmFyeS1saXN0L2F0dHJpYnV0ZXMtZGljdGlvbmFyeS1saXN0LmNvbXBvbmVudC5jc3MifQ== */");
+
+/***/ }),
+
+/***/ "./src/app/attributes-dictionary-list/attributes-dictionary-list.component.ts":
+/*!************************************************************************************!*\
+  !*** ./src/app/attributes-dictionary-list/attributes-dictionary-list.component.ts ***!
+  \************************************************************************************/
+/*! exports provided: AttributesDictionaryListComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AttributesDictionaryListComponent", function() { return AttributesDictionaryListComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _store_reducers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../store/reducers */ "./src/app/store/reducers/index.ts");
+/* harmony import */ var _ngrx_store__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ngrx/store */ "./node_modules/@ngrx/store/fesm2015/store.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _store_actions_index__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../store/actions/index */ "./src/app/store/actions/index.ts");
+
+
+
+
+
+
+let AttributesDictionaryListComponent = class AttributesDictionaryListComponent {
+    constructor(store, router) {
+        this.store = store;
+        this.router = router;
+        this.attributes$ = this.store.select(_store_reducers__WEBPACK_IMPORTED_MODULE_2__["getAllAttributes"]);
+        this.cols = [
+            { field: 'symbol', header: 'Symbol' },
+            { field: 'name', header: 'Name' },
+            { field: 'description', header: 'Description' }
+        ];
+    }
+    ngOnInit() {
+        this.store.select(_store_reducers__WEBPACK_IMPORTED_MODULE_2__["getAttributesLoaded"])
+            .subscribe(hasLoaded => {
+            if (!hasLoaded) {
+                this.store.dispatch(new _store_actions_index__WEBPACK_IMPORTED_MODULE_5__["LoadAttributesBegin"]());
+            }
+        });
+    }
+    onRowClicked(rowData) {
+        this.router.navigate(['attributes/' + rowData.symbol]);
+    }
+};
+AttributesDictionaryListComponent.ctorParameters = () => [
+    { type: _ngrx_store__WEBPACK_IMPORTED_MODULE_3__["Store"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] }
+];
+AttributesDictionaryListComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-attributes-dictionary-list',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./attributes-dictionary-list.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/attributes-dictionary-list/attributes-dictionary-list.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./attributes-dictionary-list.component.css */ "./src/app/attributes-dictionary-list/attributes-dictionary-list.component.css")).default]
+    }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ngrx_store__WEBPACK_IMPORTED_MODULE_3__["Store"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]])
+], AttributesDictionaryListComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/crosscutting/componentsMode.ts":
+/*!************************************************!*\
+  !*** ./src/app/crosscutting/componentsMode.ts ***!
+  \************************************************/
+/*! exports provided: ComponentsMode */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ComponentsMode", function() { return ComponentsMode; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+
+var ComponentsMode;
+(function (ComponentsMode) {
+    ComponentsMode[ComponentsMode["New"] = 0] = "New";
+    ComponentsMode[ComponentsMode["Edit"] = 1] = "Edit";
+})(ComponentsMode || (ComponentsMode = {}));
 
 
 /***/ }),
@@ -910,6 +1195,36 @@ FooterComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 /***/ }),
 
+/***/ "./src/app/interceptors/failure-attributes-message-builder.ts":
+/*!********************************************************************!*\
+  !*** ./src/app/interceptors/failure-attributes-message-builder.ts ***!
+  \********************************************************************/
+/*! exports provided: FailureAttributesMsgBuilder */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FailureAttributesMsgBuilder", function() { return FailureAttributesMsgBuilder; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+
+class FailureAttributesMsgBuilder {
+    constructor() {
+        this.severity = 'error';
+    }
+    buildMessage(method, err) {
+        let message = {};
+        switch (method) {
+            case 'PUT':
+                return message = { severity: this.severity, summary: 'Failed update', detail: err.message };
+            default:
+                return null;
+        }
+    }
+}
+
+
+/***/ }),
+
 /***/ "./src/app/interceptors/failure-message-builder.ts":
 /*!*********************************************************!*\
   !*** ./src/app/interceptors/failure-message-builder.ts ***!
@@ -922,17 +1237,61 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FailureMessageBuilder", function() { return FailureMessageBuilder; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _failure_sensortypes_message_builder__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./failure-sensortypes-message-builder */ "./src/app/interceptors/failure-sensortypes-message-builder.ts");
+/* harmony import */ var _failure_attributes_message_builder__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./failure-attributes-message-builder */ "./src/app/interceptors/failure-attributes-message-builder.ts");
+/* harmony import */ var _failure_sensor_message_builder__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./failure-sensor-message-builder */ "./src/app/interceptors/failure-sensor-message-builder.ts");
+
+
 
 
 class FailureMessageBuilder {
     constructor() {
         this.sensorTypesFailureMsgBuilder = new _failure_sensortypes_message_builder__WEBPACK_IMPORTED_MODULE_1__["FailureSensortypesMessageBuilder"]();
+        this.attributesMsgBuilder = new _failure_attributes_message_builder__WEBPACK_IMPORTED_MODULE_2__["FailureAttributesMsgBuilder"]();
+        this.sensorMsgBuilder = new _failure_sensor_message_builder__WEBPACK_IMPORTED_MODULE_3__["FailureSensorMessageBuilder"]();
     }
     buildMessage(url, method, err) {
         if (url.includes('sensortypes')) {
             return this.sensorTypesFailureMsgBuilder.buildMessage(method, err);
         }
+        if (url.includes('attributes')) {
+            return this.attributesMsgBuilder.buildMessage(method, err);
+        }
+        if (url.includes('register/sensors')) {
+            return this.sensorMsgBuilder.buildMessage(method, err);
+        }
         return null;
+    }
+}
+
+
+/***/ }),
+
+/***/ "./src/app/interceptors/failure-sensor-message-builder.ts":
+/*!****************************************************************!*\
+  !*** ./src/app/interceptors/failure-sensor-message-builder.ts ***!
+  \****************************************************************/
+/*! exports provided: FailureSensorMessageBuilder */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FailureSensorMessageBuilder", function() { return FailureSensorMessageBuilder; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+
+class FailureSensorMessageBuilder {
+    constructor() {
+        this.severity = 'error';
+    }
+    buildMessage(method, err) {
+        let message = {};
+        switch (method) {
+            case 'PUT':
+                return message = { severity: this.severity, summary: 'Failed update', detail: err.message };
+            case 'POST':
+                return message = { severity: this.severity, summary: 'Failed save', detail: err.message };
+            default:
+                return null;
+        }
     }
 }
 
@@ -1050,6 +1409,33 @@ HttpErrorInterceptorServiceService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decor
 
 /***/ }),
 
+/***/ "./src/app/interceptors/successful-attributes-message-builder.ts":
+/*!***********************************************************************!*\
+  !*** ./src/app/interceptors/successful-attributes-message-builder.ts ***!
+  \***********************************************************************/
+/*! exports provided: SuccessfulAttributesMessageBuilder */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SuccessfulAttributesMessageBuilder", function() { return SuccessfulAttributesMessageBuilder; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+
+class SuccessfulAttributesMessageBuilder {
+    buildMessage(method) {
+        let message = {};
+        switch (method) {
+            case 'PUT':
+                return message = { severity: 'success', summary: 'Successful update', detail: 'Attribute Dictionary updated!' };
+            default:
+                return null;
+        }
+    }
+}
+
+
+/***/ }),
+
 /***/ "./src/app/interceptors/successful-message-builder.ts":
 /*!************************************************************!*\
   !*** ./src/app/interceptors/successful-message-builder.ts ***!
@@ -1062,17 +1448,58 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SuccessfulMessageBuilder", function() { return SuccessfulMessageBuilder; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _successful_sensortypes_message_builder__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./successful-sensortypes-message-builder */ "./src/app/interceptors/successful-sensortypes-message-builder.ts");
+/* harmony import */ var _successful_attributes_message_builder__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./successful-attributes-message-builder */ "./src/app/interceptors/successful-attributes-message-builder.ts");
+/* harmony import */ var _successful_sensors_message_builder__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./successful-sensors-message-builder */ "./src/app/interceptors/successful-sensors-message-builder.ts");
+
+
 
 
 class SuccessfulMessageBuilder {
     constructor() {
         this.sensorTypesMsgBuilder = new _successful_sensortypes_message_builder__WEBPACK_IMPORTED_MODULE_1__["SuccessfulSensortypesMessageBuilder"]();
+        this.attributesMsgBuilder = new _successful_attributes_message_builder__WEBPACK_IMPORTED_MODULE_2__["SuccessfulAttributesMessageBuilder"]();
+        this.sensorMsgBuilder = new _successful_sensors_message_builder__WEBPACK_IMPORTED_MODULE_3__["SuccessfulSensorMessageBuilder"]();
     }
     buildMessage(url, method) {
         if (url.includes('sensortypes')) {
             return this.sensorTypesMsgBuilder.buildMessage(method);
         }
+        if (url.includes('attributes')) {
+            return this.attributesMsgBuilder.buildMessage(method);
+        }
+        if (url.includes('register/sensors')) {
+            return this.sensorMsgBuilder.buildMessage(method);
+        }
         return null;
+    }
+}
+
+
+/***/ }),
+
+/***/ "./src/app/interceptors/successful-sensors-message-builder.ts":
+/*!********************************************************************!*\
+  !*** ./src/app/interceptors/successful-sensors-message-builder.ts ***!
+  \********************************************************************/
+/*! exports provided: SuccessfulSensorMessageBuilder */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SuccessfulSensorMessageBuilder", function() { return SuccessfulSensorMessageBuilder; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+
+class SuccessfulSensorMessageBuilder {
+    buildMessage(method) {
+        let message = {};
+        switch (method) {
+            case 'PUT':
+                return message = { severity: 'success', summary: 'Successful update', detail: 'Sensort updated!' };
+            case 'POST':
+                return message = { severity: 'success', summary: 'Successful save', detail: 'New Sensor successfully saved!' };
+            default:
+                return null;
+        }
     }
 }
 
@@ -1105,6 +1532,31 @@ class SuccessfulSensortypesMessageBuilder {
                 return null;
         }
     }
+}
+
+
+/***/ }),
+
+/***/ "./src/app/model/Sensor.ts":
+/*!*********************************!*\
+  !*** ./src/app/model/Sensor.ts ***!
+  \*********************************/
+/*! exports provided: compareByType */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "compareByType", function() { return compareByType; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+
+function compareByType(sensorA, sensorB) {
+    if (sensorA.type < sensorB.type) {
+        return -1;
+    }
+    if (sensorA.type > sensorB.type) {
+        return 1;
+    }
+    return 0;
 }
 
 
@@ -1251,6 +1703,526 @@ PanelMenuComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 /***/ }),
 
+/***/ "./src/app/sensor-detail-attribute-dialog/sensor-detail-attribute-dialog.component.css":
+/*!*********************************************************************************************!*\
+  !*** ./src/app/sensor-detail-attribute-dialog/sensor-detail-attribute-dialog.component.css ***!
+  \*********************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3NlbnNvci1kZXRhaWwtYXR0cmlidXRlLWRpYWxvZy9zZW5zb3ItZGV0YWlsLWF0dHJpYnV0ZS1kaWFsb2cuY29tcG9uZW50LmNzcyJ9 */");
+
+/***/ }),
+
+/***/ "./src/app/sensor-detail-attribute-dialog/sensor-detail-attribute-dialog.component.ts":
+/*!********************************************************************************************!*\
+  !*** ./src/app/sensor-detail-attribute-dialog/sensor-detail-attribute-dialog.component.ts ***!
+  \********************************************************************************************/
+/*! exports provided: SensorDetailAttributeDialogComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SensorDetailAttributeDialogComponent", function() { return SensorDetailAttributeDialogComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var _ngrx_store__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ngrx/store */ "./node_modules/@ngrx/store/fesm2015/store.js");
+/* harmony import */ var _store_reducers__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../store/reducers */ "./src/app/store/reducers/index.ts");
+/* harmony import */ var _store_actions_index__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../store/actions/index */ "./src/app/store/actions/index.ts");
+/* harmony import */ var _crosscutting_componentsMode__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../crosscutting/componentsMode */ "./src/app/crosscutting/componentsMode.ts");
+
+
+
+
+
+
+
+let SensorDetailAttributeDialogComponent = class SensorDetailAttributeDialogComponent {
+    constructor(fb, store) {
+        this.fb = fb;
+        this.store = store;
+        this.dropdownDisabled = false;
+        this.model = this.fb.group({
+            attribute: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](),
+            value: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required)
+        });
+    }
+    ngOnInit() {
+        this.store.select(_store_reducers__WEBPACK_IMPORTED_MODULE_4__["getAttributesDialogOpened"]).subscribe(isOpened => {
+            if (isOpened === true) {
+                this.initializeDialog();
+            }
+        });
+    }
+    initializeDialog() {
+        this.store.select(_store_reducers__WEBPACK_IMPORTED_MODULE_4__["getAttributesDialogMode"]).subscribe(mode => {
+            this.mode = mode;
+            this.dropdownDisabled = this.mode === _crosscutting_componentsMode__WEBPACK_IMPORTED_MODULE_6__["ComponentsMode"].Edit;
+        });
+        this.store.select(_store_reducers__WEBPACK_IMPORTED_MODULE_4__["getSensorAttribute"]).subscribe(sensorAttribute => this.sensorAttribute = sensorAttribute);
+        this.store.select(_store_reducers__WEBPACK_IMPORTED_MODULE_4__["getSensorsAttributes"]).subscribe(sensorAttributes => {
+            this.sensorsAttributes = sensorAttributes;
+        });
+        this.store.select(_store_reducers__WEBPACK_IMPORTED_MODULE_4__["getAllAttributes"]).subscribe(attributes => {
+            this.recalculateAttributesLeft(attributes);
+        });
+    }
+    onSubmitNewAttribute() {
+        const sensorToUpdate = {
+            value: this.model.get('value').value,
+            symbol: this.model.get('attribute').value.symbol,
+            sensor_id: this.mode === _crosscutting_componentsMode__WEBPACK_IMPORTED_MODULE_6__["ComponentsMode"].Edit ? this.sensorAttribute.sensor_id : null,
+            id: this.mode === _crosscutting_componentsMode__WEBPACK_IMPORTED_MODULE_6__["ComponentsMode"].Edit ? this.sensorAttribute.id : null,
+            version: this.mode === _crosscutting_componentsMode__WEBPACK_IMPORTED_MODULE_6__["ComponentsMode"].Edit ? this.sensorAttribute.version : null
+        };
+        this.store.dispatch(new _store_actions_index__WEBPACK_IMPORTED_MODULE_5__["UpdateSensorAttribute"]({ sensorAttribute: sensorToUpdate }));
+        this.model.reset();
+        this.store.dispatch(new _store_actions_index__WEBPACK_IMPORTED_MODULE_5__["CloseDialog"]());
+    }
+    onCancelNewAttribute() {
+        this.model.reset();
+        this.store.dispatch(new _store_actions_index__WEBPACK_IMPORTED_MODULE_5__["CloseDialog"]());
+    }
+    recalculateAttributesLeft(allAttributes) {
+        this.attributesLeft = allAttributes;
+        if (this.mode === _crosscutting_componentsMode__WEBPACK_IMPORTED_MODULE_6__["ComponentsMode"].New) {
+            this.sensorsAttributes.forEach(item => {
+                this.attributesLeft = this.attributesLeft.filter(obj => obj.symbol !== item.symbol);
+            });
+        }
+        if (this.mode === _crosscutting_componentsMode__WEBPACK_IMPORTED_MODULE_6__["ComponentsMode"].Edit) {
+            const attributesFiltered = this.attributesLeft.filter(obj => obj.symbol === this.sensorAttribute.symbol);
+            if (attributesFiltered.length === 1) {
+                this.model.get('attribute').patchValue(attributesFiltered[0]);
+                this.model.get('value').patchValue(this.sensorAttribute.value);
+            }
+        }
+    }
+    onModelChanged() {
+    }
+    getInputtype() {
+        const attribute = this.model.get('attribute').value;
+        if (!attribute) {
+            return null;
+        }
+        return attribute.inputtype;
+    }
+};
+SensorDetailAttributeDialogComponent.ctorParameters = () => [
+    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"] },
+    { type: _ngrx_store__WEBPACK_IMPORTED_MODULE_3__["Store"] }
+];
+SensorDetailAttributeDialogComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-sensor-detail-attribute-dialog',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./sensor-detail-attribute-dialog.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/sensor-detail-attribute-dialog/sensor-detail-attribute-dialog.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./sensor-detail-attribute-dialog.component.css */ "./src/app/sensor-detail-attribute-dialog/sensor-detail-attribute-dialog.component.css")).default]
+    }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"],
+        _ngrx_store__WEBPACK_IMPORTED_MODULE_3__["Store"]])
+], SensorDetailAttributeDialogComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/sensor-detail/sensor-detail.component.css":
+/*!***********************************************************!*\
+  !*** ./src/app/sensor-detail/sensor-detail.component.css ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3NlbnNvci1kZXRhaWwvc2Vuc29yLWRldGFpbC5jb21wb25lbnQuY3NzIn0= */");
+
+/***/ }),
+
+/***/ "./src/app/sensor-detail/sensor-detail.component.ts":
+/*!**********************************************************!*\
+  !*** ./src/app/sensor-detail/sensor-detail.component.ts ***!
+  \**********************************************************/
+/*! exports provided: SensorDetailComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SensorDetailComponent", function() { return SensorDetailComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var _ngrx_store__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ngrx/store */ "./node_modules/@ngrx/store/fesm2015/store.js");
+/* harmony import */ var _store_reducers__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../store/reducers */ "./src/app/store/reducers/index.ts");
+/* harmony import */ var _store_actions_index__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../store/actions/index */ "./src/app/store/actions/index.ts");
+/* harmony import */ var _crosscutting_componentsMode__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../crosscutting/componentsMode */ "./src/app/crosscutting/componentsMode.ts");
+/* harmony import */ var _validators_UuidUniquenessValidator__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../validators/UuidUniquenessValidator */ "./src/app/validators/UuidUniquenessValidator.ts");
+
+
+
+
+
+
+
+
+
+let SensorDetailComponent = class SensorDetailComponent {
+    constructor(router, route, fb, store, uuidUniquenessValidator) {
+        this.router = router;
+        this.route = route;
+        this.fb = fb;
+        this.store = store;
+        this.uuidUniquenessValidator = uuidUniquenessValidator;
+        this.disableUnmmutableControl = false;
+        // Delete Dialog
+        this.displayDeleteDialog = false;
+        this.model = this.fb.group({
+            id: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](),
+            version: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](),
+            name: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required),
+            uuid: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].pattern('^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'), uuidUniquenessValidator.checkUuidUniqueness.bind(uuidUniquenessValidator)),
+            type: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required),
+            sensorType: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required),
+            description: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](),
+            attributes: this.fb.array([])
+        });
+        const id = this.route.snapshot.paramMap.get('id');
+        if (id === 'new') {
+            this.mode = _crosscutting_componentsMode__WEBPACK_IMPORTED_MODULE_7__["ComponentsMode"].New;
+        }
+        else {
+            this.mode = _crosscutting_componentsMode__WEBPACK_IMPORTED_MODULE_7__["ComponentsMode"].Edit;
+            this.sensorId = parseInt(id, 10);
+        }
+        this.store.dispatch(new _store_actions_index__WEBPACK_IMPORTED_MODULE_6__["UpdateDetailsMode"]({ mode: this.mode }));
+        this.disableUnmmutableControl = this.mode === _crosscutting_componentsMode__WEBPACK_IMPORTED_MODULE_7__["ComponentsMode"].Edit;
+        this.initializeSensorTypes();
+        this.initializeAttributes();
+        this.startHandlingAddingAndUpdateOfAttributes();
+        this.initHeaderTitle();
+    }
+    ngOnInit() {
+        this.initGeneralModel();
+    }
+    initHeaderTitle() {
+        if (this.mode === _crosscutting_componentsMode__WEBPACK_IMPORTED_MODULE_7__["ComponentsMode"].New) {
+            this.headerTitle = 'Definition of new Sensor';
+            this.saveBtnLabel = 'Save';
+        }
+    }
+    initGeneralModel() {
+        if (this.mode === _crosscutting_componentsMode__WEBPACK_IMPORTED_MODULE_7__["ComponentsMode"].Edit) {
+            this.store.select(_store_reducers__WEBPACK_IMPORTED_MODULE_5__["getSingleSensor"], { id: this.sensorId }).subscribe(sensor => {
+                if (!sensor) {
+                    return;
+                }
+                this.updateEditModel(sensor);
+            });
+        }
+        else {
+            this.updateNewModel();
+        }
+    }
+    updateNewModel() {
+        this.updateTitleAndSubmitButtonLabel();
+    }
+    updateEditModel(sensor) {
+        const sensorType = this.sensorTypes.find(obj => obj.type === sensor.type);
+        if (sensorType) {
+            sensor.sensorType = sensorType;
+            sensor.type = sensorType.type;
+        }
+        if (sensor.attributes == null) {
+            sensor.attributes = [];
+        }
+        this.model.patchValue(sensor);
+        this.clearAndFillAttributtes(sensor);
+        this.updateTitleAndSubmitButtonLabel();
+    }
+    clearAndFillAttributtes(sensor) {
+        const attributesModel = this.model.get('attributes');
+        while (attributesModel.length) {
+            attributesModel.removeAt(0);
+        }
+        if (sensor.attributes !== undefined && sensor.attributes != null && sensor.attributes.length > 0) {
+            sensor.attributes.forEach(attribute => {
+                attributesModel.push(this.fb.group(attribute));
+            });
+        }
+    }
+    updateTitleAndSubmitButtonLabel() {
+        let sensor;
+        if (_crosscutting_componentsMode__WEBPACK_IMPORTED_MODULE_7__["ComponentsMode"].New) {
+            sensor = {};
+            sensor.sensorType = this.model.get('sensorType').value;
+            sensor.type = sensor.sensorType.type;
+        }
+        else {
+            sensor = this.model.value;
+        }
+        this.headerTitle = this.mode === _crosscutting_componentsMode__WEBPACK_IMPORTED_MODULE_7__["ComponentsMode"].Edit ? 'Editing Sensor [' + sensor.name + ']' : 'New sensor';
+        this.saveBtnLabel = this.mode === _crosscutting_componentsMode__WEBPACK_IMPORTED_MODULE_7__["ComponentsMode"].Edit ? 'Update' : 'Save';
+        if (this.disableUnmmutableControl) {
+            this.disabledUuidTooltip = 'Changing uuid of already registered sensor not allowed!';
+            this.disabledSensorTypeTooltip = 'Changing sensor type of already registered sensor not allowed!';
+        }
+    }
+    onSensorTypeChanged() {
+        const sensorType = this.model.get('sensorType').value;
+        if (sensorType) {
+            this.model.get('type').patchValue(sensorType.type);
+        }
+    }
+    hideAttributesPanel() {
+        const attributesModel = this.model.get('attributes');
+        if (attributesModel.length === 1) {
+            const firstElement = attributesModel.value[0];
+            if (firstElement.symbol === '') {
+                return true;
+            }
+        }
+        return false;
+    }
+    isNewMode() {
+        return this.mode === _crosscutting_componentsMode__WEBPACK_IMPORTED_MODULE_7__["ComponentsMode"].New;
+    }
+    onAddNewAttribute() {
+        this.attributeDialogTitle = 'Adding new attribute';
+        const attributesModel = this.model.get('attributes');
+        const attributes = attributesModel.value;
+        this.store.dispatch(new _store_actions_index__WEBPACK_IMPORTED_MODULE_6__["OpenDialogToAdd"]({ sensorAttributes: attributes }));
+        this.store.select(_store_reducers__WEBPACK_IMPORTED_MODULE_5__["getAttributesDialogOpened"]).subscribe(isOpened => this.attributeDialogVisible = isOpened);
+    }
+    openUpdateAttributeDialog(sensorAttribute) {
+        this.attributeDialogTitle = 'Updating attribute';
+        const attributesModel = this.model.get('attributes');
+        const attributes = attributesModel.value;
+        this.store.dispatch(new _store_actions_index__WEBPACK_IMPORTED_MODULE_6__["OpenDialogToUpdate"]({ sensorAttribute, sensorsAttributes: attributes }));
+        this.store.select(_store_reducers__WEBPACK_IMPORTED_MODULE_5__["getAttributesDialogOpened"]).subscribe(isOpened => this.attributeDialogVisible = isOpened);
+    }
+    backToSensors() {
+        this.router.navigate(['sensors/']);
+    }
+    get attributesModel() {
+        return this.model.get('attributes');
+    }
+    addSensorAttributeToList(sensorAttribute) {
+        const attributesModel = this.model.get('attributes');
+        attributesModel.push(this.fb.group(sensorAttribute));
+    }
+    updateSensorAttribute(sensorAttribute) {
+        const attributesModel = this.model.get('attributes');
+        const attributes = attributesModel.value;
+        attributes.forEach(item => {
+            if (item.symbol === sensorAttribute.symbol) {
+                item.value = sensorAttribute.value;
+            }
+        });
+        attributesModel.patchValue(attributes);
+    }
+    onSubmit() {
+        const sensor = this.model.value;
+        if (this.mode === _crosscutting_componentsMode__WEBPACK_IMPORTED_MODULE_7__["ComponentsMode"].New) {
+            sensor.sensorType = this.model.get('sensorType').value;
+            sensor.type = sensor.sensorType.type;
+            this.store.dispatch(new _store_actions_index__WEBPACK_IMPORTED_MODULE_6__["SaveSensor"]({ sensor }));
+        }
+        else {
+            sensor.type = sensor.sensorType.type;
+            this.store.dispatch(new _store_actions_index__WEBPACK_IMPORTED_MODULE_6__["UpdateSensor"]({ sensor }));
+        }
+    }
+    removeAttributeFromList(symbol) {
+        const attributesModel = this.model.get('attributes');
+        let attributes = attributesModel.value;
+        attributes = attributes.filter(obj => obj.symbol !== symbol);
+        while (attributesModel.length) {
+            attributesModel.removeAt(0);
+        }
+        attributes.forEach(attribute => {
+            attributesModel.push(this.fb.group(attribute));
+        });
+    }
+    onDelete() {
+        this.store.dispatch(new _store_actions_index__WEBPACK_IMPORTED_MODULE_6__["DeleteSensor"]({ uuid: this.model.get('uuid').value }));
+        this.router.navigate(['/sensors']);
+        this.displayDeleteDialog = false;
+    }
+    startHandlingAddingAndUpdateOfAttributes() {
+        this.store.select(_store_reducers__WEBPACK_IMPORTED_MODULE_5__["getSensorAttributeAfterUpdate"]).subscribe(data => {
+            if (data.sensorAttributeToUpdate && data.attributeDialogMode === _crosscutting_componentsMode__WEBPACK_IMPORTED_MODULE_7__["ComponentsMode"].New) {
+                this.addSensorAttributeToList(data.sensorAttributeToUpdate);
+            }
+            if (data.sensorAttributeToUpdate && data.attributeDialogMode === _crosscutting_componentsMode__WEBPACK_IMPORTED_MODULE_7__["ComponentsMode"].Edit) {
+                this.updateSensorAttribute(data.sensorAttributeToUpdate);
+            }
+        });
+    }
+    initializeAttributes() {
+        this.store.select(_store_reducers__WEBPACK_IMPORTED_MODULE_5__["getAttributesLoaded"]).subscribe(attributesLoaded => {
+            if (!attributesLoaded) {
+                this.store.dispatch(new _store_actions_index__WEBPACK_IMPORTED_MODULE_6__["LoadAttributesBegin"]());
+            }
+        });
+    }
+    initializeSensorTypes() {
+        this.store.select(_store_reducers__WEBPACK_IMPORTED_MODULE_5__["getSensorTypesLoaded"]).subscribe(sensortypesLoaded => {
+            if (!sensortypesLoaded) {
+                this.store.dispatch(new _store_actions_index__WEBPACK_IMPORTED_MODULE_6__["LoadSensorTypesBegin"]());
+            }
+        });
+        this.store.select(_store_reducers__WEBPACK_IMPORTED_MODULE_5__["getAllSensorTypes"]).subscribe(sensortypes => {
+            this.sensorTypes = sensortypes;
+        });
+    }
+};
+SensorDetailComponent.ctorParameters = () => [
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
+    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormBuilder"] },
+    { type: _ngrx_store__WEBPACK_IMPORTED_MODULE_4__["Store"] },
+    { type: _validators_UuidUniquenessValidator__WEBPACK_IMPORTED_MODULE_8__["UuidUniquenessValidator"] }
+];
+SensorDetailComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-sensor-detail',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./sensor-detail.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/sensor-detail/sensor-detail.component.html")).default,
+        providers: [_validators_UuidUniquenessValidator__WEBPACK_IMPORTED_MODULE_8__["UuidUniquenessValidator"]],
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./sensor-detail.component.css */ "./src/app/sensor-detail/sensor-detail.component.css")).default]
+    }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
+        _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormBuilder"],
+        _ngrx_store__WEBPACK_IMPORTED_MODULE_4__["Store"],
+        _validators_UuidUniquenessValidator__WEBPACK_IMPORTED_MODULE_8__["UuidUniquenessValidator"]])
+], SensorDetailComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/sensors-list/sensors-list.component.css":
+/*!*********************************************************!*\
+  !*** ./src/app/sensors-list/sensors-list.component.css ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3NlbnNvcnMtbGlzdC9zZW5zb3JzLWxpc3QuY29tcG9uZW50LmNzcyJ9 */");
+
+/***/ }),
+
+/***/ "./src/app/sensors-list/sensors-list.component.ts":
+/*!********************************************************!*\
+  !*** ./src/app/sensors-list/sensors-list.component.ts ***!
+  \********************************************************/
+/*! exports provided: SensorsListComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SensorsListComponent", function() { return SensorsListComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _model_Sensor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../model/Sensor */ "./src/app/model/Sensor.ts");
+/* harmony import */ var _service_sensors_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../service/sensors.service */ "./src/app/service/sensors.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _ngrx_store__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ngrx/store */ "./node_modules/@ngrx/store/fesm2015/store.js");
+/* harmony import */ var _store_reducers__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../store/reducers */ "./src/app/store/reducers/index.ts");
+/* harmony import */ var _store_actions_index__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../store/actions/index */ "./src/app/store/actions/index.ts");
+
+
+
+
+
+
+
+
+let SensorsListComponent = class SensorsListComponent {
+    constructor(service, router, store) {
+        this.service = service;
+        this.router = router;
+        this.store = store;
+        this.sensors$ = this.store.select(_store_reducers__WEBPACK_IMPORTED_MODULE_6__["getAllSensors"]);
+        this.cols = [
+            { field: 'name', header: 'Name' },
+            { field: 'uuid', header: 'Uuid' },
+            { field: 'description', header: 'Description' }
+        ];
+        this.store.select(_store_reducers__WEBPACK_IMPORTED_MODULE_6__["getSensorTypesLoaded"]).subscribe(typesLoaded => {
+            if (!typesLoaded) {
+                this.store.dispatch(new _store_actions_index__WEBPACK_IMPORTED_MODULE_7__["LoadSensorTypesBegin"]());
+            }
+        });
+    }
+    ngOnInit() {
+        this.store.select(_store_reducers__WEBPACK_IMPORTED_MODULE_6__["getSensorsLoaded"]).subscribe(sensorsLoaded => {
+            if (!sensorsLoaded) {
+                this.store.dispatch(new _store_actions_index__WEBPACK_IMPORTED_MODULE_7__["LoadAllSensors"]());
+            }
+        });
+        this.sensors$.subscribe(data => {
+            if (data) {
+                this.sensors = data.sort(_model_Sensor__WEBPACK_IMPORTED_MODULE_2__["compareByType"]);
+                this.updateRowGroupMetaData();
+            }
+        });
+    }
+    selectedRow(sensor) {
+        this.router.navigate(['sensors/' + sensor.id]);
+    }
+    onCreateNew() {
+        this.router.navigate(['sensors/new']);
+    }
+    updateRowGroupMetaData() {
+        this.rowGroupMetadata = {};
+        if (this.sensors) {
+            for (let i = 0; i < this.sensors.length; i++) {
+                const rowData = this.sensors[i];
+                const type = rowData.type;
+                if (i === 0) {
+                    this.rowGroupMetadata[type] = { index: 0, size: 1 };
+                }
+                else {
+                    const previousRowData = this.sensors[i - 1];
+                    const previousRowGroup = previousRowData.type;
+                    if (type === previousRowGroup) {
+                        this.rowGroupMetadata[type].size++;
+                    }
+                    else {
+                        this.rowGroupMetadata[type] = { index: i, size: 1 };
+                    }
+                }
+            }
+        }
+    }
+};
+SensorsListComponent.ctorParameters = () => [
+    { type: _service_sensors_service__WEBPACK_IMPORTED_MODULE_3__["SensorsService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] },
+    { type: _ngrx_store__WEBPACK_IMPORTED_MODULE_5__["Store"] }
+];
+SensorsListComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-sensors-list',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./sensors-list.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/sensors-list/sensors-list.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./sensors-list.component.css */ "./src/app/sensors-list/sensors-list.component.css")).default]
+    }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_service_sensors_service__WEBPACK_IMPORTED_MODULE_3__["SensorsService"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"],
+        _ngrx_store__WEBPACK_IMPORTED_MODULE_5__["Store"]])
+], SensorsListComponent);
+
+
+
+/***/ }),
+
 /***/ "./src/app/sensortypes-details/sensortypes-details.component.css":
 /*!***********************************************************************!*\
   !*** ./src/app/sensortypes-details/sensortypes-details.component.css ***!
@@ -1316,6 +2288,31 @@ let SensortypesDetailsComponent = class SensortypesDetailsComponent {
                 this.model.patchValue(data);
                 this.headerTitle = 'Editing ' + data.name + '';
                 this.submitButtonLabel = 'Update';
+                // NOTE: check if sensors are loaded if not, load them to store
+                // prevents deleting of type, in case sensors where not loaded before clicking sensors types menu item.
+                this.store.select(_store_reducers__WEBPACK_IMPORTED_MODULE_5__["getSensorsLoaded"]).subscribe(sensorsLoaded => {
+                    if (!sensorsLoaded) {
+                        this.store.dispatch(new _store_actions_index__WEBPACK_IMPORTED_MODULE_6__["LoadAllSensors"]());
+                    }
+                });
+                // NOTE: check if sensortype is used by any of registered sensors.
+                this.store.select(_store_reducers__WEBPACK_IMPORTED_MODULE_5__["getAmountOfSensorsWhichUseSensorType"], { sensortype: data.type }).subscribe(amount => {
+                    this.readOnlyType = true;
+                    if (amount === undefined || amount === null || amount === 0) {
+                        this.readOnlyType = false;
+                        this.readOnlyToolTip = null;
+                    }
+                    else if (amount > 1) {
+                        this.amountOfUsingSensors = `${amount} sensors`;
+                    }
+                    else if (amount === 1) {
+                        this.amountOfUsingSensors = `${amount} sensor`;
+                    }
+                    if (this.readOnlyType) {
+                        this.readOnlyToolTip =
+                            `Cannot edit type of this sensor type, because this sensor type is already used by ${this.amountOfUsingSensors}`;
+                    }
+                });
             });
         }
         else {
@@ -1456,6 +2453,49 @@ SensortypesListComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 /***/ }),
 
+/***/ "./src/app/service/register-attributes.service.ts":
+/*!********************************************************!*\
+  !*** ./src/app/service/register-attributes.service.ts ***!
+  \********************************************************/
+/*! exports provided: RegisterAttributesService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RegisterAttributesService", function() { return RegisterAttributesService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+
+var RegisterAttributesService_1;
+
+
+let RegisterAttributesService = RegisterAttributesService_1 = class RegisterAttributesService {
+    constructor(httpClient) {
+        this.httpClient = httpClient;
+    }
+    getAll() {
+        return this.httpClient.get(RegisterAttributesService_1.API_SUFFIX);
+    }
+    update(symbol, attribute) {
+        return this.httpClient.put(RegisterAttributesService_1.API_SUFFIX + symbol, attribute);
+    }
+};
+RegisterAttributesService.API_SUFFIX = '/api/register/attributes/';
+RegisterAttributesService.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
+];
+RegisterAttributesService = RegisterAttributesService_1 = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
+], RegisterAttributesService);
+
+
+
+/***/ }),
+
 /***/ "./src/app/service/sensor-types.service.ts":
 /*!*************************************************!*\
   !*** ./src/app/service/sensor-types.service.ts ***!
@@ -1511,11 +2551,178 @@ SensorTypesService = SensorTypesService_1 = tslib__WEBPACK_IMPORTED_MODULE_0__["
 
 /***/ }),
 
+/***/ "./src/app/service/sensors.service.ts":
+/*!********************************************!*\
+  !*** ./src/app/service/sensors.service.ts ***!
+  \********************************************/
+/*! exports provided: SensorsService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SensorsService", function() { return SensorsService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+
+
+
+let SensorsService = class SensorsService {
+    constructor(httpClient) {
+        this.httpClient = httpClient;
+        this.API_SUFFIX = '/api/register/sensors/';
+    }
+    getAll() {
+        return this.httpClient.get(this.API_SUFFIX);
+    }
+    getById(id) {
+        return this.httpClient.get(this.API_SUFFIX + id);
+    }
+    delete(uuid) {
+        return this.httpClient.delete(this.API_SUFFIX + uuid);
+    }
+    update(sensor) {
+        return this.httpClient.put(this.API_SUFFIX + sensor.uuid, sensor);
+    }
+    save(sensor) {
+        return this.httpClient.post(this.API_SUFFIX + sensor.uuid, sensor);
+    }
+};
+SensorsService.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
+];
+SensorsService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
+], SensorsService);
+
+
+
+/***/ }),
+
+/***/ "./src/app/store/actions/attributes.actions.ts":
+/*!*****************************************************!*\
+  !*** ./src/app/store/actions/attributes.actions.ts ***!
+  \*****************************************************/
+/*! exports provided: AttributeDictionaryActions, LoadAttributesBegin, LoadAttributesSuccessful, LoadAttributesFailure, UpdateAttribute, UpdateAttributeSuccessful, UpdateAttributeFailed */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AttributeDictionaryActions", function() { return AttributeDictionaryActions; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoadAttributesBegin", function() { return LoadAttributesBegin; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoadAttributesSuccessful", function() { return LoadAttributesSuccessful; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoadAttributesFailure", function() { return LoadAttributesFailure; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UpdateAttribute", function() { return UpdateAttribute; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UpdateAttributeSuccessful", function() { return UpdateAttributeSuccessful; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UpdateAttributeFailed", function() { return UpdateAttributeFailed; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+
+var AttributeDictionaryActions;
+(function (AttributeDictionaryActions) {
+    AttributeDictionaryActions["LoadAttributesBegin"] = "[AttributeDictionary] load begin";
+    AttributeDictionaryActions["LoadAttributesSuccessful"] = "[AttributeDictionary] loading successful";
+    AttributeDictionaryActions["LoadAttributesFailure"] = "[AttributeDictionary] loading failure";
+    AttributeDictionaryActions["UpdateAttribute"] = "[AttributeDictionary] update attribute";
+    AttributeDictionaryActions["UpdateAttributeSuccessful"] = "[AttributeDictionary] update attribute successful";
+    AttributeDictionaryActions["UpdateAttributeFailure"] = "[AttributeDictionary] update failed";
+})(AttributeDictionaryActions || (AttributeDictionaryActions = {}));
+class LoadAttributesBegin {
+    constructor() {
+        this.type = AttributeDictionaryActions.LoadAttributesBegin;
+    }
+}
+class LoadAttributesSuccessful {
+    constructor(payload) {
+        this.payload = payload;
+        this.type = AttributeDictionaryActions.LoadAttributesSuccessful;
+    }
+}
+class LoadAttributesFailure {
+    constructor(payload) {
+        this.payload = payload;
+        this.type = AttributeDictionaryActions.LoadAttributesFailure;
+    }
+}
+class UpdateAttribute {
+    constructor(payload) {
+        this.payload = payload;
+        this.type = AttributeDictionaryActions.UpdateAttribute;
+    }
+}
+class UpdateAttributeSuccessful {
+    constructor(payload) {
+        this.payload = payload;
+        this.type = AttributeDictionaryActions.UpdateAttributeSuccessful;
+    }
+}
+class UpdateAttributeFailed {
+    constructor(payload) {
+        this.payload = payload;
+        this.type = AttributeDictionaryActions.UpdateAttributeFailure;
+    }
+}
+
+
+/***/ }),
+
+/***/ "./src/app/store/actions/attributesdialog.actions.ts":
+/*!***********************************************************!*\
+  !*** ./src/app/store/actions/attributesdialog.actions.ts ***!
+  \***********************************************************/
+/*! exports provided: AttributesDialogActions, OpenDialogToAdd, OpenDialogToUpdate, UpdateSensorAttribute, CloseDialog */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AttributesDialogActions", function() { return AttributesDialogActions; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OpenDialogToAdd", function() { return OpenDialogToAdd; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OpenDialogToUpdate", function() { return OpenDialogToUpdate; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UpdateSensorAttribute", function() { return UpdateSensorAttribute; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CloseDialog", function() { return CloseDialog; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+
+var AttributesDialogActions;
+(function (AttributesDialogActions) {
+    AttributesDialogActions["OpenDialogToAdd"] = "[AttributesDialogActions] open dialog to add";
+    AttributesDialogActions["OpenDialogToUpdate"] = "[AttributesDialogActions] open dialog to update";
+    AttributesDialogActions["UpdateSensorAttribute"] = "[AttributesDialogActions] update sensor attribute";
+    AttributesDialogActions["CloseDialog"] = "[AttributesDialogActions] close dialog";
+})(AttributesDialogActions || (AttributesDialogActions = {}));
+class OpenDialogToAdd {
+    constructor(payload) {
+        this.payload = payload;
+        this.type = AttributesDialogActions.OpenDialogToAdd;
+    }
+}
+class OpenDialogToUpdate {
+    constructor(payload) {
+        this.payload = payload;
+        this.type = AttributesDialogActions.OpenDialogToUpdate;
+    }
+}
+class UpdateSensorAttribute {
+    constructor(payload) {
+        this.payload = payload;
+        this.type = AttributesDialogActions.UpdateSensorAttribute;
+    }
+}
+class CloseDialog {
+    constructor() {
+        this.type = AttributesDialogActions.CloseDialog;
+    }
+}
+
+
+/***/ }),
+
 /***/ "./src/app/store/actions/index.ts":
 /*!****************************************!*\
   !*** ./src/app/store/actions/index.ts ***!
   \****************************************/
-/*! exports provided: SensorTypesActions, LoadSensorTypesBegin, LoadSensorTypesSuccessful, LoadSensorTypesFailure, UpdateSensorType, UpdateSensorTypeSuccessful, UpdateSensorTypeFailure, DeleteSensorType, DeleteSensorTypeSuccessful, DeleteSensorTypeFailure, SaveSensorType, SaveSensorTypeSuccessful, SaveSensorTypeFailure */
+/*! exports provided: SensorTypesActions, LoadSensorTypesBegin, LoadSensorTypesSuccessful, LoadSensorTypesFailure, UpdateSensorType, UpdateSensorTypeSuccessful, UpdateSensorTypeFailure, DeleteSensorType, DeleteSensorTypeSuccessful, DeleteSensorTypeFailure, SaveSensorType, SaveSensorTypeSuccessful, SaveSensorTypeFailure, AttributeDictionaryActions, LoadAttributesBegin, LoadAttributesSuccessful, LoadAttributesFailure, UpdateAttribute, UpdateAttributeSuccessful, UpdateAttributeFailed, SensorsActions, LoadAllSensors, LoadAllSensorsSuccess, LoadAllSensorsFailure, LoadSingleSensor, LoadSingleSensorSuccess, LoadSingleSensorFailure, DeleteSensor, DeleteSensorSuccess, DeleteSensorFailure, UpdateSensor, UpdateSensorSuccess, UpdateSensorFailure, SaveSensor, SaveSensorSuccess, SaveSensorFailure, UpdateDetailsMode, AttributesDialogActions, OpenDialogToAdd, OpenDialogToUpdate, UpdateSensorAttribute, CloseDialog */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1548,8 +2755,218 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "SaveSensorTypeFailure", function() { return _sensortypes_actions__WEBPACK_IMPORTED_MODULE_1__["SaveSensorTypeFailure"]; });
 
+/* harmony import */ var _attributes_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./attributes.actions */ "./src/app/store/actions/attributes.actions.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AttributeDictionaryActions", function() { return _attributes_actions__WEBPACK_IMPORTED_MODULE_2__["AttributeDictionaryActions"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "LoadAttributesBegin", function() { return _attributes_actions__WEBPACK_IMPORTED_MODULE_2__["LoadAttributesBegin"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "LoadAttributesSuccessful", function() { return _attributes_actions__WEBPACK_IMPORTED_MODULE_2__["LoadAttributesSuccessful"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "LoadAttributesFailure", function() { return _attributes_actions__WEBPACK_IMPORTED_MODULE_2__["LoadAttributesFailure"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "UpdateAttribute", function() { return _attributes_actions__WEBPACK_IMPORTED_MODULE_2__["UpdateAttribute"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "UpdateAttributeSuccessful", function() { return _attributes_actions__WEBPACK_IMPORTED_MODULE_2__["UpdateAttributeSuccessful"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "UpdateAttributeFailed", function() { return _attributes_actions__WEBPACK_IMPORTED_MODULE_2__["UpdateAttributeFailed"]; });
+
+/* harmony import */ var _sensors_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./sensors.actions */ "./src/app/store/actions/sensors.actions.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "SensorsActions", function() { return _sensors_actions__WEBPACK_IMPORTED_MODULE_3__["SensorsActions"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "LoadAllSensors", function() { return _sensors_actions__WEBPACK_IMPORTED_MODULE_3__["LoadAllSensors"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "LoadAllSensorsSuccess", function() { return _sensors_actions__WEBPACK_IMPORTED_MODULE_3__["LoadAllSensorsSuccess"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "LoadAllSensorsFailure", function() { return _sensors_actions__WEBPACK_IMPORTED_MODULE_3__["LoadAllSensorsFailure"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "LoadSingleSensor", function() { return _sensors_actions__WEBPACK_IMPORTED_MODULE_3__["LoadSingleSensor"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "LoadSingleSensorSuccess", function() { return _sensors_actions__WEBPACK_IMPORTED_MODULE_3__["LoadSingleSensorSuccess"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "LoadSingleSensorFailure", function() { return _sensors_actions__WEBPACK_IMPORTED_MODULE_3__["LoadSingleSensorFailure"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DeleteSensor", function() { return _sensors_actions__WEBPACK_IMPORTED_MODULE_3__["DeleteSensor"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DeleteSensorSuccess", function() { return _sensors_actions__WEBPACK_IMPORTED_MODULE_3__["DeleteSensorSuccess"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DeleteSensorFailure", function() { return _sensors_actions__WEBPACK_IMPORTED_MODULE_3__["DeleteSensorFailure"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "UpdateSensor", function() { return _sensors_actions__WEBPACK_IMPORTED_MODULE_3__["UpdateSensor"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "UpdateSensorSuccess", function() { return _sensors_actions__WEBPACK_IMPORTED_MODULE_3__["UpdateSensorSuccess"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "UpdateSensorFailure", function() { return _sensors_actions__WEBPACK_IMPORTED_MODULE_3__["UpdateSensorFailure"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "SaveSensor", function() { return _sensors_actions__WEBPACK_IMPORTED_MODULE_3__["SaveSensor"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "SaveSensorSuccess", function() { return _sensors_actions__WEBPACK_IMPORTED_MODULE_3__["SaveSensorSuccess"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "SaveSensorFailure", function() { return _sensors_actions__WEBPACK_IMPORTED_MODULE_3__["SaveSensorFailure"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "UpdateDetailsMode", function() { return _sensors_actions__WEBPACK_IMPORTED_MODULE_3__["UpdateDetailsMode"]; });
+
+/* harmony import */ var _attributesdialog_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./attributesdialog.actions */ "./src/app/store/actions/attributesdialog.actions.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AttributesDialogActions", function() { return _attributesdialog_actions__WEBPACK_IMPORTED_MODULE_4__["AttributesDialogActions"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "OpenDialogToAdd", function() { return _attributesdialog_actions__WEBPACK_IMPORTED_MODULE_4__["OpenDialogToAdd"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "OpenDialogToUpdate", function() { return _attributesdialog_actions__WEBPACK_IMPORTED_MODULE_4__["OpenDialogToUpdate"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "UpdateSensorAttribute", function() { return _attributesdialog_actions__WEBPACK_IMPORTED_MODULE_4__["UpdateSensorAttribute"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "CloseDialog", function() { return _attributesdialog_actions__WEBPACK_IMPORTED_MODULE_4__["CloseDialog"]; });
 
 
+
+
+
+
+
+
+/***/ }),
+
+/***/ "./src/app/store/actions/sensors.actions.ts":
+/*!**************************************************!*\
+  !*** ./src/app/store/actions/sensors.actions.ts ***!
+  \**************************************************/
+/*! exports provided: SensorsActions, LoadAllSensors, LoadAllSensorsSuccess, LoadAllSensorsFailure, LoadSingleSensor, LoadSingleSensorSuccess, LoadSingleSensorFailure, DeleteSensor, DeleteSensorSuccess, DeleteSensorFailure, UpdateSensor, UpdateSensorSuccess, UpdateSensorFailure, SaveSensor, SaveSensorSuccess, SaveSensorFailure, UpdateDetailsMode */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SensorsActions", function() { return SensorsActions; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoadAllSensors", function() { return LoadAllSensors; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoadAllSensorsSuccess", function() { return LoadAllSensorsSuccess; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoadAllSensorsFailure", function() { return LoadAllSensorsFailure; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoadSingleSensor", function() { return LoadSingleSensor; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoadSingleSensorSuccess", function() { return LoadSingleSensorSuccess; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoadSingleSensorFailure", function() { return LoadSingleSensorFailure; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DeleteSensor", function() { return DeleteSensor; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DeleteSensorSuccess", function() { return DeleteSensorSuccess; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DeleteSensorFailure", function() { return DeleteSensorFailure; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UpdateSensor", function() { return UpdateSensor; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UpdateSensorSuccess", function() { return UpdateSensorSuccess; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UpdateSensorFailure", function() { return UpdateSensorFailure; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SaveSensor", function() { return SaveSensor; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SaveSensorSuccess", function() { return SaveSensorSuccess; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SaveSensorFailure", function() { return SaveSensorFailure; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UpdateDetailsMode", function() { return UpdateDetailsMode; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+
+var SensorsActions;
+(function (SensorsActions) {
+    SensorsActions["LoadAllSensors"] = "[Sensors] load all";
+    SensorsActions["LoadAllSensorsSuccess"] = "[Sensors] load all success";
+    SensorsActions["LoadAllSensorsFailure"] = "[Sensors] load failure";
+    SensorsActions["LoadSingleSensor"] = "[Sensors] load single sensor";
+    SensorsActions["LoadSingleSensorSuccess"] = "[Sensor] load single sensor success";
+    SensorsActions["LoadSingleSensorFailure"] = "[Sensor] load single sensor failure";
+    SensorsActions["DeleteSensor"] = "[Sensors] delete sensor";
+    SensorsActions["DeleteSensorSuccess"] = "[Sensor] delete sensor success";
+    SensorsActions["DeleteSensorFailure"] = "[Sensor] delete sensor failure";
+    SensorsActions["UpdateSensor"] = "[Sensor] update sensor begin";
+    SensorsActions["UpdateSensorSuccess"] = "[Sensor] update sensor load";
+    SensorsActions["UpdateSensorFailure"] = "[Sensor] update sensor failure";
+    SensorsActions["SaveSensor"] = "[Sensor] save sensor begin";
+    SensorsActions["SaveSensorSuccess"] = "[Sensor] save sensor success";
+    SensorsActions["SaveSensorFailure"] = "[Sensor] save sensor failure";
+    SensorsActions["UpdateDetailsMode"] = "[Sensor] update sensor mode";
+})(SensorsActions || (SensorsActions = {}));
+class LoadAllSensors {
+    constructor() {
+        this.type = SensorsActions.LoadAllSensors;
+    }
+}
+class LoadAllSensorsSuccess {
+    constructor(payload) {
+        this.payload = payload;
+        this.type = SensorsActions.LoadAllSensorsSuccess;
+    }
+}
+class LoadAllSensorsFailure {
+    constructor(payload) {
+        this.payload = payload;
+        this.type = SensorsActions.LoadAllSensorsFailure;
+    }
+}
+class LoadSingleSensor {
+    constructor(payload) {
+        this.payload = payload;
+        this.type = SensorsActions.LoadSingleSensor;
+    }
+}
+class LoadSingleSensorSuccess {
+    constructor(payload) {
+        this.payload = payload;
+        this.type = SensorsActions.LoadSingleSensorSuccess;
+    }
+}
+class LoadSingleSensorFailure {
+    constructor(payload) {
+        this.payload = payload;
+        this.type = SensorsActions.LoadSingleSensorFailure;
+    }
+}
+class DeleteSensor {
+    constructor(payload) {
+        this.payload = payload;
+        this.type = SensorsActions.DeleteSensor;
+    }
+}
+class DeleteSensorSuccess {
+    constructor(payload) {
+        this.payload = payload;
+        this.type = SensorsActions.DeleteSensorSuccess;
+    }
+}
+class DeleteSensorFailure {
+    constructor(payload) {
+        this.payload = payload;
+        this.type = SensorsActions.DeleteSensorFailure;
+    }
+}
+class UpdateSensor {
+    constructor(payload) {
+        this.payload = payload;
+        this.type = SensorsActions.UpdateSensor;
+    }
+}
+class UpdateSensorSuccess {
+    constructor(payload) {
+        this.payload = payload;
+        this.type = SensorsActions.UpdateSensorSuccess;
+    }
+}
+class UpdateSensorFailure {
+    constructor(payload) {
+        this.payload = payload;
+        this.type = SensorsActions.UpdateSensorFailure;
+    }
+}
+class SaveSensor {
+    constructor(payload) {
+        this.payload = payload;
+        this.type = SensorsActions.SaveSensor;
+    }
+}
+class SaveSensorSuccess {
+    constructor(payload) {
+        this.payload = payload;
+        this.type = SensorsActions.SaveSensorSuccess;
+    }
+}
+class SaveSensorFailure {
+    constructor(payload) {
+        this.payload = payload;
+        this.type = SensorsActions.SaveSensorFailure;
+    }
+}
+class UpdateDetailsMode {
+    constructor(payload) {
+        this.payload = payload;
+        this.type = SensorsActions.UpdateDetailsMode;
+    }
+}
 
 
 /***/ }),
@@ -1668,6 +3085,68 @@ class SaveSensorTypeFailure {
 
 /***/ }),
 
+/***/ "./src/app/store/effects/attributes.effects.ts":
+/*!*****************************************************!*\
+  !*** ./src/app/store/effects/attributes.effects.ts ***!
+  \*****************************************************/
+/*! exports provided: AttributesEffects */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AttributesEffects", function() { return AttributesEffects; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _ngrx_effects__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ngrx/effects */ "./node_modules/@ngrx/effects/fesm2015/effects.js");
+/* harmony import */ var _service_register_attributes_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../service/register-attributes.service */ "./src/app/service/register-attributes.service.ts");
+/* harmony import */ var _actions_index__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../actions/index */ "./src/app/store/actions/index.ts");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+
+
+
+
+
+
+
+let AttributesEffects = class AttributesEffects {
+    constructor(action, service) {
+        this.action = action;
+        this.service = service;
+        this.loadData = this.action.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_actions_index__WEBPACK_IMPORTED_MODULE_4__["AttributeDictionaryActions"].LoadAttributesBegin), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["switchMap"])(() => {
+            return this.service.getAll().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(data => new _actions_index__WEBPACK_IMPORTED_MODULE_4__["LoadAttributesSuccessful"]({ data })));
+        }));
+        this.updateData = this.action.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_actions_index__WEBPACK_IMPORTED_MODULE_4__["AttributeDictionaryActions"].UpdateAttribute), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["switchMap"])(({ payload }) => {
+            const result = payload.data;
+            return this.service.update(result.symbol, result).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(data => {
+                console.log(data);
+                return new _actions_index__WEBPACK_IMPORTED_MODULE_4__["UpdateAttributeSuccessful"]({ data });
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["catchError"])(error => Object(rxjs__WEBPACK_IMPORTED_MODULE_6__["of"])(new _actions_index__WEBPACK_IMPORTED_MODULE_4__["UpdateAttributeFailed"]({ error }))));
+        }));
+    }
+};
+AttributesEffects.ctorParameters = () => [
+    { type: _ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["Actions"] },
+    { type: _service_register_attributes_service__WEBPACK_IMPORTED_MODULE_3__["RegisterAttributesService"] }
+];
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["Effect"])(),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
+], AttributesEffects.prototype, "loadData", void 0);
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["Effect"])(),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
+], AttributesEffects.prototype, "updateData", void 0);
+AttributesEffects = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["Actions"],
+        _service_register_attributes_service__WEBPACK_IMPORTED_MODULE_3__["RegisterAttributesService"]])
+], AttributesEffects);
+
+
+
+/***/ }),
+
 /***/ "./src/app/store/effects/index.ts":
 /*!****************************************!*\
   !*** ./src/app/store/effects/index.ts ***!
@@ -1680,9 +3159,120 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "effects", function() { return effects; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _sensortypes_effects__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./sensortypes.effects */ "./src/app/store/effects/sensortypes.effects.ts");
+/* harmony import */ var _attributes_effects__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./attributes.effects */ "./src/app/store/effects/attributes.effects.ts");
+/* harmony import */ var _sensors_effects__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./sensors.effects */ "./src/app/store/effects/sensors.effects.ts");
 
 
-const effects = [_sensortypes_effects__WEBPACK_IMPORTED_MODULE_1__["SensortypesEffects"]];
+
+
+const effects = [
+    _sensortypes_effects__WEBPACK_IMPORTED_MODULE_1__["SensortypesEffects"],
+    _attributes_effects__WEBPACK_IMPORTED_MODULE_2__["AttributesEffects"],
+    _sensors_effects__WEBPACK_IMPORTED_MODULE_3__["SensorsEffects"]
+];
+
+
+/***/ }),
+
+/***/ "./src/app/store/effects/sensors.effects.ts":
+/*!**************************************************!*\
+  !*** ./src/app/store/effects/sensors.effects.ts ***!
+  \**************************************************/
+/*! exports provided: SensorsEffects */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SensorsEffects", function() { return SensorsEffects; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _ngrx_effects__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @ngrx/effects */ "./node_modules/@ngrx/effects/fesm2015/effects.js");
+/* harmony import */ var _service_sensors_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../service/sensors.service */ "./src/app/service/sensors.service.ts");
+/* harmony import */ var _actions_index__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../actions/index */ "./src/app/store/actions/index.ts");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+
+
+
+
+
+
+
+let SensorsEffects = class SensorsEffects {
+    constructor(action, service) {
+        this.action = action;
+        this.service = service;
+        this.loadAll = this.action.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["ofType"])(_actions_index__WEBPACK_IMPORTED_MODULE_3__["SensorsActions"].LoadAllSensors), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(() => {
+            return this.service.getAll().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((data) => {
+                return new _actions_index__WEBPACK_IMPORTED_MODULE_3__["LoadAllSensorsSuccess"]({ sensors: data });
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(error => {
+                return Object(rxjs__WEBPACK_IMPORTED_MODULE_5__["of"])(new _actions_index__WEBPACK_IMPORTED_MODULE_3__["LoadAllSensorsFailure"]({ error }));
+            }));
+        }));
+        this.loadSingle = this.action.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["ofType"])(_actions_index__WEBPACK_IMPORTED_MODULE_3__["SensorsActions"].LoadSingleSensor), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(({ payload }) => {
+            const id = payload.id.toString();
+            return this.service.getById(id).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((sensor) => {
+                return new _actions_index__WEBPACK_IMPORTED_MODULE_3__["LoadSingleSensorSuccess"]({ sensor });
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(error => {
+                return Object(rxjs__WEBPACK_IMPORTED_MODULE_5__["of"])(new _actions_index__WEBPACK_IMPORTED_MODULE_3__["LoadSingleSensorFailure"]({ error }));
+            }));
+        }));
+        this.delete = this.action.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["ofType"])(_actions_index__WEBPACK_IMPORTED_MODULE_3__["SensorsActions"].DeleteSensor), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(({ payload }) => {
+            const uuid = payload.uuid;
+            return this.service.delete(uuid).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(() => {
+                return new _actions_index__WEBPACK_IMPORTED_MODULE_3__["DeleteSensorSuccess"]({ uuid });
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(error => {
+                return Object(rxjs__WEBPACK_IMPORTED_MODULE_5__["of"])(new _actions_index__WEBPACK_IMPORTED_MODULE_3__["DeleteSensorFailure"]({ error }));
+            }));
+        }));
+        this.update = this.action.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["ofType"])(_actions_index__WEBPACK_IMPORTED_MODULE_3__["SensorsActions"].UpdateSensor), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(({ payload }) => {
+            const sensorToUpdate = payload.sensor;
+            return this.service.update(sensorToUpdate).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(result => {
+                return new _actions_index__WEBPACK_IMPORTED_MODULE_3__["UpdateSensorSuccess"]({ sensor: result });
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(error => {
+                return Object(rxjs__WEBPACK_IMPORTED_MODULE_5__["of"])(new _actions_index__WEBPACK_IMPORTED_MODULE_3__["UpdateSensorFailure"]({ error }));
+            }));
+        }));
+        this.save = this.action.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["ofType"])(_actions_index__WEBPACK_IMPORTED_MODULE_3__["SensorsActions"].SaveSensor), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(({ payload }) => {
+            const sensorToSave = payload.sensor;
+            return this.service.save(sensorToSave).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(result => {
+                return new _actions_index__WEBPACK_IMPORTED_MODULE_3__["SaveSensorSuccess"]({ sensor: result });
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(error => {
+                return Object(rxjs__WEBPACK_IMPORTED_MODULE_5__["of"])(new _actions_index__WEBPACK_IMPORTED_MODULE_3__["SaveSensorFailure"]({ error }));
+            }));
+        }));
+    }
+};
+SensorsEffects.ctorParameters = () => [
+    { type: _ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["Actions"] },
+    { type: _service_sensors_service__WEBPACK_IMPORTED_MODULE_2__["SensorsService"] }
+];
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["Effect"])(),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
+], SensorsEffects.prototype, "loadAll", void 0);
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["Effect"])(),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
+], SensorsEffects.prototype, "loadSingle", void 0);
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["Effect"])(),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
+], SensorsEffects.prototype, "delete", void 0);
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["Effect"])(),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
+], SensorsEffects.prototype, "update", void 0);
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["Effect"])(),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
+], SensorsEffects.prototype, "save", void 0);
+SensorsEffects = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_6__["Injectable"])(),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["Actions"],
+        _service_sensors_service__WEBPACK_IMPORTED_MODULE_2__["SensorsService"]])
+], SensorsEffects);
+
 
 
 /***/ }),
@@ -1775,11 +3365,123 @@ SensortypesEffects = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 /***/ }),
 
+/***/ "./src/app/store/reducers/attributes.reducer.ts":
+/*!******************************************************!*\
+  !*** ./src/app/store/reducers/attributes.reducer.ts ***!
+  \******************************************************/
+/*! exports provided: initialState, attributesReducer, getAttributes, getHasLoaded */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "initialState", function() { return initialState; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "attributesReducer", function() { return attributesReducer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getAttributes", function() { return getAttributes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getHasLoaded", function() { return getHasLoaded; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _actions_index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/index */ "./src/app/store/actions/index.ts");
+
+
+const initialState = {
+    items: [],
+    hasLoaded: false
+};
+function attributesReducer(state = initialState, action) {
+    switch (action.type) {
+        case _actions_index__WEBPACK_IMPORTED_MODULE_1__["AttributeDictionaryActions"].LoadAttributesBegin: {
+            return Object.assign({}, state, { items: [] });
+        }
+        case _actions_index__WEBPACK_IMPORTED_MODULE_1__["AttributeDictionaryActions"].LoadAttributesSuccessful: {
+            return Object.assign({}, state, { items: action.payload.data, hasLoaded: true });
+        }
+        case _actions_index__WEBPACK_IMPORTED_MODULE_1__["AttributeDictionaryActions"].UpdateAttribute: {
+            const payload = action.payload.data;
+            const copyItems = state.items;
+            const filtered = copyItems.filter(item => item.symbol === payload.symbol);
+            if (filtered.length === 1) {
+                filtered[0].name = payload.name;
+                filtered[0].description = payload.description;
+            }
+            return Object.assign({}, state, { items: copyItems, hasLoaded: true });
+        }
+        default: {
+            return state;
+        }
+    }
+}
+const getAttributes = (state) => state.items;
+const getHasLoaded = (state) => state.hasLoaded;
+
+
+/***/ }),
+
+/***/ "./src/app/store/reducers/attributesdialog.reducer.ts":
+/*!************************************************************!*\
+  !*** ./src/app/store/reducers/attributesdialog.reducer.ts ***!
+  \************************************************************/
+/*! exports provided: initialState, attributesDialogReducer, getAttributesDialogOpened, getSensorsAttributes, getAttributesDialogMode, getSensorAttribute, getSensorAttributeAfterUpdate */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "initialState", function() { return initialState; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "attributesDialogReducer", function() { return attributesDialogReducer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getAttributesDialogOpened", function() { return getAttributesDialogOpened; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getSensorsAttributes", function() { return getSensorsAttributes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getAttributesDialogMode", function() { return getAttributesDialogMode; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getSensorAttribute", function() { return getSensorAttribute; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getSensorAttributeAfterUpdate", function() { return getSensorAttributeAfterUpdate; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _actions_index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/index */ "./src/app/store/actions/index.ts");
+/* harmony import */ var _crosscutting_componentsMode__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../crosscutting/componentsMode */ "./src/app/crosscutting/componentsMode.ts");
+
+
+
+const initialState = {
+    opened: false,
+    sensorsAttributes: [],
+    sensorAttribute: null,
+    mode: null,
+    sensorAttributeAfterUpdate: null
+};
+function attributesDialogReducer(state = initialState, action) {
+    switch (action.type) {
+        case _actions_index__WEBPACK_IMPORTED_MODULE_1__["AttributesDialogActions"].OpenDialogToAdd: {
+            return Object.assign({}, state, { opened: true, sensorsAttributes: action.payload.sensorAttributes, mode: _crosscutting_componentsMode__WEBPACK_IMPORTED_MODULE_2__["ComponentsMode"].New });
+        }
+        case _actions_index__WEBPACK_IMPORTED_MODULE_1__["AttributesDialogActions"].OpenDialogToUpdate: {
+            return Object.assign({}, state, { opened: true, sensorAttribute: action.payload.sensorAttribute, sensorsAttributes: action.payload.sensorsAttributes, mode: _crosscutting_componentsMode__WEBPACK_IMPORTED_MODULE_2__["ComponentsMode"].Edit });
+        }
+        case _actions_index__WEBPACK_IMPORTED_MODULE_1__["AttributesDialogActions"].UpdateSensorAttribute: {
+            return Object.assign({}, state, { opened: true, sensorsAttributes: state.sensorsAttributes, mode: state.mode, sensorAttributeAfterUpdate: action.payload.sensorAttribute });
+        }
+        case _actions_index__WEBPACK_IMPORTED_MODULE_1__["AttributesDialogActions"].CloseDialog: {
+            return Object.assign({}, state, { opened: false, sensorsAttributes: [], mode: null, sensorAttributeAfterUpdate: null, sensorAttribute: null });
+        }
+        default: {
+            return state;
+        }
+    }
+}
+const getAttributesDialogOpened = (state) => state.opened;
+const getSensorsAttributes = (state) => state.sensorsAttributes;
+const getAttributesDialogMode = (state) => state.mode;
+const getSensorAttribute = (state) => state.sensorAttribute;
+const getSensorAttributeAfterUpdate = (state) => {
+    return {
+        sensorAttributeToUpdate: state.sensorAttributeAfterUpdate,
+        attributeDialogMode: state.mode
+    };
+};
+
+
+/***/ }),
+
 /***/ "./src/app/store/reducers/index.ts":
 /*!*****************************************!*\
   !*** ./src/app/store/reducers/index.ts ***!
   \*****************************************/
-/*! exports provided: reducers, getSensortypesState, getAllSensorTypes, getSensorTypesLoaded, getSingleSensorType */
+/*! exports provided: reducers, getSensortypesState, getAllSensorTypes, getSensorTypesLoaded, getSingleSensorType, getAttributesState, getAllAttributes, getAttributesLoaded, getSingleAttribute, getSensorsState, getAllSensors, getSensorsLoaded, getAmountOfSensorsWhichUseSensorType, getSingleSensor, getUuids, getSensorDetailsMode, getSensorAttributesDialogState, getAttributesDialogOpened, getSensorsAttributes, getAttributesDialogMode, getSensorAttribute, getSensorAttributeAfterUpdate */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1789,20 +3491,150 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getAllSensorTypes", function() { return getAllSensorTypes; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getSensorTypesLoaded", function() { return getSensorTypesLoaded; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getSingleSensorType", function() { return getSingleSensorType; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getAttributesState", function() { return getAttributesState; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getAllAttributes", function() { return getAllAttributes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getAttributesLoaded", function() { return getAttributesLoaded; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getSingleAttribute", function() { return getSingleAttribute; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getSensorsState", function() { return getSensorsState; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getAllSensors", function() { return getAllSensors; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getSensorsLoaded", function() { return getSensorsLoaded; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getAmountOfSensorsWhichUseSensorType", function() { return getAmountOfSensorsWhichUseSensorType; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getSingleSensor", function() { return getSingleSensor; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getUuids", function() { return getUuids; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getSensorDetailsMode", function() { return getSensorDetailsMode; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getSensorAttributesDialogState", function() { return getSensorAttributesDialogState; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getAttributesDialogOpened", function() { return getAttributesDialogOpened; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getSensorsAttributes", function() { return getSensorsAttributes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getAttributesDialogMode", function() { return getAttributesDialogMode; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getSensorAttribute", function() { return getSensorAttribute; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getSensorAttributeAfterUpdate", function() { return getSensorAttributeAfterUpdate; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _sensortypes_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./sensortypes.reducer */ "./src/app/store/reducers/sensortypes.reducer.ts");
-/* harmony import */ var _ngrx_store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ngrx/store */ "./node_modules/@ngrx/store/fesm2015/store.js");
+/* harmony import */ var _attributes_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./attributes.reducer */ "./src/app/store/reducers/attributes.reducer.ts");
+/* harmony import */ var _sensors_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./sensors.reducer */ "./src/app/store/reducers/sensors.reducer.ts");
+/* harmony import */ var _attributesdialog_reducer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./attributesdialog.reducer */ "./src/app/store/reducers/attributesdialog.reducer.ts");
+/* harmony import */ var _ngrx_store__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ngrx/store */ "./node_modules/@ngrx/store/fesm2015/store.js");
+
+
+
 
 
 
 const reducers = {
     sensortypes: _sensortypes_reducer__WEBPACK_IMPORTED_MODULE_1__["sensortypesReducer"],
+    attributes: _attributes_reducer__WEBPACK_IMPORTED_MODULE_2__["attributesReducer"],
+    sensors: _sensors_reducer__WEBPACK_IMPORTED_MODULE_3__["sensorsReducer"],
+    sensorsAttributesDialog: _attributesdialog_reducer__WEBPACK_IMPORTED_MODULE_4__["attributesDialogReducer"],
 };
 // NOTE: SensortypesState and selectors
 const getSensortypesState = (state) => state.sensortypes;
-const getAllSensorTypes = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_2__["createSelector"])(getSensortypesState, _sensortypes_reducer__WEBPACK_IMPORTED_MODULE_1__["getSensorTypeItems"]);
-const getSensorTypesLoaded = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_2__["createSelector"])(getSensortypesState, _sensortypes_reducer__WEBPACK_IMPORTED_MODULE_1__["getHasLoaded"]);
-const getSingleSensorType = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_2__["createSelector"])(getSensortypesState, (sensortypes, props) => sensortypes.sensortypes.find(obj => obj.id === props.id));
+const getAllSensorTypes = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_5__["createSelector"])(getSensortypesState, _sensortypes_reducer__WEBPACK_IMPORTED_MODULE_1__["getSensorTypeItems"]);
+const getSensorTypesLoaded = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_5__["createSelector"])(getSensortypesState, _sensortypes_reducer__WEBPACK_IMPORTED_MODULE_1__["getHasLoaded"]);
+const getSingleSensorType = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_5__["createSelector"])(getSensortypesState, (sensortypes, props) => sensortypes.sensortypes.find(obj => obj.id === props.id));
+// NOTE: AttributesState and selectors
+const getAttributesState = (state) => state.attributes;
+const getAllAttributes = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_5__["createSelector"])(getAttributesState, _attributes_reducer__WEBPACK_IMPORTED_MODULE_2__["getAttributes"]);
+const getAttributesLoaded = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_5__["createSelector"])(getAttributesState, _attributes_reducer__WEBPACK_IMPORTED_MODULE_2__["getHasLoaded"]);
+const getSingleAttribute = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_5__["createSelector"])(getAttributesState, (attributes, props) => attributes.items.find(obj => obj.symbol === props.symbol));
+// NOTE: SensorsState and selectors
+const getSensorsState = (state) => state.sensors;
+const getAllSensors = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_5__["createSelector"])(getSensorsState, _sensors_reducer__WEBPACK_IMPORTED_MODULE_3__["getAllItems"]);
+const getSensorsLoaded = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_5__["createSelector"])(getSensorsState, _sensors_reducer__WEBPACK_IMPORTED_MODULE_3__["getHasLoaded"]);
+const getAmountOfSensorsWhichUseSensorType = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_5__["createSelector"])(getSensorsState, (sensors, props) => {
+    if (sensors !== undefined || sensors.items !== undefined || sensors.items !== null || sensors.items.length !== 0) {
+        return sensors.items.filter(obj => obj.type === props.sensortype).length;
+    }
+    return 0;
+});
+const getSingleSensor = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_5__["createSelector"])(getSensorsState, (sensors, props) => sensors.items.find(obj => obj.id === props.id));
+const getUuids = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_5__["createSelector"])(getSensorsState, _sensors_reducer__WEBPACK_IMPORTED_MODULE_3__["getUuids"]);
+const getSensorDetailsMode = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_5__["createSelector"])(getSensorsState, _sensors_reducer__WEBPACK_IMPORTED_MODULE_3__["getSensorDetailsMode"]);
+// SensorAttributes dialog
+const getSensorAttributesDialogState = (state) => state.sensorsAttributesDialog;
+const getAttributesDialogOpened = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_5__["createSelector"])(getSensorAttributesDialogState, _attributesdialog_reducer__WEBPACK_IMPORTED_MODULE_4__["getAttributesDialogOpened"]);
+const getSensorsAttributes = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_5__["createSelector"])(getSensorAttributesDialogState, _attributesdialog_reducer__WEBPACK_IMPORTED_MODULE_4__["getSensorsAttributes"]);
+const getAttributesDialogMode = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_5__["createSelector"])(getSensorAttributesDialogState, _attributesdialog_reducer__WEBPACK_IMPORTED_MODULE_4__["getAttributesDialogMode"]);
+const getSensorAttribute = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_5__["createSelector"])(getSensorAttributesDialogState, _attributesdialog_reducer__WEBPACK_IMPORTED_MODULE_4__["getSensorAttribute"]);
+const getSensorAttributeAfterUpdate = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_5__["createSelector"])(getSensorAttributesDialogState, _attributesdialog_reducer__WEBPACK_IMPORTED_MODULE_4__["getSensorAttributeAfterUpdate"]);
+
+
+/***/ }),
+
+/***/ "./src/app/store/reducers/sensors.reducer.ts":
+/*!***************************************************!*\
+  !*** ./src/app/store/reducers/sensors.reducer.ts ***!
+  \***************************************************/
+/*! exports provided: initialState, sensorsReducer, getAllItems, getHasLoaded, getUuids, getSensorDetailsMode */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "initialState", function() { return initialState; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "sensorsReducer", function() { return sensorsReducer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getAllItems", function() { return getAllItems; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getHasLoaded", function() { return getHasLoaded; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getUuids", function() { return getUuids; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getSensorDetailsMode", function() { return getSensorDetailsMode; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _model_Sensor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../model/Sensor */ "./src/app/model/Sensor.ts");
+/* harmony import */ var _actions_index__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../actions/index */ "./src/app/store/actions/index.ts");
+/* harmony import */ var _crosscutting_componentsMode__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../crosscutting/componentsMode */ "./src/app/crosscutting/componentsMode.ts");
+
+
+
+
+const initialState = {
+    items: [],
+    hasLoaded: false,
+    mode: _crosscutting_componentsMode__WEBPACK_IMPORTED_MODULE_3__["ComponentsMode"].New
+};
+function sensorsReducer(state = initialState, action) {
+    switch (action.type) {
+        case _actions_index__WEBPACK_IMPORTED_MODULE_2__["SensorsActions"].LoadAllSensorsSuccess: {
+            return Object.assign({}, state, { items: action.payload.sensors, hasLoaded: true });
+        }
+        case _actions_index__WEBPACK_IMPORTED_MODULE_2__["SensorsActions"].UpdateDetailsMode: {
+            return Object.assign({}, state, { items: state.items, hasLoaded: state.hasLoaded, mode: action.payload.mode });
+        }
+        case _actions_index__WEBPACK_IMPORTED_MODULE_2__["SensorsActions"].DeleteSensorSuccess: {
+            const uuid = action.payload.uuid;
+            const copyItems = state.items.filter(obj => obj.uuid !== uuid);
+            copyItems.sort(_model_Sensor__WEBPACK_IMPORTED_MODULE_1__["compareByType"]);
+            return Object.assign({}, state, { items: copyItems, hasLoaded: true });
+        }
+        case _actions_index__WEBPACK_IMPORTED_MODULE_2__["SensorsActions"].UpdateSensorSuccess: {
+            const sensor = action.payload.sensor;
+            const copyItems = state.items;
+            const originalSensor = copyItems.find(item => item.uuid === sensor.uuid);
+            const index = copyItems.indexOf(originalSensor);
+            copyItems[index] = sensor;
+            copyItems.sort(_model_Sensor__WEBPACK_IMPORTED_MODULE_1__["compareByType"]);
+            return Object.assign({}, state, { items: copyItems, hasLoaded: true });
+        }
+        case _actions_index__WEBPACK_IMPORTED_MODULE_2__["SensorsActions"].SaveSensorSuccess: {
+            const sensor = action.payload.sensor;
+            let copyItems = state.items;
+            if (!copyItems) {
+                copyItems = new Array();
+            }
+            copyItems.push(sensor);
+            copyItems.sort(_model_Sensor__WEBPACK_IMPORTED_MODULE_1__["compareByType"]);
+            return Object.assign({}, state, { items: copyItems, hasLoaded: true });
+        }
+        default: {
+            return state;
+        }
+    }
+}
+const getAllItems = (state) => state.items;
+const getHasLoaded = (state) => state.hasLoaded;
+const getUuids = (state) => {
+    if (state.items) {
+        return state.items.map(obj => obj.uuid);
+    }
+    return [];
+};
+const getSensorDetailsMode = (state) => state.mode;
 
 
 /***/ }),
@@ -1864,6 +3696,69 @@ function sensortypesReducer(state = initialSensortypesState, action) {
 }
 const getSensorTypeItems = (state) => state.sensortypes;
 const getHasLoaded = (state) => state.hasLoaded;
+
+
+/***/ }),
+
+/***/ "./src/app/validators/UuidUniquenessValidator.ts":
+/*!*******************************************************!*\
+  !*** ./src/app/validators/UuidUniquenessValidator.ts ***!
+  \*******************************************************/
+/*! exports provided: UuidUniquenessValidator */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UuidUniquenessValidator", function() { return UuidUniquenessValidator; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _ngrx_store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ngrx/store */ "./node_modules/@ngrx/store/fesm2015/store.js");
+/* harmony import */ var _store_reducers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../store/reducers */ "./src/app/store/reducers/index.ts");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var _store_actions_sensors_actions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../store/actions/sensors.actions */ "./src/app/store/actions/sensors.actions.ts");
+/* harmony import */ var _crosscutting_componentsMode__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../crosscutting/componentsMode */ "./src/app/crosscutting/componentsMode.ts");
+
+
+
+
+
+
+
+let UuidUniquenessValidator = class UuidUniquenessValidator {
+    constructor(store) {
+        this.store = store;
+        this.store.select(_store_reducers__WEBPACK_IMPORTED_MODULE_3__["getSensorsLoaded"]).subscribe(areSensorsLoaded => {
+            if (!areSensorsLoaded) {
+                this.store.dispatch(new _store_actions_sensors_actions__WEBPACK_IMPORTED_MODULE_5__["LoadAllSensors"]());
+            }
+        });
+        this.store.select(_store_reducers__WEBPACK_IMPORTED_MODULE_3__["getSensorDetailsMode"]).subscribe(mode => {
+            this.mode = mode;
+        });
+    }
+    checkUuidUniqueness(field) {
+        // NOTE: in edit mode - never check uniqueness
+        if (this.mode === _crosscutting_componentsMode__WEBPACK_IMPORTED_MODULE_6__["ComponentsMode"].Edit) {
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_4__["of"])(null);
+        }
+        let validatorUuids = [];
+        this.store.select(_store_reducers__WEBPACK_IMPORTED_MODULE_3__["getUuids"]).subscribe(uuids => {
+            validatorUuids = uuids;
+        });
+        // tslint:disable-next-line:variable-name
+        const number = validatorUuids.indexOf(field.value);
+        console.log(number);
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_4__["of"])(validatorUuids.indexOf(field.value) < 0 ? null : { invalid: 'Uuid already registered.' });
+    }
+};
+UuidUniquenessValidator.ctorParameters = () => [
+    { type: _ngrx_store__WEBPACK_IMPORTED_MODULE_2__["Store"] }
+];
+UuidUniquenessValidator = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ngrx_store__WEBPACK_IMPORTED_MODULE_2__["Store"]])
+], UuidUniquenessValidator);
+
 
 
 /***/ }),
