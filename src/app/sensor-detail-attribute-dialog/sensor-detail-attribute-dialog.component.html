@@ -1,0 +1,47 @@
+<form [formGroup]="model">
+  <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
+    <div class="ui-grid-row">
+      <div class="ui-grid-col-2">
+        Attribute:
+      </div>
+      <div class="ui-grid-col-6">
+        <p-dropdown [options]="attributesLeft" [disabled]="dropdownDisabled" optionLabel="symbol" formControlName="attribute" placeholder="Select attribute to add..." (ngModelChange)="onModelChanged()"></p-dropdown>
+      </div>
+      <div class="ui-grid-col-4">
+        <p-message severity="error" text="Attribute required" *ngIf="!model.controls['attribute'].valid&&model.controls['attribute'].dirty"></p-message>
+      </div>
+    </div>
+    <div class="ui-grid-row">
+      <div class="ui-grid-col-2">
+        Value:
+      </div>
+      <div class="ui-grid-col-6" *ngIf="getInputtype() === null">
+        <input pInputText type="text" placeholder="Required" disabled="true" formControlName="value"/>
+      </div>
+      <div class="ui-grid-col-6" *ngIf="getInputtype() === 'boolean'">
+        <p-inputSwitch formControlName="value"></p-inputSwitch>
+      </div>
+      <div class="ui-grid-col-6" *ngIf="getInputtype() === 'positive_numeric'">
+        <p-spinner size="30" formControlName="value" [min]="0"></p-spinner>
+      </div>
+      <div class="ui-grid-col-6" *ngIf="getInputtype() === 'numeric'">
+        <p-spinner size="30" formControlName="value" step="0.5" formatInput="true"></p-spinner>
+      </div>
+      <div class="ui-grid-col-6" *ngIf="getInputtype() === 'ip'">
+        <input pInputText type="text" formControlName="value" pattern="\b((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\.|$)){4}\b"/>
+      </div>
+
+      <div class="ui-grid-col-4">
+        <p-message severity="error" text="Value is required" *ngIf="!model.controls['value'].valid&&model.controls['value'].dirty"></p-message>
+      </div>
+    </div>
+  </div>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <div class="custom-dialog-component-footer">
+    <button pButton class="ui-button-warning" type="button" [disabled]="!model.valid" (click)="onSubmitNewAttribute()" label="OK"></button> &nbsp;
+    <button pButton class="ui-button-warning" type="button" (click)="onCancelNewAttribute()" label="Cancel"></button>
+  </div>
+</form>

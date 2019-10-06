@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Store} from "@ngrx/store";
-import {getSingleSensorType, State} from "../store/reducers";
+import {getAmountOfSensorsWhichUseSensorType, getSensorsLoaded, getSingleSensorType, State} from "../store/reducers";
 
 import * as DataActions from '../store/actions/index';
 import {SensorType} from "../model/SensorType";
@@ -55,6 +55,34 @@ export class SensortypesDetailsComponent implements OnInit {
           this.headerTitle = 'Editing ' + data.name + '';
           this.submitButtonLabel = 'Update';
 
+          // NOTE: check if sensors are loaded if not, load them to store
+          // prevents deleting of type, in case sensors where not loaded before clicking sensors types menu item.
+          this.store.select(getSensorsLoaded).subscribe(
+            sensorsLoaded => {
+              if (!sensorsLoaded) {
+                this.store.dispatch(new DataActions.LoadAllSensors());
+              }
+            }
+          );
+
+          // NOTE: check if sensortype is used by any of registered sensors.
+          this.store.select(getAmountOfSensorsWhichUseSensorType, {sensortype: data.type}).subscribe(
+            amount => {
+              this.readOnlyType = true;
+              if (amount === undefined || amount === null || amount === 0 ) {
+                this.readOnlyType = false;
+                this.readOnlyToolTip = null;
+              } else if (amount > 1) {
+                this.amountOfUsingSensors = `${amount} sensors`;
+              } else if (amount === 1) {
+                this.amountOfUsingSensors = `${amount} sensor`;
+              }
+              if (this.readOnlyType) {
+                this.readOnlyToolTip =
+                  `Cannot edit type of this sensor type, because this sensor type is already used by ${this.amountOfUsingSensors}`;
+              }
+            }
+          );
         }
       );
     } else {

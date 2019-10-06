@@ -10,10 +10,11 @@ import {
   ButtonModule,
   DialogModule, InputTextareaModule, InputTextModule,
   MenuModule,
+  DropdownModule,
   MessageModule, MessageService,
   PanelMenuModule,
   PanelModule,
-  TooltipModule
+  TooltipModule, InputSwitchModule, SpinnerModule
 } from "primeng/primeng";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { AboutComponent } from './about/about.component';
@@ -32,6 +33,8 @@ import {HttpErrorInterceptorServiceService} from "./interceptors/http-error-inte
 import { AttributesDictionaryListComponent } from './attributes-dictionary-list/attributes-dictionary-list.component';
 import { AttributesDictionaryDetailsComponent } from './attributes-dictionary-details/attributes-dictionary-details.component';
 import { SensorsListComponent } from './sensors-list/sensors-list.component';
+import { SensorDetailComponent } from './sensor-detail/sensor-detail.component';
+import { SensorDetailAttributeDialogComponent } from './sensor-detail-attribute-dialog/sensor-detail-attribute-dialog.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +47,9 @@ import { SensorsListComponent } from './sensors-list/sensors-list.component';
     SensortypesDetailsComponent,
     AttributesDictionaryListComponent,
     AttributesDictionaryDetailsComponent,
-    SensorsListComponent
+    SensorsListComponent,
+    SensorDetailComponent,
+    SensorDetailAttributeDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -65,7 +70,10 @@ import { SensorsListComponent } from './sensors-list/sensors-list.component';
     TooltipModule,
     InputTextModule,
     InputTextareaModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DropdownModule,
+    InputSwitchModule,
+    SpinnerModule
   ],
   providers: [MessageService,
     SensorTypesService,

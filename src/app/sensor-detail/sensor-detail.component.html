@@ -1,0 +1,103 @@
+<p-toast [style]="{marginTop: '80px', width: '350px'}"></p-toast>
+
+<p-dialog header="{{attributeDialogTitle}}" [(visible)]="attributeDialogVisible" [modal]="true" [responsive]="true" [style]="{width: '600px', minHeight: '150px'}" [minY]="70"
+          [maximizable]="true" [resizable]="true" [baseZIndex]="10000">
+  <app-sensor-detail-attribute-dialog *ngIf="attributeDialogVisible"></app-sensor-detail-attribute-dialog>
+</p-dialog>
+
+<div class="delete-dialog-box">
+  <p-dialog header="Delete Sensor?" [(visible)]="displayDeleteDialog" [modal]="true" [responsive]="true" [style]="{width: '350px', minWidth: '200px'}" [minY]="70"
+            [maximizable]="true" [baseZIndex]="10000">
+    <p>Are you sure, you want to delete this Sensor?</p>
+    <p-footer>
+      <button pButton class="ui-button-danger" type="button" (click)="onDelete()" label="Yes"></button>
+      <button pButton class="ui-button-info" type="button" (click)="displayDeleteDialog=false" label="No"></button>
+    </p-footer>
+  </p-dialog>
+</div>
+
+<form [formGroup]="model">
+  <p-panel header="{{headerTitle}}" >
+    <div class="general-panel-container">
+      <p-panel header="General settings">
+        <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
+          <div class="ui-grid-row">
+            <div class="ui-grid-col-2">
+              Name:
+            </div>
+            <div class="ui-grid-col-6">
+              <input pInputText type="text" placeholder="Required" formControlName="name"/>
+            </div>
+            <div class="ui-grid-col-4">
+              <p-message severity="error" text="Name is required" *ngIf="!model.controls['name'].valid&&model.controls['name'].dirty"></p-message>
+            </div>
+          </div>
+          <div class="ui-grid-row">
+            <div class="ui-grid-col-2">
+              Uuid:
+            </div>
+            <div class="ui-grid-col-6">
+              <input pInputText type="text" placeholder="Required" formControlName="uuid" [readOnly]="disableUnmmutableControl" [pTooltip]="disabledUuidTooltip"/>
+            </div>
+            <div class="ui-grid-col-4">
+              <p-message severity="error" text="Uuid is required" *ngIf="isNewMode() &&  model.hasError('invalid', 'uuid')" text="{{model.get('uuid').errors.invalid}}"></p-message>
+              <p-message severity="error" text="Valid, not registered uuid is required" *ngIf="!model.controls['uuid'].valid&&model.controls['uuid'].dirty"></p-message>
+            </div>
+          </div>
+          <div class="ui-grid-row">
+            <div class="ui-grid-col-2">
+              Type:
+            </div>
+            <div class="ui-grid-col-6">
+              <p-dropdown [options]="sensorTypes" optionLabel="type" [disabled]="disableUnmmutableControl" formControlName="sensorType" [pTooltip]="disabledSensorTypeTooltip" placeholder="Select type to add..." (ngModelChange)="onSensorTypeChanged()"></p-dropdown>
+            </div>
+            <div class="ui-grid-col-4">
+              <p-message severity="error" text="Type is required" *ngIf="!model.controls['sensorType'].valid&&model.controls['sensorType'].dirty"></p-message>
+            </div>
+          </div>
+          <div class="ui-grid-row">
+            <div class="ui-grid-col-2">
+              Description:
+            </div>
+            <div class="ui-grid-col-6">
+              <textarea pInputTextarea type="text" [autoResize]="false" [rows]="3" formControlName="description"></textarea>
+            </div>
+            <div class="ui-grid-col-4"></div>
+          </div>
+        </div>
+      </p-panel>
+      <br/>
+      <p-panel header="Sensor's attributes">
+        <p-table [value]="attributesModel.controls" [rowHover]="true">
+          <ng-template pTemplate="header">
+            <tr>
+              <th>Symbol</th>
+              <th>Value</th>
+              <th style="width: 15%; text-align: center">Actions</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-attribute>
+            <tr [hidden]="hideAttributesPanel()">
+              <td>{{attribute.get('symbol').value}}</td>
+              <td>{{attribute.get('value').value}}</td>
+              <td style="text-align: right">
+                <button pButton class="ui-button-warning" type="button" icon="pi pi-pencil" (click)="openUpdateAttributeDialog(attribute.value)" pTooltip="change value"></button> &nbsp;
+                <button pButton class="ui-button-danger" type="button" icon="pi pi-trash" (click)="removeAttributeFromList(attribute.get('symbol').value)" pTooltip="remove from attribute's list"></button>
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+        <p-footer class="text-right">
+          <button pButton class="ui-button-success" type="button" icon="pi pi-plus" (click)="onAddNewAttribute()" pTooltip="add new attribute"></button>
+        </p-footer>
+      </p-panel>
+    </div>
+    <p-footer>
+      <button pButton class="ui-button-info" type="button" (click)="backToSensors()" label="Back"></button>&nbsp;
+      <button pButton class="ui-button-warning" type="button" [disabled]="!model.valid" label="{{saveBtnLabel}}" (click)="onSubmit()"></button>&nbsp;
+      <button pButton class="ui-button-warning" type="button" [hidden]="isNewMode()" (click)="displayDeleteDialog = true" label="Delete"></button>&nbsp;
+    </p-footer>
+  </p-panel>
+</form>
+
+<br/>

@@ -16,4 +16,20 @@ export class SensorsService {
     return this.httpClient.get<Sensor[]>(this.API_SUFFIX);
   }
 
+  public getById(id: string): Observable<Sensor> {
+    return this.httpClient.get<Sensor>(this.API_SUFFIX + id);
+  }
+
+  public delete(uuid: string): Observable<Sensor> {
+    return this.httpClient.delete<Sensor>(this.API_SUFFIX + uuid);
+  }
+
+  public update(sensor: Sensor): Observable<Sensor> {
+    return this.httpClient.put<Sensor>(this.API_SUFFIX + sensor.uuid, sensor);
+  }
+
+  public save(sensor: Sensor): Observable<Sensor> {
+    return this.httpClient.post<Sensor>(this.API_SUFFIX + sensor.uuid, sensor);
+  }
+
 }
