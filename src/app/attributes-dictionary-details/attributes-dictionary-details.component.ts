@@ -36,25 +36,16 @@ export class AttributesDictionaryDetailsComponent implements OnInit {
     this.mode = this.route.snapshot.paramMap.get('symbol');
     this.initLabels();
 
-    if (this.mode === 'new') {
-      this.model.reset();
-    } else {
-      this.store.select(getSingleAttribute, {symbol: this.mode}).subscribe(
-        data => {
-          this.model.patchValue(data);
-        }
-      );
-    }
+    this.store.select(getSingleAttribute, {symbol: this.mode}).subscribe(
+      data => {
+        this.model.patchValue(data);
+      }
+    );
   }
 
   private initLabels() {
-    if (this.mode === 'new') {
-      this.headerTitle = 'New attribute definition';
-      this.submitButtonLabel = 'Save';
-    } else {
-      this.headerTitle = 'Editing attribute ' + this.mode;
-      this.submitButtonLabel = 'Update';
-    }
+     this.headerTitle = 'Editing attribute ' + this.mode;
+     this.submitButtonLabel = 'Update';
   }
 
   onBack() {
