@@ -338,6 +338,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/eventslogger/eventslogger.component.html":
+/*!************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/eventslogger/eventslogger.component.html ***!
+  \************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<p-accordion>\n  <p-accordionTab header=\"Searchpanel\" [selected]=\"false\">\n    <form [formGroup]=\"searchModel\">\n      <div class=\"general-top-panel-container\">\n        <p-panel header=\"General settings\">\n          <div class=\"ui-grid ui-grid-responsive ui-grid-pad ui-fluid\" style=\"margin: 10px 0px\">\n            <div class=\"ui-grid-row\">\n              <div class=\"ui-grid-col-2\">\n                ProcessId:\n              </div>\n              <div class=\"ui-grid-col-6\">\n                <input pInputText type=\"text\" placeholder=\"Enter processId\" formControlName=\"processId\"/>\n              </div>\n              <div class=\"ui-grid-col-4\">\n                <p-message severity=\"error\" text=\"Valid processId (uuid) is required\" *ngIf=\"!searchModel.controls['processId'].valid&&searchModel.controls['processId'].dirty\"></p-message>\n              </div>\n            </div>\n            <div class=\"ui-grid-row\">\n              <div class=\"ui-grid-col-2\">\n                Topic:\n              </div>\n              <div class=\"ui-grid-col-6\">\n                <input pInputText type=\"text\" placeholder=\"Enter topic\" formControlName=\"topic\"/>\n              </div>\n            </div>\n            <div class=\"ui-grid-row\">\n              <div class=\"ui-grid-col-2\">\n                Routing key:\n              </div>\n              <div class=\"ui-grid-col-6\">\n                <input pInputText type=\"text\" placeholder=\"Enter routing key\" formControlName=\"routingKey\"/>\n              </div>\n            </div>\n            <div class=\"ui-grid-row\">\n              <div class=\"ui-grid-col-2\">\n                Sensor uuid:\n              </div>\n              <div class=\"ui-grid-col-6\">\n                <input pInputText type=\"text\" placeholder=\"Enter sensor uuid\" formControlName=\"sensorsUuid\"/>\n              </div>\n              <div class=\"ui-grid-col-4\">\n                <p-message severity=\"error\" text=\"Valid sensor uuid (uuid) is required\" *ngIf=\"!searchModel.controls['sensorsUuid'].valid&&searchModel.controls['sensorsUuid'].dirty\"></p-message>\n              </div>\n            </div>\n            <div class=\"ui-grid-row\">\n              <div class=\"ui-grid-col-2\">\n                Error message:\n              </div>\n              <div class=\"ui-grid-col-6\">\n                <input pInputText type=\"text\" placeholder=\"Enter partial/full content of error message\" formControlName=\"errorMsg\"/>\n              </div>\n            </div>\n            <div class=\"ui-grid-row\">\n              <div class=\"ui-grid-col-2\">\n                Service:\n              </div>\n              <div class=\"ui-grid-col-6\">\n                <input pInputText type=\"text\" placeholder=\"Enter service name\" formControlName=\"service\"/>\n              </div>\n            </div>\n            <div class=\"ui-grid-row\">\n              <div class=\"ui-grid-col-2\">\n                PublishedOn from:\n              </div>\n              <div class=\"ui-grid-col-6\">\n                <p-calendar [showTime]=\"true\" dateFormat=\"yy-mm-dd\" placeholder=\"Enter from when should events be collected\" formControlName=\"publishedOnFrom\"></p-calendar>\n              </div>\n            </div>\n            <div class=\"ui-grid-row\">\n              <div class=\"ui-grid-col-2\">\n                PublishedOn to:\n              </div>\n              <div class=\"ui-grid-col-6\">\n                <p-calendar [showTime]=\"true\" dateFormat=\"yy-mm-dd\" placeholder=\"Enter till when should events be collected\" formControlName=\"publishedOnTo\"></p-calendar>\n              </div>\n            </div>\n          </div>\n          <p-footer>\n            <button pButton class=\"ui-button-danger\" type=\"button\" (click)=\"onReset()\" label=\"Reset\"></button>&nbsp;\n            <button pButton class=\"ui-button-success\" type=\"button\" (click)=\"onSearch()\" label=\"Search\"></button>\n          </p-footer>\n        </p-panel>\n      </div>\n    </form>\n  </p-accordionTab>\n\n</p-accordion>\n\n<div></div>\n\n<p-table [columns]=\"cols\" [value]=\"events\" dataKey=\"publishedOn\" [paginator]=\"true\" [rows]=\"15\">\n  <ng-template pTemplate=\"header\" let-columns>\n    <tr>\n      <th style=\"width: 3em\"></th>\n      <th *ngFor=\"let col of columns\" class=\"{{col.styleclass}}\">\n        {{col.header}}\n      </th>\n    </tr>\n  </ng-template>\n  <ng-template pTemplate=\"body\" let-rowData let-expanded=\"expanded\" let-columns=\"columns\">\n    <tr>\n      <td>\n        <a href=\"#\" [pRowToggler]=\"rowData\">\n          <i [ngClass]=\"expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'\"></i>\n        </a>\n      </td>\n      <td *ngFor=\"let col of columns\" class=\"{{col.styleclass}}\" [ngStyle]=\"{'background-color': getBackgroundColor(rowData['routingKey']), 'color': getTextColor(rowData['routingKey'])}\">\n        {{getFormattedValue(col.field, rowData[col.field])}}\n      </td>\n    </tr>\n  </ng-template>\n  <ng-template pTemplate=\"rowexpansion\" let-rowData let-columns=\"columns\">\n    <tr>\n      <td [attr.colspan]=\"4\" style=\"border-right: none\">\n        <div class=\"ui-g ui-fluid\" style=\"font-size:16px;padding:20px\">\n          <div class=\"ui-g-12 ui-md-9\">\n            <div class=\"ui-g\">\n              <div class=\"ui-g-12\">\n                <b>Sensor Uuid: </b> {{rowData.sensorUuid}}\n              </div>\n              <div class=\"ui-g-12\">\n                <b>Min: </b> {{rowData.min}}\n              </div>\n              <div class=\"ui-g-12\">\n                <b>Max: </b> {{rowData.max}}\n              </div>\n              <div class=\"ui-g-12\">\n                <b>Value: </b> {{rowData.value}}\n              </div>\n              <div class=\"ui-g-12\">\n                <b>Service: </b> {{rowData.service}}\n              </div>\n              <div class=\"ui-g-12\">\n                <b>Previous: </b><textarea rows=\"3\" cols=\"50\" pInputTextarea [disabled]=\"true\" style=\"color: black\">{{rowData.previous}}</textarea>\n              </div>\n              <div class=\"ui-g-12\">\n                <b>Current: </b>\n                <textarea rows=\"3\" cols=\"50\" pInputTextarea [disabled]=\"true\" style=\"color: black\">{{rowData.current}}</textarea>\n              </div>\n              <div class=\"ui-g-12\">\n                <b>Recipient: </b> {{rowData.recipient}}\n              </div>\n            </div>\n          </div>\n        </div>\n      </td>\n      <td [attr.colspan]=\"2\" style=\"border-left: none\">\n        <div class=\"ui-g ui-fluid\" style=\"font-size:16px;padding:20px\">\n          <div class=\"ui-g-12 ui-md-9\">\n            <div class=\"ui-g\">\n              <div class=\"ui-g-12\">\n                <b>Published on: </b> {{getFormattedValue(null, rowData.publishedOn)}}\n              </div>\n              <div class=\"ui-g-12\">\n                <b>Process id: </b> {{rowData.processId}}\n              </div>\n              <div class=\"ui-g-12\">\n                <b>Topic: </b> {{rowData.topic}}\n              </div>\n              <div class=\"ui-g-12\">\n                <b>Routing key: </b> {{rowData.routingKey}}\n              </div>\n              <div class=\"ui-g-12\">\n                <b>Log message: </b>\n                <textarea rows=\"3\" cols=\"50\" pInputTextarea [disabled]=\"true\" style=\"color: black\">{{rowData.logMsg}}</textarea>\n              </div>\n              <div class=\"ui-g-12\">\n                <b>Error message: </b>\n                <textarea rows=\"3\" cols=\"50\" pInputTextarea [disabled]=\"true\" style=\"color: black\">{{rowData.errorMsg}}</textarea>\n              </div>\n              <div class=\"ui-g-12\">\n                <b>Error details: </b>\n                <textarea rows=\"3\" cols=\"50\" pInputTextarea [disabled]=\"true\" style=\"color: black\">{{rowData.errorDetails}}</textarea>\n              </div>\n              <div class=\"ui-g-12\">\n                <b>Cache: </b> {{rowData.cache}}\n              </div>\n            </div>\n          </div>\n        </div>\n      </td>\n    </tr>\n  </ng-template>\n</p-table>\n");
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/footer/footer.component.html":
 /*!************************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/footer/footer.component.html ***!
@@ -760,6 +773,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _attributes_dictionary_details_attributes_dictionary_details_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./attributes-dictionary-details/attributes-dictionary-details.component */ "./src/app/attributes-dictionary-details/attributes-dictionary-details.component.ts");
 /* harmony import */ var _sensors_list_sensors_list_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./sensors-list/sensors-list.component */ "./src/app/sensors-list/sensors-list.component.ts");
 /* harmony import */ var _sensor_detail_sensor_detail_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./sensor-detail/sensor-detail.component */ "./src/app/sensor-detail/sensor-detail.component.ts");
+/* harmony import */ var _eventslogger_eventslogger_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./eventslogger/eventslogger.component */ "./src/app/eventslogger/eventslogger.component.ts");
+
 
 
 
@@ -778,6 +793,7 @@ const routes = [
     { path: 'attributes/:symbol', component: _attributes_dictionary_details_attributes_dictionary_details_component__WEBPACK_IMPORTED_MODULE_7__["AttributesDictionaryDetailsComponent"] },
     { path: 'sensors', component: _sensors_list_sensors_list_component__WEBPACK_IMPORTED_MODULE_8__["SensorsListComponent"] },
     { path: 'sensors/:id', component: _sensor_detail_sensor_detail_component__WEBPACK_IMPORTED_MODULE_9__["SensorDetailComponent"] },
+    { path: 'eventslogger', component: _eventslogger_eventslogger_component__WEBPACK_IMPORTED_MODULE_10__["EventsloggerComponent"] },
     { path: 'about', component: _about_about_component__WEBPACK_IMPORTED_MODULE_3__["AboutComponent"] }
 ];
 let AppRoutingModule = class AppRoutingModule {
@@ -878,6 +894,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _sensors_list_sensors_list_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./sensors-list/sensors-list.component */ "./src/app/sensors-list/sensors-list.component.ts");
 /* harmony import */ var _sensor_detail_sensor_detail_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./sensor-detail/sensor-detail.component */ "./src/app/sensor-detail/sensor-detail.component.ts");
 /* harmony import */ var _sensor_detail_attribute_dialog_sensor_detail_attribute_dialog_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./sensor-detail-attribute-dialog/sensor-detail-attribute-dialog.component */ "./src/app/sensor-detail-attribute-dialog/sensor-detail-attribute-dialog.component.ts");
+/* harmony import */ var _eventslogger_eventslogger_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./eventslogger/eventslogger.component */ "./src/app/eventslogger/eventslogger.component.ts");
+
 
 
 
@@ -922,7 +940,8 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _attributes_dictionary_details_attributes_dictionary_details_component__WEBPACK_IMPORTED_MODULE_24__["AttributesDictionaryDetailsComponent"],
             _sensors_list_sensors_list_component__WEBPACK_IMPORTED_MODULE_25__["SensorsListComponent"],
             _sensor_detail_sensor_detail_component__WEBPACK_IMPORTED_MODULE_26__["SensorDetailComponent"],
-            _sensor_detail_attribute_dialog_sensor_detail_attribute_dialog_component__WEBPACK_IMPORTED_MODULE_27__["SensorDetailAttributeDialogComponent"]
+            _sensor_detail_attribute_dialog_sensor_detail_attribute_dialog_component__WEBPACK_IMPORTED_MODULE_27__["SensorDetailAttributeDialogComponent"],
+            _eventslogger_eventslogger_component__WEBPACK_IMPORTED_MODULE_28__["EventsloggerComponent"]
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
@@ -946,7 +965,9 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _angular_forms__WEBPACK_IMPORTED_MODULE_20__["ReactiveFormsModule"],
             primeng_primeng__WEBPACK_IMPORTED_MODULE_8__["DropdownModule"],
             primeng_primeng__WEBPACK_IMPORTED_MODULE_8__["InputSwitchModule"],
-            primeng_primeng__WEBPACK_IMPORTED_MODULE_8__["SpinnerModule"]
+            primeng_primeng__WEBPACK_IMPORTED_MODULE_8__["SpinnerModule"],
+            primeng_primeng__WEBPACK_IMPORTED_MODULE_8__["AccordionModule"],
+            primeng_primeng__WEBPACK_IMPORTED_MODULE_8__["CalendarModule"]
         ],
         providers: [primeng_primeng__WEBPACK_IMPORTED_MODULE_8__["MessageService"],
             _service_sensor_types_service__WEBPACK_IMPORTED_MODULE_21__["SensorTypesService"],
@@ -1146,6 +1167,117 @@ var ComponentsMode;
     ComponentsMode[ComponentsMode["New"] = 0] = "New";
     ComponentsMode[ComponentsMode["Edit"] = 1] = "Edit";
 })(ComponentsMode || (ComponentsMode = {}));
+
+
+/***/ }),
+
+/***/ "./src/app/eventslogger/eventslogger.component.css":
+/*!*********************************************************!*\
+  !*** ./src/app/eventslogger/eventslogger.component.css ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2V2ZW50c2xvZ2dlci9ldmVudHNsb2dnZXIuY29tcG9uZW50LmNzcyJ9 */");
+
+/***/ }),
+
+/***/ "./src/app/eventslogger/eventslogger.component.ts":
+/*!********************************************************!*\
+  !*** ./src/app/eventslogger/eventslogger.component.ts ***!
+  \********************************************************/
+/*! exports provided: EventsloggerComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EventsloggerComponent", function() { return EventsloggerComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var _service_eventslogger_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../service/eventslogger.service */ "./src/app/service/eventslogger.service.ts");
+
+
+
+
+let EventsloggerComponent = class EventsloggerComponent {
+    constructor(service, fb) {
+        this.service = service;
+        this.fb = fb;
+        this.searchModel = this.fb.group({
+            processId: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].pattern('^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$')),
+            topic: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](''),
+            routingKey: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](''),
+            sensorsUuid: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].pattern('^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$')),
+            logMsg: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](''),
+            errorMsg: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](''),
+            service: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](''),
+            publishedOnFrom: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](''),
+            publishedOnTo: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('')
+        });
+    }
+    ngOnInit() {
+        const initialSearch = {
+            topic: 'xdevices.logs',
+            service: 'register'
+        };
+        this.service.getEvents(initialSearch).subscribe(data => {
+            this.events = data;
+        });
+        this.cols = [
+            { field: 'publishedOn', header: 'Published on', styleclass: 'wide' },
+            { field: 'service', header: 'Service', styleclass: 'slim' },
+            { field: 'topic', header: 'Topic', styleclass: 'topic' },
+            { field: 'routingKey', header: 'Routing key' },
+            { field: 'processId', header: "ProcessId" }
+        ];
+    }
+    onReset() {
+        this.searchModel.reset();
+    }
+    onSearch() {
+        let eventsSearch = this.searchModel.value;
+        this.service.getEvents(eventsSearch).subscribe(data => {
+            this.events = data;
+        });
+    }
+    getBackgroundColor(value) {
+        let errorLog = value.includes('error') || value.includes('failure');
+        if (errorLog) {
+            return 'orangered';
+        }
+        return '';
+    }
+    getTextColor(value) {
+        let errorLog = value.includes('error') || value.includes('failure');
+        if (errorLog) {
+            return 'white';
+        }
+        return 'black';
+    }
+    getFormattedValue(field, value) {
+        if (field === 'publishedOn' || field === null) {
+            return new Date(value).toUTCString();
+        }
+        return value;
+    }
+};
+EventsloggerComponent.ctorParameters = () => [
+    { type: _service_eventslogger_service__WEBPACK_IMPORTED_MODULE_3__["EventsloggerService"] },
+    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"] }
+];
+EventsloggerComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-eventslogger',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./eventslogger.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/eventslogger/eventslogger.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./eventslogger.component.css */ "./src/app/eventslogger/eventslogger.component.css")).default]
+    }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_service_eventslogger_service__WEBPACK_IMPORTED_MODULE_3__["EventsloggerService"],
+        _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"]])
+], EventsloggerComponent);
+
 
 
 /***/ }),
@@ -2448,6 +2580,72 @@ SensortypesListComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"],
         _ngrx_store__WEBPACK_IMPORTED_MODULE_3__["Store"]])
 ], SensortypesListComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/service/eventslogger.service.ts":
+/*!*************************************************!*\
+  !*** ./src/app/service/eventslogger.service.ts ***!
+  \*************************************************/
+/*! exports provided: EventsloggerService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EventsloggerService", function() { return EventsloggerService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+
+
+
+let EventsloggerService = class EventsloggerService {
+    constructor(httpClient) {
+        this.httpClient = httpClient;
+        this.API_SUFFIX = '/api/eventslogger/events/';
+    }
+    getEvents(search) {
+        let params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]();
+        if (search) {
+            if (search.topic) {
+                params = params.set('topic', search.topic);
+            }
+            if (search.errorMsg) {
+                params = params.set('errorMsg', search.errorMsg);
+            }
+            if (search.processId) {
+                params = params.set('processId', search.processId);
+            }
+            if (search.routingKey) {
+                params = params.set('routingKey', search.routingKey);
+            }
+            if (search.sensorsUuid) {
+                params = params.set('sensorsUuid', search.sensorsUuid);
+            }
+            if (search.service) {
+                params = params.set('service', search.service);
+            }
+            if (search.publishedOnFrom) {
+                params = params.set('publishedOnFrom', search.publishedOnFrom.toISOString());
+            }
+            if (search.publishedOnTo) {
+                params = params.set('publishedOnTo', search.publishedOnTo.toISOString());
+            }
+        }
+        return this.httpClient.get(this.API_SUFFIX, { params: params });
+    }
+};
+EventsloggerService.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
+];
+EventsloggerService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
+], EventsloggerService);
 
 
 
