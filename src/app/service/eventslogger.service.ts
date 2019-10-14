@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {EventsSearch} from "../model/EventSearch";
 import {Observable} from "rxjs";
+import {Event} from "../model/Event";
 
 @Injectable({
   providedIn: 'root'

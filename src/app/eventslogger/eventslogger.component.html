@@ -1,0 +1,184 @@
+<p-accordion>
+  <p-accordionTab header="Searchpanel" [selected]="false">
+    <form [formGroup]="searchModel">
+      <div class="general-top-panel-container">
+        <p-panel header="General settings">
+          <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
+            <div class="ui-grid-row">
+              <div class="ui-grid-col-2">
+                ProcessId:
+              </div>
+              <div class="ui-grid-col-6">
+                <input pInputText type="text" placeholder="Enter processId" formControlName="processId"/>
+              </div>
+              <div class="ui-grid-col-4">
+                <p-message severity="error" text="Valid processId (uuid) is required" *ngIf="!searchModel.controls['processId'].valid&&searchModel.controls['processId'].dirty"></p-message>
+              </div>
+            </div>
+            <div class="ui-grid-row">
+              <div class="ui-grid-col-2">
+                Topic:
+              </div>
+              <div class="ui-grid-col-6">
+                <input pInputText type="text" placeholder="Enter topic" formControlName="topic"/>
+              </div>
+            </div>
+            <div class="ui-grid-row">
+              <div class="ui-grid-col-2">
+                Routing key:
+              </div>
+              <div class="ui-grid-col-6">
+                <input pInputText type="text" placeholder="Enter routing key" formControlName="routingKey"/>
+              </div>
+            </div>
+            <div class="ui-grid-row">
+              <div class="ui-grid-col-2">
+                Sensor uuid:
+              </div>
+              <div class="ui-grid-col-6">
+                <input pInputText type="text" placeholder="Enter sensor uuid" formControlName="sensorsUuid"/>
+              </div>
+              <div class="ui-grid-col-4">
+                <p-message severity="error" text="Valid sensor uuid (uuid) is required" *ngIf="!searchModel.controls['sensorsUuid'].valid&&searchModel.controls['sensorsUuid'].dirty"></p-message>
+              </div>
+            </div>
+            <div class="ui-grid-row">
+              <div class="ui-grid-col-2">
+                Error message:
+              </div>
+              <div class="ui-grid-col-6">
+                <input pInputText type="text" placeholder="Enter partial/full content of error message" formControlName="errorMsg"/>
+              </div>
+            </div>
+            <div class="ui-grid-row">
+              <div class="ui-grid-col-2">
+                Service:
+              </div>
+              <div class="ui-grid-col-6">
+                <input pInputText type="text" placeholder="Enter service name" formControlName="service"/>
+              </div>
+            </div>
+            <div class="ui-grid-row">
+              <div class="ui-grid-col-2">
+                PublishedOn from:
+              </div>
+              <div class="ui-grid-col-6">
+                <p-calendar [showTime]="true" dateFormat="yy-mm-dd" placeholder="Enter from when should events be collected" formControlName="publishedOnFrom"></p-calendar>
+              </div>
+            </div>
+            <div class="ui-grid-row">
+              <div class="ui-grid-col-2">
+                PublishedOn to:
+              </div>
+              <div class="ui-grid-col-6">
+                <p-calendar [showTime]="true" dateFormat="yy-mm-dd" placeholder="Enter till when should events be collected" formControlName="publishedOnTo"></p-calendar>
+              </div>
+            </div>
+          </div>
+          <p-footer>
+            <button pButton class="ui-button-danger" type="button" (click)="onReset()" label="Reset"></button>&nbsp;
+            <button pButton class="ui-button-success" type="button" (click)="onSearch()" label="Search"></button>
+          </p-footer>
+        </p-panel>
+      </div>
+    </form>
+  </p-accordionTab>
+
+</p-accordion>
+
+<div></div>
+
+<p-table [columns]="cols" [value]="events" dataKey="publishedOn" [paginator]="true" [rows]="15">
+  <ng-template pTemplate="header" let-columns>
+    <tr>
+      <th style="width: 3em"></th>
+      <th *ngFor="let col of columns" class="{{col.styleclass}}">
+        {{col.header}}
+      </th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-rowData let-expanded="expanded" let-columns="columns">
+    <tr>
+      <td>
+        <a href="#" [pRowToggler]="rowData">
+          <i [ngClass]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></i>
+        </a>
+      </td>
+      <td *ngFor="let col of columns" class="{{col.styleclass}}" [ngStyle]="{'background-color': getBackgroundColor(rowData['routingKey']), 'color': getTextColor(rowData['routingKey'])}">
+        {{getFormattedValue(col.field, rowData[col.field])}}
+      </td>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="rowexpansion" let-rowData let-columns="columns">
+    <tr>
+      <td [attr.colspan]="4" style="border-right: none">
+        <div class="ui-g ui-fluid" style="font-size:16px;padding:20px">
+          <div class="ui-g-12 ui-md-9">
+            <div class="ui-g">
+              <div class="ui-g-12">
+                <b>Sensor Uuid: </b> {{rowData.sensorUuid}}
+              </div>
+              <div class="ui-g-12">
+                <b>Min: </b> {{rowData.min}}
+              </div>
+              <div class="ui-g-12">
+                <b>Max: </b> {{rowData.max}}
+              </div>
+              <div class="ui-g-12">
+                <b>Value: </b> {{rowData.value}}
+              </div>
+              <div class="ui-g-12">
+                <b>Service: </b> {{rowData.service}}
+              </div>
+              <div class="ui-g-12">
+                <b>Previous: </b><textarea rows="3" cols="50" pInputTextarea [disabled]="true" style="color: black">{{rowData.previous}}</textarea>
+              </div>
+              <div class="ui-g-12">
+                <b>Current: </b>
+                <textarea rows="3" cols="50" pInputTextarea [disabled]="true" style="color: black">{{rowData.current}}</textarea>
+              </div>
+              <div class="ui-g-12">
+                <b>Recipient: </b> {{rowData.recipient}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </td>
+      <td [attr.colspan]="2" style="border-left: none">
+        <div class="ui-g ui-fluid" style="font-size:16px;padding:20px">
+          <div class="ui-g-12 ui-md-9">
+            <div class="ui-g">
+              <div class="ui-g-12">
+                <b>Published on: </b> {{getFormattedValue(null, rowData.publishedOn)}}
+              </div>
+              <div class="ui-g-12">
+                <b>Process id: </b> {{rowData.processId}}
+              </div>
+              <div class="ui-g-12">
+                <b>Topic: </b> {{rowData.topic}}
+              </div>
+              <div class="ui-g-12">
+                <b>Routing key: </b> {{rowData.routingKey}}
+              </div>
+              <div class="ui-g-12">
+                <b>Log message: </b>
+                <textarea rows="3" cols="50" pInputTextarea [disabled]="true" style="color: black">{{rowData.logMsg}}</textarea>
+              </div>
+              <div class="ui-g-12">
+                <b>Error message: </b>
+                <textarea rows="3" cols="50" pInputTextarea [disabled]="true" style="color: black">{{rowData.errorMsg}}</textarea>
+              </div>
+              <div class="ui-g-12">
+                <b>Error details: </b>
+                <textarea rows="3" cols="50" pInputTextarea [disabled]="true" style="color: black">{{rowData.errorDetails}}</textarea>
+              </div>
+              <div class="ui-g-12">
+                <b>Cache: </b> {{rowData.cache}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>

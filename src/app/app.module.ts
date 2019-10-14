@@ -14,7 +14,7 @@ import {
   MessageModule, MessageService,
   PanelMenuModule,
   PanelModule,
-  TooltipModule, InputSwitchModule, SpinnerModule
+  TooltipModule, InputSwitchModule, SpinnerModule, AccordionModule, CalendarModule
 } from "primeng/primeng";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { AboutComponent } from './about/about.component';
@@ -35,6 +35,7 @@ import { AttributesDictionaryDetailsComponent } from './attributes-dictionary-de
 import { SensorsListComponent } from './sensors-list/sensors-list.component';
 import { SensorDetailComponent } from './sensor-detail/sensor-detail.component';
 import { SensorDetailAttributeDialogComponent } from './sensor-detail-attribute-dialog/sensor-detail-attribute-dialog.component';
+import { EventsloggerComponent } from './eventslogger/eventslogger.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { SensorDetailAttributeDialogComponent } from './sensor-detail-attribute-
     AttributesDictionaryDetailsComponent,
     SensorsListComponent,
     SensorDetailComponent,
-    SensorDetailAttributeDialogComponent
+    SensorDetailAttributeDialogComponent,
+    EventsloggerComponent
   ],
   imports: [
     BrowserModule,
@@ -73,7 +75,9 @@ import { SensorDetailAttributeDialogComponent } from './sensor-detail-attribute-
     ReactiveFormsModule,
     DropdownModule,
     InputSwitchModule,
-    SpinnerModule
+    SpinnerModule,
+    AccordionModule,
+    CalendarModule
   ],
   providers: [MessageService,
     SensorTypesService,
