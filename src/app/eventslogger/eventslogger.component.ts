@@ -85,7 +85,7 @@ export class EventsloggerComponent implements OnInit {
 
   getFormattedValue(field, value): string{
     if(field === 'publishedOn' || field === null) {
-      return new Date(value).toUTCString()
+      return new Date(value).toLocaleString();
     }
     return value;
   }

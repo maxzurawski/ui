@@ -1259,7 +1259,7 @@ let EventsloggerComponent = class EventsloggerComponent {
     }
     getFormattedValue(field, value) {
         if (field === 'publishedOn' || field === null) {
-            return new Date(value).toUTCString();
+            return new Date(value).toLocaleString();
         }
         return value;
     }
