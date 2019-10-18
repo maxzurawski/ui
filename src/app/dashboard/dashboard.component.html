@@ -1,0 +1,6 @@
+<div class="ui-g" *ngIf="sensors">
+  <div class="ui-g-4" *ngFor="let item of sensors">
+    <app-temperature-sensor [temperatureSensor]="item"></app-temperature-sensor>
+  </div>
+
+</div>

@@ -8,6 +8,7 @@ import {AttributesDictionaryDetailsComponent} from "./attributes-dictionary-deta
 import {SensorsListComponent} from "./sensors-list/sensors-list.component";
 import {SensorDetailComponent} from "./sensor-detail/sensor-detail.component";
 import {EventsloggerComponent} from "./eventslogger/eventslogger.component";
+import {DashboardComponent} from "./dashboard/dashboard.component";
 
 const routes: Routes = [
   { path:'', component: AboutComponent},
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'sensors', component: SensorsListComponent},
   { path: 'sensors/:id', component: SensorDetailComponent},
   { path: 'eventslogger', component: EventsloggerComponent},
+  { path: 'dashboard', component: DashboardComponent},
   { path:'about', component: AboutComponent}
 ];
 

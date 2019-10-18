@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Sensor} from '../model/Sensor';
+import {CachedSensor} from "../model/CachedSensor";
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +10,7 @@ import {Sensor} from '../model/Sensor';
 export class SensorsService {
 
   private readonly API_SUFFIX: string  = '/api/register/sensors/';
+  private readonly API_CACHED_SENSORS_SUFFIX: string = '/api/register/cachesensors/';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -30,6 +32,10 @@ export class SensorsService {
 
   public save(sensor: Sensor): Observable<Sensor> {
     return this.httpClient.post<Sensor>(this.API_SUFFIX, sensor);
+  }
+
+  public getCacheSensors(): Observable<CachedSensor[]> {
+    return this.httpClient.get<CachedSensor[]>(this.API_CACHED_SENSORS_SUFFIX);
   }
 
 }

@@ -2,7 +2,8 @@ import * as fromSensorTypes from './sensortypes.reducer';
 import * as fromAttributes from './attributes.reducer';
 import * as fromSensors from './sensors.reducer';
 import * as fromAttributesDialog from './attributesdialog.reducer';
-
+import * as fromCachedSensors from './cachedsensors.reducer';
+import * as fromTemperatureSensor from './temperature.reducer';
 
 import {ActionReducerMap, createSelector} from '@ngrx/store';
 
@@ -11,6 +12,8 @@ export interface State {
   attributes: fromAttributes.AttributesState;
   sensors: fromSensors.SensorsState;
   sensorsAttributesDialog: fromAttributesDialog.AttributesDialogState;
+  cachedSensors: fromCachedSensors.CachedSensorsState;
+  temperatureSensors: fromTemperatureSensor.TemperatureSensorState;
 }
 
 export const reducers: ActionReducerMap<State> = {
@@ -18,6 +21,8 @@ export const reducers: ActionReducerMap<State> = {
   attributes: fromAttributes.attributesReducer,
   sensors: fromSensors.sensorsReducer,
   sensorsAttributesDialog: fromAttributesDialog.attributesDialogReducer,
+  cachedSensors: fromCachedSensors.cachedSensorsReducer,
+  temperatureSensors: fromTemperatureSensor.temperatureSensorReducer
 };
 
 // NOTE: SensortypesState and selectors
@@ -58,3 +63,15 @@ export const getAttributesDialogMode = createSelector(getSensorAttributesDialogS
 export const getSensorAttribute = createSelector(getSensorAttributesDialogState, fromAttributesDialog.getSensorAttribute);
 export const getSensorAttributeAfterUpdate = createSelector(getSensorAttributesDialogState,
   fromAttributesDialog.getSensorAttributeAfterUpdate);
+
+// NOTE: Cached Sensors
+export const getCachedSensorsState = (state: State) => state.cachedSensors;
+export const getCachedSensors = createSelector(getCachedSensorsState, fromCachedSensors.getCachedSensors);
+export const getLoaded = createSelector(getCachedSensorsState, fromCachedSensors.getLoaded);
+
+// NOTE: Temperature Sensors
+export const getTemperatureSensorsState = (state: State) => state.temperatureSensors;
+export const getLastFoundTemperatureMeasurementsByUuid = createSelector(getTemperatureSensorsState,
+  (state, props) => state.lastFindItems[props.uuid]);
+export const getTemperatureMeasurementsLoaded = createSelector(getTemperatureSensorsState, fromTemperatureSensor.isLoaded);
+export const getTempMeasurements = createSelector(getTemperatureSensorsState, fromTemperatureSensor.getTempMeasurements);
