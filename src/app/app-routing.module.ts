@@ -9,6 +9,7 @@ import {SensorsListComponent} from "./sensors-list/sensors-list.component";
 import {SensorDetailComponent} from "./sensor-detail/sensor-detail.component";
 import {EventsloggerComponent} from "./eventslogger/eventslogger.component";
 import {DashboardComponent} from "./dashboard/dashboard.component";
+import {TemperatureDetailsComponent} from "./temperature-details/temperature-details.component";
 
 const routes: Routes = [
   { path:'', component: AboutComponent},
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'sensors/:id', component: SensorDetailComponent},
   { path: 'eventslogger', component: EventsloggerComponent},
   { path: 'dashboard', component: DashboardComponent},
+  { path: 'temperature-details/:uuid', component: TemperatureDetailsComponent},
   { path:'about', component: AboutComponent}
 ];
 

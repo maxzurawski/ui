@@ -1,0 +1,55 @@
+<p>
+  Measurements of {{nameOfSensor}}
+</p>
+
+<p>
+  <button pButton class="ui-button-info" type="button" label="Last month" [disabled]="customSearch" (click)="onLastMonth()"></button>
+  |
+  <button pButton class="ui-button-info" type="button" label="Last week" [disabled]="customSearch" (click)="onLastWeek()"></button>
+  |
+  <button pButton class="ui-button-info" type="button" label="Yesterday" [disabled]="customSearch" (click)="onYesterday()"></button>
+  |
+  <button pButton class="ui-button-info" type="button" label="Today" [disabled]="customSearch" (click)="onToday()"></button>
+  |
+  <p-toggleButton [(ngModel)]="customSearch" onLabel="Custom search on" offLabel="Custom search off" [style]="{'width':'150px'}" (click)="customSearchClicked()"></p-toggleButton>
+
+</p>
+
+<div *ngIf="customSearch">
+  <form [formGroup]="model">
+    <div class="general-top-panel-container">
+      <p-panel header="Searching criteria" >
+        <div class="ui-grid-row">
+          <div class="ui-grid-col-2">
+            Reported at from:
+          </div>
+          <div class="ui-grid-col-6">
+            <p-calendar [showTime]="true" dateFormat="yy-mm-dd" placeholder="Enter date" formControlName="reportedAtFrom"></p-calendar>
+          </div>
+        </div>
+        <br/>
+        <div class="ui-grid-row">
+          <div class="ui-grid-col-2">
+            Reported at to:
+          </div>
+          <div class="ui-grid-col-6">
+            <p-calendar [showTime]="true" dateFormat="yy-mm-dd" placeholder="Enter date" formControlName="reportedAtTo"></p-calendar>
+          </div>
+        </div>
+        <p-footer>
+          <button pButton class="ui-button-info" type="button" label="Reset" (click)="resetSearchForm()"></button>&nbsp;
+          <button pButton class="ui-button-warning" type="button" label="Search" [disabled]="canSearchWithCriteria()" (click)="onSubmit()"></button>&nbsp;
+        </p-footer>
+      </p-panel>
+    </div>
+  </form>
+</div>
+
+<br/>
+
+<p-chart type="line" [data]="data" [options]="options"  width="1200px" height="500px" [responsive]="false"></p-chart>
+
+<br/>
+<p>
+  <button pButton class="ui-button-info" type="button" label="Back" (click)="onBack()"></button>
+</p>

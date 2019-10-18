@@ -8,13 +8,23 @@ import { PanelMenuComponent } from './panel-menu/panel-menu.component';
 import { FooterComponent } from './footer/footer.component';
 import {
   ButtonModule,
-  DialogModule, InputTextareaModule, InputTextModule,
+  DialogModule,
+  InputTextareaModule,
+  InputTextModule,
   MenuModule,
   DropdownModule,
-  MessageModule, MessageService,
+  MessageModule,
+  MessageService,
   PanelMenuModule,
   PanelModule,
-  TooltipModule, InputSwitchModule, SpinnerModule, AccordionModule, CalendarModule, ChartModule, CardModule
+  TooltipModule,
+  InputSwitchModule,
+  SpinnerModule,
+  AccordionModule,
+  CalendarModule,
+  ChartModule,
+  CardModule,
+  ToggleButtonModule
 } from "primeng/primeng";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { AboutComponent } from './about/about.component';
@@ -38,6 +48,7 @@ import { SensorDetailAttributeDialogComponent } from './sensor-detail-attribute-
 import { EventsloggerComponent } from './eventslogger/eventslogger.component';
 import { TemperatureSensorComponent } from './temperature-sensor/temperature-sensor.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { TemperatureDetailsComponent } from './temperature-details/temperature-details.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +66,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     SensorDetailAttributeDialogComponent,
     EventsloggerComponent,
     TemperatureSensorComponent,
-    DashboardComponent
+    DashboardComponent,
+    TemperatureDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -83,7 +95,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     AccordionModule,
     CalendarModule,
     ChartModule,
-    CardModule
+    CardModule,
+    ToggleButtonModule
   ],
   providers: [MessageService,
     SensorTypesService,
