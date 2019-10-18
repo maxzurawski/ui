@@ -338,6 +338,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/dashboard/dashboard.component.html":
+/*!******************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/dashboard/dashboard.component.html ***!
+  \******************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"ui-g\" *ngIf=\"sensors\">\n  <div class=\"ui-g-4\" *ngFor=\"let item of sensors\">\n    <app-temperature-sensor [temperatureSensor]=\"item\"></app-temperature-sensor>\n  </div>\n\n</div>\n");
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/eventslogger/eventslogger.component.html":
 /*!************************************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/eventslogger/eventslogger.component.html ***!
@@ -452,6 +465,32 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ("<p-toast [style]=\"{marginTop: '80px', width: '350px'}\"></p-toast>\n\n<p-panel header=\"Sensor types definitions\">\n  <p-table [columns]=\"cols\" [value]=\"sensorTypes$ | async\" [rowHover]=\"true\">\n    <ng-template pTemplate=\"header\" let-columns>\n      <tr>\n        <th *ngFor=\"let col of columns\">\n          {{col.header}}\n        </th>\n      </tr>\n    </ng-template>\n\n    <ng-template pTemplate=\"body\" let-rowData let-columns=\"columns\">\n      <tr [pSelectableRow]=\"rowData\">\n        <td *ngFor=\"let col of columns\" (click)=\"onRowSelected(rowData)\">\n          {{rowData[col.field]}}\n        </td>\n      </tr>\n    </ng-template>\n\n  </p-table>\n\n  <p-footer>\n    <button pButton class=\"ui-button-info\" type=\"button\" (click)=\"onCreateNew()\" label=\"New\"></button>\n  </p-footer>\n</p-panel>\n");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/temperature-details/temperature-details.component.html":
+/*!**************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/temperature-details/temperature-details.component.html ***!
+  \**************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<p>\n  Measurements of {{nameOfSensor}}\n</p>\n\n<p>\n  <button pButton class=\"ui-button-info\" type=\"button\" label=\"Last month\" [disabled]=\"customSearch\" (click)=\"onLastMonth()\"></button>\n  |\n  <button pButton class=\"ui-button-info\" type=\"button\" label=\"Last week\" [disabled]=\"customSearch\" (click)=\"onLastWeek()\"></button>\n  |\n  <button pButton class=\"ui-button-info\" type=\"button\" label=\"Yesterday\" [disabled]=\"customSearch\" (click)=\"onYesterday()\"></button>\n  |\n  <button pButton class=\"ui-button-info\" type=\"button\" label=\"Today\" [disabled]=\"customSearch\" (click)=\"onToday()\"></button>\n  |\n  <p-toggleButton [(ngModel)]=\"customSearch\" onLabel=\"Custom search on\" offLabel=\"Custom search off\" [style]=\"{'width':'150px'}\" (click)=\"customSearchClicked()\"></p-toggleButton>\n\n</p>\n\n<div *ngIf=\"customSearch\">\n  <form [formGroup]=\"model\">\n    <div class=\"general-top-panel-container\">\n      <p-panel header=\"Searching criteria\" >\n        <div class=\"ui-grid-row\">\n          <div class=\"ui-grid-col-2\">\n            Reported at from:\n          </div>\n          <div class=\"ui-grid-col-6\">\n            <p-calendar [showTime]=\"true\" dateFormat=\"yy-mm-dd\" placeholder=\"Enter date\" formControlName=\"reportedAtFrom\"></p-calendar>\n          </div>\n        </div>\n        <br/>\n        <div class=\"ui-grid-row\">\n          <div class=\"ui-grid-col-2\">\n            Reported at to:\n          </div>\n          <div class=\"ui-grid-col-6\">\n            <p-calendar [showTime]=\"true\" dateFormat=\"yy-mm-dd\" placeholder=\"Enter date\" formControlName=\"reportedAtTo\"></p-calendar>\n          </div>\n        </div>\n        <p-footer>\n          <button pButton class=\"ui-button-info\" type=\"button\" label=\"Reset\" (click)=\"resetSearchForm()\"></button>&nbsp;\n          <button pButton class=\"ui-button-warning\" type=\"button\" label=\"Search\" [disabled]=\"canSearchWithCriteria()\" (click)=\"onSubmit()\"></button>&nbsp;\n        </p-footer>\n      </p-panel>\n    </div>\n  </form>\n</div>\n\n<br/>\n\n<p-chart type=\"line\" [data]=\"data\" [options]=\"options\"  width=\"1200px\" height=\"500px\" [responsive]=\"false\"></p-chart>\n\n<br/>\n<p>\n  <button pButton class=\"ui-button-info\" type=\"button\" label=\"Back\" (click)=\"onBack()\"></button>\n</p>\n");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/temperature-sensor/temperature-sensor.component.html":
+/*!************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/temperature-sensor/temperature-sensor.component.html ***!
+  \************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<p-card header=\"{{temperatureSensor.name}}\" subheader=\"{{temperatureSensor.type}}\" [style]=\"{width: '300px', height: '500px'}\" styleClass=\"ui-card-shadow\">\n  <p-header *ngIf=\"measurements && measurements.length > 0\" [ngStyle]=\"{'text-align': 'center'}\">\n    <h1 [ngStyle]=\"{'color': getColorForCrossedAcceptableValues(measurements[0])}\">{{measurements[0].value}} °C </h1>\n  </p-header>\n  {{temperatureSensor.description}}\n  <p-footer>\n    <p-chart type=\"bar\" [data]=\"data\" [options]=\"options\" width=\"260px\" height=\"250px\" [responsive]=\"false\"></p-chart>\n\n    Date:<b> {{getDate()}} </b><br/>\n\n    <button pButton class=\"ui-button-info\" type=\"button\" label=\"Details\" (click)=\"toDetails(temperatureSensor.uuid)\"></button>\n  </p-footer>\n</p-card>\n");
 
 /***/ }),
 
@@ -774,6 +813,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _sensors_list_sensors_list_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./sensors-list/sensors-list.component */ "./src/app/sensors-list/sensors-list.component.ts");
 /* harmony import */ var _sensor_detail_sensor_detail_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./sensor-detail/sensor-detail.component */ "./src/app/sensor-detail/sensor-detail.component.ts");
 /* harmony import */ var _eventslogger_eventslogger_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./eventslogger/eventslogger.component */ "./src/app/eventslogger/eventslogger.component.ts");
+/* harmony import */ var _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./dashboard/dashboard.component */ "./src/app/dashboard/dashboard.component.ts");
+/* harmony import */ var _temperature_details_temperature_details_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./temperature-details/temperature-details.component */ "./src/app/temperature-details/temperature-details.component.ts");
+
+
 
 
 
@@ -794,6 +837,8 @@ const routes = [
     { path: 'sensors', component: _sensors_list_sensors_list_component__WEBPACK_IMPORTED_MODULE_8__["SensorsListComponent"] },
     { path: 'sensors/:id', component: _sensor_detail_sensor_detail_component__WEBPACK_IMPORTED_MODULE_9__["SensorDetailComponent"] },
     { path: 'eventslogger', component: _eventslogger_eventslogger_component__WEBPACK_IMPORTED_MODULE_10__["EventsloggerComponent"] },
+    { path: 'dashboard', component: _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_11__["DashboardComponent"] },
+    { path: 'temperature-details/:uuid', component: _temperature_details_temperature_details_component__WEBPACK_IMPORTED_MODULE_12__["TemperatureDetailsComponent"] },
     { path: 'about', component: _about_about_component__WEBPACK_IMPORTED_MODULE_3__["AboutComponent"] }
 ];
 let AppRoutingModule = class AppRoutingModule {
@@ -895,6 +940,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _sensor_detail_sensor_detail_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./sensor-detail/sensor-detail.component */ "./src/app/sensor-detail/sensor-detail.component.ts");
 /* harmony import */ var _sensor_detail_attribute_dialog_sensor_detail_attribute_dialog_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./sensor-detail-attribute-dialog/sensor-detail-attribute-dialog.component */ "./src/app/sensor-detail-attribute-dialog/sensor-detail-attribute-dialog.component.ts");
 /* harmony import */ var _eventslogger_eventslogger_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./eventslogger/eventslogger.component */ "./src/app/eventslogger/eventslogger.component.ts");
+/* harmony import */ var _temperature_sensor_temperature_sensor_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./temperature-sensor/temperature-sensor.component */ "./src/app/temperature-sensor/temperature-sensor.component.ts");
+/* harmony import */ var _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./dashboard/dashboard.component */ "./src/app/dashboard/dashboard.component.ts");
+/* harmony import */ var _temperature_details_temperature_details_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./temperature-details/temperature-details.component */ "./src/app/temperature-details/temperature-details.component.ts");
+
+
+
 
 
 
@@ -941,7 +992,10 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _sensors_list_sensors_list_component__WEBPACK_IMPORTED_MODULE_25__["SensorsListComponent"],
             _sensor_detail_sensor_detail_component__WEBPACK_IMPORTED_MODULE_26__["SensorDetailComponent"],
             _sensor_detail_attribute_dialog_sensor_detail_attribute_dialog_component__WEBPACK_IMPORTED_MODULE_27__["SensorDetailAttributeDialogComponent"],
-            _eventslogger_eventslogger_component__WEBPACK_IMPORTED_MODULE_28__["EventsloggerComponent"]
+            _eventslogger_eventslogger_component__WEBPACK_IMPORTED_MODULE_28__["EventsloggerComponent"],
+            _temperature_sensor_temperature_sensor_component__WEBPACK_IMPORTED_MODULE_29__["TemperatureSensorComponent"],
+            _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_30__["DashboardComponent"],
+            _temperature_details_temperature_details_component__WEBPACK_IMPORTED_MODULE_31__["TemperatureDetailsComponent"]
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
@@ -967,7 +1021,10 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             primeng_primeng__WEBPACK_IMPORTED_MODULE_8__["InputSwitchModule"],
             primeng_primeng__WEBPACK_IMPORTED_MODULE_8__["SpinnerModule"],
             primeng_primeng__WEBPACK_IMPORTED_MODULE_8__["AccordionModule"],
-            primeng_primeng__WEBPACK_IMPORTED_MODULE_8__["CalendarModule"]
+            primeng_primeng__WEBPACK_IMPORTED_MODULE_8__["CalendarModule"],
+            primeng_primeng__WEBPACK_IMPORTED_MODULE_8__["ChartModule"],
+            primeng_primeng__WEBPACK_IMPORTED_MODULE_8__["CardModule"],
+            primeng_primeng__WEBPACK_IMPORTED_MODULE_8__["ToggleButtonModule"]
         ],
         providers: [primeng_primeng__WEBPACK_IMPORTED_MODULE_8__["MessageService"],
             _service_sensor_types_service__WEBPACK_IMPORTED_MODULE_21__["SensorTypesService"],
@@ -1167,6 +1224,116 @@ var ComponentsMode;
     ComponentsMode[ComponentsMode["New"] = 0] = "New";
     ComponentsMode[ComponentsMode["Edit"] = 1] = "Edit";
 })(ComponentsMode || (ComponentsMode = {}));
+
+
+/***/ }),
+
+/***/ "./src/app/dashboard/dashboard.component.css":
+/*!***************************************************!*\
+  !*** ./src/app/dashboard/dashboard.component.css ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2Rhc2hib2FyZC9kYXNoYm9hcmQuY29tcG9uZW50LmNzcyJ9 */");
+
+/***/ }),
+
+/***/ "./src/app/dashboard/dashboard.component.ts":
+/*!**************************************************!*\
+  !*** ./src/app/dashboard/dashboard.component.ts ***!
+  \**************************************************/
+/*! exports provided: DashboardComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DashboardComponent", function() { return DashboardComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _service_services_resolver_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../service/services-resolver.service */ "./src/app/service/services-resolver.service.ts");
+/* harmony import */ var _service_web_socket_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../service/web-socket.service */ "./src/app/service/web-socket.service.ts");
+/* harmony import */ var _service_temperature_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../service/temperature.service */ "./src/app/service/temperature.service.ts");
+/* harmony import */ var _ngrx_store__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ngrx/store */ "./node_modules/@ngrx/store/fesm2015/store.js");
+/* harmony import */ var _store_reducers__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../store/reducers */ "./src/app/store/reducers/index.ts");
+/* harmony import */ var _store_actions_index__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../store/actions/index */ "./src/app/store/actions/index.ts");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../environments/environment */ "./src/environments/environment.ts");
+
+
+
+
+
+
+
+
+
+let DashboardComponent = class DashboardComponent {
+    constructor(servicesResolver, webSocketService, temperatureService, store) {
+        this.servicesResolver = servicesResolver;
+        this.webSocketService = webSocketService;
+        this.temperatureService = temperatureService;
+        this.store = store;
+        this.store.select(_store_reducers__WEBPACK_IMPORTED_MODULE_6__["getLoaded"]).subscribe(data => {
+            if (!data) {
+                this.store.dispatch(new _store_actions_index__WEBPACK_IMPORTED_MODULE_7__["LoadCachedSensors"]());
+            }
+        });
+        this.store.select(_store_reducers__WEBPACK_IMPORTED_MODULE_6__["getCachedSensors"]).subscribe(data => {
+            this.sensors = data;
+        });
+        // NOTE: init data from the past (last 10)
+        this.fireLoadTemperatureMeasurements();
+        this.servicesResolver.getAppMetadata("temperaturearchive").subscribe(data => {
+            this.registerUrl = _environments_environment__WEBPACK_IMPORTED_MODULE_8__["environment"].host + ":" + data.port;
+            this.wsSubscription = this.webSocketService.createObservableSocket('ws://' + this.registerUrl + '/ws')
+                .subscribe(data => {
+                let receivedStateRefreshEvent = JSON.parse(data);
+                this.messageFromServer = receivedStateRefreshEvent.source + ' at ' + new Date().toUTCString();
+                // NOTE: update temperature
+                this.fireLoadTemperatureMeasurements();
+                this.webSocketService.sendEventToServer(false);
+            }, error1 => console.log('err' + error1), () => console.log('The observable stream is complete'));
+        });
+    }
+    fireLoadTemperatureMeasurements() {
+        let search = {};
+        search.lastLimited = 5;
+        console.log('firing' + search.lastLimited);
+        this.store.dispatch(new _store_actions_index__WEBPACK_IMPORTED_MODULE_7__["LoadLastLimited"]({ search }));
+        this.store.dispatch(new _store_actions_index__WEBPACK_IMPORTED_MODULE_7__["LoadCachedSensors"]());
+    }
+    ngOnInit() {
+        this.servicesResolver.getAppMetadata("temperaturearchive").subscribe(data => {
+            this.registerUrl = data.ip + ":" + data.port;
+        });
+    }
+    closeSocket() {
+        this.wsSubscription.unsubscribe();
+    }
+    ngOnDestroy() {
+        this.closeSocket();
+    }
+};
+DashboardComponent.ctorParameters = () => [
+    { type: _service_services_resolver_service__WEBPACK_IMPORTED_MODULE_2__["ServicesResolverService"] },
+    { type: _service_web_socket_service__WEBPACK_IMPORTED_MODULE_3__["WebSocketService"] },
+    { type: _service_temperature_service__WEBPACK_IMPORTED_MODULE_4__["TemperatureService"] },
+    { type: _ngrx_store__WEBPACK_IMPORTED_MODULE_5__["Store"] }
+];
+DashboardComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-dashboard',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./dashboard.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/dashboard/dashboard.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./dashboard.component.css */ "./src/app/dashboard/dashboard.component.css")).default]
+    }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_service_services_resolver_service__WEBPACK_IMPORTED_MODULE_2__["ServicesResolverService"],
+        _service_web_socket_service__WEBPACK_IMPORTED_MODULE_3__["WebSocketService"],
+        _service_temperature_service__WEBPACK_IMPORTED_MODULE_4__["TemperatureService"],
+        _ngrx_store__WEBPACK_IMPORTED_MODULE_5__["Store"]])
+], DashboardComponent);
+
 
 
 /***/ }),
@@ -2769,6 +2936,7 @@ let SensorsService = class SensorsService {
     constructor(httpClient) {
         this.httpClient = httpClient;
         this.API_SUFFIX = '/api/register/sensors/';
+        this.API_CACHED_SENSORS_SUFFIX = '/api/register/cachesensors/';
     }
     getAll() {
         return this.httpClient.get(this.API_SUFFIX);
@@ -2785,6 +2953,9 @@ let SensorsService = class SensorsService {
     save(sensor) {
         return this.httpClient.post(this.API_SUFFIX, sensor);
     }
+    getCacheSensors() {
+        return this.httpClient.get(this.API_CACHED_SENSORS_SUFFIX);
+    }
 };
 SensorsService.ctorParameters = () => [
     { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
@@ -2795,6 +2966,168 @@ SensorsService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     }),
     tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
 ], SensorsService);
+
+
+
+/***/ }),
+
+/***/ "./src/app/service/services-resolver.service.ts":
+/*!******************************************************!*\
+  !*** ./src/app/service/services-resolver.service.ts ***!
+  \******************************************************/
+/*! exports provided: ServicesResolverService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ServicesResolverService", function() { return ServicesResolverService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+
+
+
+let ServicesResolverService = class ServicesResolverService {
+    constructor(httpClient) {
+        this.httpClient = httpClient;
+        this.API_SUFFIX = '/api/servicesresolver/';
+    }
+    getAppMetadata(appName) {
+        return this.httpClient.get(this.API_SUFFIX + appName);
+    }
+};
+ServicesResolverService.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
+];
+ServicesResolverService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
+], ServicesResolverService);
+
+
+
+/***/ }),
+
+/***/ "./src/app/service/temperature.service.ts":
+/*!************************************************!*\
+  !*** ./src/app/service/temperature.service.ts ***!
+  \************************************************/
+/*! exports provided: TemperatureService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TemperatureService", function() { return TemperatureService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+
+
+
+let TemperatureService = class TemperatureService {
+    constructor(httpClient) {
+        this.httpClient = httpClient;
+        this.API_SUFFIX = '/api/temperaturearchive/';
+    }
+    findLastLimited(search) {
+        let params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]();
+        if (search) {
+            if (!search.lastLimited) {
+                search.lastLimited = 10;
+            }
+            params = params.set('lastLimited', search.lastLimited.toString());
+            params = params.set('orderDesc', 'true');
+        }
+        return this.httpClient.get(this.API_SUFFIX, { params: params });
+    }
+    findItemsBySearchDto(search) {
+        let params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]();
+        if (search) {
+            if (search.lastLimited) {
+                params = params.set('lastLimited', search.lastLimited.toString());
+            }
+            if (search.uuid) {
+                params = params.set('uuid', search.uuid);
+            }
+            if (search.reportedAtFrom) {
+                params = params.set('reportedAtFrom', search.reportedAtFrom.toISOString());
+            }
+            if (search.reportedAtTo) {
+                params = params.set('reportedAtTo', search.reportedAtTo.toISOString());
+            }
+            if (search.processId) {
+                params = params.set('processId', search.processId);
+            }
+            if (search.valueFrom) {
+                params = params.set('valueFrom', search.valueFrom.toString());
+            }
+            if (search.valueTo) {
+                params = params.set('valueTo', search.valueTo.toString());
+            }
+        }
+        return this.httpClient.get(this.API_SUFFIX, { params: params });
+    }
+};
+TemperatureService.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
+];
+TemperatureService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
+], TemperatureService);
+
+
+
+/***/ }),
+
+/***/ "./src/app/service/web-socket.service.ts":
+/*!***********************************************!*\
+  !*** ./src/app/service/web-socket.service.ts ***!
+  \***********************************************/
+/*! exports provided: WebSocketService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WebSocketService", function() { return WebSocketService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+
+
+
+let WebSocketService = class WebSocketService {
+    constructor() { }
+    createObservableSocket(url) {
+        this.ws = new WebSocket(url);
+        return new rxjs__WEBPACK_IMPORTED_MODULE_2__["Observable"](observer => {
+            this.ws.onopen = (event) => this.sendEventToServer(false);
+            this.ws.onmessage = (event) => observer.next(event.data);
+            this.ws.onerror = (event) => observer.error(event);
+            this.ws.onclose = (event) => observer.complete();
+            return () => {
+                this.sendEventToServer(true);
+                this.ws.close();
+            };
+        });
+    }
+    sendEventToServer(close) {
+        let wsEvent = {};
+        wsEvent.close = close;
+        console.log("sending event: " + JSON.stringify(wsEvent));
+        this.ws.send(JSON.stringify(wsEvent));
+    }
+};
+WebSocketService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+], WebSocketService);
 
 
 
@@ -2916,11 +3249,53 @@ class CloseDialog {
 
 /***/ }),
 
+/***/ "./src/app/store/actions/cachedsensors.actions.ts":
+/*!********************************************************!*\
+  !*** ./src/app/store/actions/cachedsensors.actions.ts ***!
+  \********************************************************/
+/*! exports provided: CachedSensorsActions, LoadCachedSensors, LoadCachedSensorsFailure, LoadCachedSensorsSuccess */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CachedSensorsActions", function() { return CachedSensorsActions; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoadCachedSensors", function() { return LoadCachedSensors; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoadCachedSensorsFailure", function() { return LoadCachedSensorsFailure; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoadCachedSensorsSuccess", function() { return LoadCachedSensorsSuccess; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+
+var CachedSensorsActions;
+(function (CachedSensorsActions) {
+    CachedSensorsActions["LoadCachedSensors"] = "[CachedSensors] load all";
+    CachedSensorsActions["LoadCachedSensorsFailure"] = "[CachedSensors] load failed";
+    CachedSensorsActions["LoadCachedSensorsSuccess"] = "[CachedSensors] load success";
+})(CachedSensorsActions || (CachedSensorsActions = {}));
+class LoadCachedSensors {
+    constructor() {
+        this.type = CachedSensorsActions.LoadCachedSensors;
+    }
+}
+class LoadCachedSensorsFailure {
+    constructor(payload) {
+        this.payload = payload;
+        this.type = CachedSensorsActions.LoadCachedSensorsFailure;
+    }
+}
+class LoadCachedSensorsSuccess {
+    constructor(payload) {
+        this.payload = payload;
+        this.type = CachedSensorsActions.LoadCachedSensorsSuccess;
+    }
+}
+
+
+/***/ }),
+
 /***/ "./src/app/store/actions/index.ts":
 /*!****************************************!*\
   !*** ./src/app/store/actions/index.ts ***!
   \****************************************/
-/*! exports provided: SensorTypesActions, LoadSensorTypesBegin, LoadSensorTypesSuccessful, LoadSensorTypesFailure, UpdateSensorType, UpdateSensorTypeSuccessful, UpdateSensorTypeFailure, DeleteSensorType, DeleteSensorTypeSuccessful, DeleteSensorTypeFailure, SaveSensorType, SaveSensorTypeSuccessful, SaveSensorTypeFailure, AttributeDictionaryActions, LoadAttributesBegin, LoadAttributesSuccessful, LoadAttributesFailure, UpdateAttribute, UpdateAttributeSuccessful, UpdateAttributeFailed, SensorsActions, LoadAllSensors, LoadAllSensorsSuccess, LoadAllSensorsFailure, LoadSingleSensor, LoadSingleSensorSuccess, LoadSingleSensorFailure, DeleteSensor, DeleteSensorSuccess, DeleteSensorFailure, UpdateSensor, UpdateSensorSuccess, UpdateSensorFailure, SaveSensor, SaveSensorSuccess, SaveSensorFailure, UpdateDetailsMode, AttributesDialogActions, OpenDialogToAdd, OpenDialogToUpdate, UpdateSensorAttribute, CloseDialog */
+/*! exports provided: SensorTypesActions, LoadSensorTypesBegin, LoadSensorTypesSuccessful, LoadSensorTypesFailure, UpdateSensorType, UpdateSensorTypeSuccessful, UpdateSensorTypeFailure, DeleteSensorType, DeleteSensorTypeSuccessful, DeleteSensorTypeFailure, SaveSensorType, SaveSensorTypeSuccessful, SaveSensorTypeFailure, AttributeDictionaryActions, LoadAttributesBegin, LoadAttributesSuccessful, LoadAttributesFailure, UpdateAttribute, UpdateAttributeSuccessful, UpdateAttributeFailed, SensorsActions, LoadAllSensors, LoadAllSensorsSuccess, LoadAllSensorsFailure, LoadSingleSensor, LoadSingleSensorSuccess, LoadSingleSensorFailure, DeleteSensor, DeleteSensorSuccess, DeleteSensorFailure, UpdateSensor, UpdateSensorSuccess, UpdateSensorFailure, SaveSensor, SaveSensorSuccess, SaveSensorFailure, UpdateDetailsMode, AttributesDialogActions, OpenDialogToAdd, OpenDialogToUpdate, UpdateSensorAttribute, CloseDialog, CachedSensorsActions, LoadCachedSensors, LoadCachedSensorsFailure, LoadCachedSensorsSuccess, TemperatureSensorActions, LoadLastLimited, LoadLastLimitedSuccess, LoadLastLimitedFailure, LoadSearchItemsAction, LoadSearchItemsSuccessAction, LoadSearchItemsFailureAction, ResetFoundItemsAction */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3013,6 +3388,34 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "UpdateSensorAttribute", function() { return _attributesdialog_actions__WEBPACK_IMPORTED_MODULE_4__["UpdateSensorAttribute"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "CloseDialog", function() { return _attributesdialog_actions__WEBPACK_IMPORTED_MODULE_4__["CloseDialog"]; });
+
+/* harmony import */ var _cachedsensors_actions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./cachedsensors.actions */ "./src/app/store/actions/cachedsensors.actions.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "CachedSensorsActions", function() { return _cachedsensors_actions__WEBPACK_IMPORTED_MODULE_5__["CachedSensorsActions"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "LoadCachedSensors", function() { return _cachedsensors_actions__WEBPACK_IMPORTED_MODULE_5__["LoadCachedSensors"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "LoadCachedSensorsFailure", function() { return _cachedsensors_actions__WEBPACK_IMPORTED_MODULE_5__["LoadCachedSensorsFailure"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "LoadCachedSensorsSuccess", function() { return _cachedsensors_actions__WEBPACK_IMPORTED_MODULE_5__["LoadCachedSensorsSuccess"]; });
+
+/* harmony import */ var _temperature_actions__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./temperature.actions */ "./src/app/store/actions/temperature.actions.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TemperatureSensorActions", function() { return _temperature_actions__WEBPACK_IMPORTED_MODULE_6__["TemperatureSensorActions"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "LoadLastLimited", function() { return _temperature_actions__WEBPACK_IMPORTED_MODULE_6__["LoadLastLimited"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "LoadLastLimitedSuccess", function() { return _temperature_actions__WEBPACK_IMPORTED_MODULE_6__["LoadLastLimitedSuccess"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "LoadLastLimitedFailure", function() { return _temperature_actions__WEBPACK_IMPORTED_MODULE_6__["LoadLastLimitedFailure"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "LoadSearchItemsAction", function() { return _temperature_actions__WEBPACK_IMPORTED_MODULE_6__["LoadSearchItemsAction"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "LoadSearchItemsSuccessAction", function() { return _temperature_actions__WEBPACK_IMPORTED_MODULE_6__["LoadSearchItemsSuccessAction"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "LoadSearchItemsFailureAction", function() { return _temperature_actions__WEBPACK_IMPORTED_MODULE_6__["LoadSearchItemsFailureAction"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ResetFoundItemsAction", function() { return _temperature_actions__WEBPACK_IMPORTED_MODULE_6__["ResetFoundItemsAction"]; });
+
+
 
 
 
@@ -3283,6 +3686,80 @@ class SaveSensorTypeFailure {
 
 /***/ }),
 
+/***/ "./src/app/store/actions/temperature.actions.ts":
+/*!******************************************************!*\
+  !*** ./src/app/store/actions/temperature.actions.ts ***!
+  \******************************************************/
+/*! exports provided: TemperatureSensorActions, LoadLastLimited, LoadLastLimitedSuccess, LoadLastLimitedFailure, LoadSearchItemsAction, LoadSearchItemsSuccessAction, LoadSearchItemsFailureAction, ResetFoundItemsAction */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TemperatureSensorActions", function() { return TemperatureSensorActions; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoadLastLimited", function() { return LoadLastLimited; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoadLastLimitedSuccess", function() { return LoadLastLimitedSuccess; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoadLastLimitedFailure", function() { return LoadLastLimitedFailure; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoadSearchItemsAction", function() { return LoadSearchItemsAction; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoadSearchItemsSuccessAction", function() { return LoadSearchItemsSuccessAction; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoadSearchItemsFailureAction", function() { return LoadSearchItemsFailureAction; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ResetFoundItemsAction", function() { return ResetFoundItemsAction; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+
+var TemperatureSensorActions;
+(function (TemperatureSensorActions) {
+    TemperatureSensorActions["LoadLastLimited"] = "[TemperatureSensor] load last limited";
+    TemperatureSensorActions["LoadLastLimitedSuccess"] = "[TemperatureSensor] load last limited success";
+    TemperatureSensorActions["LoadLastLimitedFailure"] = "[TemperatureSensor] load last limited failure";
+    TemperatureSensorActions["LoadSearchItems"] = "[TemperatureSensor] load search items";
+    TemperatureSensorActions["LoadSearchItemsSuccess"] = "[TemperatureSensor] load search items success";
+    TemperatureSensorActions["LoadSearchItemsFailure"] = "[TemperatureSensor] load search items failure";
+    TemperatureSensorActions["ResetFoundItems"] = "[TemperatureSensor] resetFoundItems";
+})(TemperatureSensorActions || (TemperatureSensorActions = {}));
+class LoadLastLimited {
+    constructor(payload) {
+        this.payload = payload;
+        this.type = TemperatureSensorActions.LoadLastLimited;
+    }
+}
+class LoadLastLimitedSuccess {
+    constructor(payload) {
+        this.payload = payload;
+        this.type = TemperatureSensorActions.LoadLastLimitedSuccess;
+    }
+}
+class LoadLastLimitedFailure {
+    constructor(payload) {
+        this.payload = payload;
+        this.type = TemperatureSensorActions.LoadLastLimitedFailure;
+    }
+}
+class LoadSearchItemsAction {
+    constructor(payload) {
+        this.payload = payload;
+        this.type = TemperatureSensorActions.LoadSearchItems;
+    }
+}
+class LoadSearchItemsSuccessAction {
+    constructor(payload) {
+        this.payload = payload;
+        this.type = TemperatureSensorActions.LoadSearchItemsSuccess;
+    }
+}
+class LoadSearchItemsFailureAction {
+    constructor(payload) {
+        this.payload = payload;
+        this.type = TemperatureSensorActions.LoadSearchItemsFailure;
+    }
+}
+class ResetFoundItemsAction {
+    constructor() {
+        this.type = TemperatureSensorActions.ResetFoundItems;
+    }
+}
+
+
+/***/ }),
+
 /***/ "./src/app/store/effects/attributes.effects.ts":
 /*!*****************************************************!*\
   !*** ./src/app/store/effects/attributes.effects.ts ***!
@@ -3345,6 +3822,61 @@ AttributesEffects = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 /***/ }),
 
+/***/ "./src/app/store/effects/cachedsensors.effects.ts":
+/*!********************************************************!*\
+  !*** ./src/app/store/effects/cachedsensors.effects.ts ***!
+  \********************************************************/
+/*! exports provided: CachedsensorsEffects */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CachedsensorsEffects", function() { return CachedsensorsEffects; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _service_sensors_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../service/sensors.service */ "./src/app/service/sensors.service.ts");
+/* harmony import */ var _ngrx_effects__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ngrx/effects */ "./node_modules/@ngrx/effects/fesm2015/effects.js");
+/* harmony import */ var _actions_index__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../actions/index */ "./src/app/store/actions/index.ts");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+
+
+
+
+
+
+
+let CachedsensorsEffects = class CachedsensorsEffects {
+    constructor(action, service) {
+        this.action = action;
+        this.service = service;
+        this.loadAll = this.action.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["ofType"])(_actions_index__WEBPACK_IMPORTED_MODULE_4__["CachedSensorsActions"].LoadCachedSensors), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["switchMap"])(() => {
+            return this.service.getCacheSensors().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])((data) => {
+                return new _actions_index__WEBPACK_IMPORTED_MODULE_4__["LoadCachedSensorsSuccess"]({ cachedSensors: data });
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["catchError"])(error => {
+                return Object(rxjs__WEBPACK_IMPORTED_MODULE_6__["of"])(new _actions_index__WEBPACK_IMPORTED_MODULE_4__["LoadCachedSensorsFailure"]({ error }));
+            }));
+        }));
+    }
+};
+CachedsensorsEffects.ctorParameters = () => [
+    { type: _ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["Actions"] },
+    { type: _service_sensors_service__WEBPACK_IMPORTED_MODULE_2__["SensorsService"] }
+];
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["Effect"])(),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
+], CachedsensorsEffects.prototype, "loadAll", void 0);
+CachedsensorsEffects = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["Actions"],
+        _service_sensors_service__WEBPACK_IMPORTED_MODULE_2__["SensorsService"]])
+], CachedsensorsEffects);
+
+
+
+/***/ }),
+
 /***/ "./src/app/store/effects/index.ts":
 /*!****************************************!*\
   !*** ./src/app/store/effects/index.ts ***!
@@ -3359,6 +3891,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _sensortypes_effects__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./sensortypes.effects */ "./src/app/store/effects/sensortypes.effects.ts");
 /* harmony import */ var _attributes_effects__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./attributes.effects */ "./src/app/store/effects/attributes.effects.ts");
 /* harmony import */ var _sensors_effects__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./sensors.effects */ "./src/app/store/effects/sensors.effects.ts");
+/* harmony import */ var _cachedsensors_effects__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./cachedsensors.effects */ "./src/app/store/effects/cachedsensors.effects.ts");
+/* harmony import */ var _temperature_effects__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./temperature.effects */ "./src/app/store/effects/temperature.effects.ts");
+
+
 
 
 
@@ -3366,7 +3902,9 @@ __webpack_require__.r(__webpack_exports__);
 const effects = [
     _sensortypes_effects__WEBPACK_IMPORTED_MODULE_1__["SensortypesEffects"],
     _attributes_effects__WEBPACK_IMPORTED_MODULE_2__["AttributesEffects"],
-    _sensors_effects__WEBPACK_IMPORTED_MODULE_3__["SensorsEffects"]
+    _sensors_effects__WEBPACK_IMPORTED_MODULE_3__["SensorsEffects"],
+    _cachedsensors_effects__WEBPACK_IMPORTED_MODULE_4__["CachedsensorsEffects"],
+    _temperature_effects__WEBPACK_IMPORTED_MODULE_5__["TemperatureEffects"]
 ];
 
 
@@ -3563,6 +4101,74 @@ SensortypesEffects = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 /***/ }),
 
+/***/ "./src/app/store/effects/temperature.effects.ts":
+/*!******************************************************!*\
+  !*** ./src/app/store/effects/temperature.effects.ts ***!
+  \******************************************************/
+/*! exports provided: TemperatureEffects */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TemperatureEffects", function() { return TemperatureEffects; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _ngrx_effects__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ngrx/effects */ "./node_modules/@ngrx/effects/fesm2015/effects.js");
+/* harmony import */ var _service_temperature_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../service/temperature.service */ "./src/app/service/temperature.service.ts");
+/* harmony import */ var _actions_index__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../actions/index */ "./src/app/store/actions/index.ts");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+
+
+
+
+
+
+
+let TemperatureEffects = class TemperatureEffects {
+    constructor(actions, service) {
+        this.actions = actions;
+        this.service = service;
+        this.loadLimited = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_actions_index__WEBPACK_IMPORTED_MODULE_4__["TemperatureSensorActions"].LoadLastLimited), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["switchMap"])(({ payload }) => {
+            let search = payload.search;
+            return this.service.findLastLimited(search).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(data => {
+                return new _actions_index__WEBPACK_IMPORTED_MODULE_4__["LoadLastLimitedSuccess"]({ data });
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["catchError"])(error => {
+                return Object(rxjs__WEBPACK_IMPORTED_MODULE_6__["of"])(new _actions_index__WEBPACK_IMPORTED_MODULE_4__["LoadLastLimitedFailure"]({ error }));
+            }));
+        }));
+        this.loadDetailItems = this.actions.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_actions_index__WEBPACK_IMPORTED_MODULE_4__["TemperatureSensorActions"].LoadSearchItems), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["switchMap"])(({ payload }) => {
+            let search = payload.search;
+            return this.service.findItemsBySearchDto(search).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(data => {
+                return new _actions_index__WEBPACK_IMPORTED_MODULE_4__["LoadSearchItemsSuccessAction"]({ data });
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["catchError"])(error => {
+                return Object(rxjs__WEBPACK_IMPORTED_MODULE_6__["of"])(new _actions_index__WEBPACK_IMPORTED_MODULE_4__["LoadSearchItemsFailureAction"]({ error }));
+            }));
+        }));
+    }
+};
+TemperatureEffects.ctorParameters = () => [
+    { type: _ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["Actions"] },
+    { type: _service_temperature_service__WEBPACK_IMPORTED_MODULE_3__["TemperatureService"] }
+];
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["Effect"])(),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
+], TemperatureEffects.prototype, "loadLimited", void 0);
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["Effect"])(),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
+], TemperatureEffects.prototype, "loadDetailItems", void 0);
+TemperatureEffects = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["Actions"],
+        _service_temperature_service__WEBPACK_IMPORTED_MODULE_3__["TemperatureService"]])
+], TemperatureEffects);
+
+
+
+/***/ }),
+
 /***/ "./src/app/store/reducers/attributes.reducer.ts":
 /*!******************************************************!*\
   !*** ./src/app/store/reducers/attributes.reducer.ts ***!
@@ -3675,11 +4281,48 @@ const getSensorAttributeAfterUpdate = (state) => {
 
 /***/ }),
 
+/***/ "./src/app/store/reducers/cachedsensors.reducer.ts":
+/*!*********************************************************!*\
+  !*** ./src/app/store/reducers/cachedsensors.reducer.ts ***!
+  \*********************************************************/
+/*! exports provided: initialState, cachedSensorsReducer, getCachedSensors, getLoaded */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "initialState", function() { return initialState; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cachedSensorsReducer", function() { return cachedSensorsReducer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getCachedSensors", function() { return getCachedSensors; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getLoaded", function() { return getLoaded; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _actions_index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/index */ "./src/app/store/actions/index.ts");
+
+
+const initialState = {
+    items: [],
+    loaded: false
+};
+function cachedSensorsReducer(state = initialState, action) {
+    switch (action.type) {
+        case _actions_index__WEBPACK_IMPORTED_MODULE_1__["CachedSensorsActions"].LoadCachedSensorsSuccess: {
+            return Object.assign({}, state, { items: action.payload.cachedSensors, loaded: true });
+        }
+        default: {
+            return state;
+        }
+    }
+}
+const getCachedSensors = (state) => state.items;
+const getLoaded = (state) => state.loaded;
+
+
+/***/ }),
+
 /***/ "./src/app/store/reducers/index.ts":
 /*!*****************************************!*\
   !*** ./src/app/store/reducers/index.ts ***!
   \*****************************************/
-/*! exports provided: reducers, getSensortypesState, getAllSensorTypes, getSensorTypesLoaded, getSingleSensorType, getAttributesState, getAllAttributes, getAttributesLoaded, getSingleAttribute, getSensorsState, getAllSensors, getSensorsLoaded, getAmountOfSensorsWhichUseSensorType, getSingleSensor, getUuids, getSensorDetailsMode, getSensorAttributesDialogState, getAttributesDialogOpened, getSensorsAttributes, getAttributesDialogMode, getSensorAttribute, getSensorAttributeAfterUpdate */
+/*! exports provided: reducers, getSensortypesState, getAllSensorTypes, getSensorTypesLoaded, getSingleSensorType, getAttributesState, getAllAttributes, getAttributesLoaded, getSingleAttribute, getSensorsState, getAllSensors, getSensorsLoaded, getAmountOfSensorsWhichUseSensorType, getSingleSensor, getUuids, getSensorDetailsMode, getSensorAttributesDialogState, getAttributesDialogOpened, getSensorsAttributes, getAttributesDialogMode, getSensorAttribute, getSensorAttributeAfterUpdate, getCachedSensorsState, getCachedSensors, getLoaded, getTemperatureSensorsState, getLastFoundTemperatureMeasurementsByUuid, getTemperatureMeasurementsLoaded, getTempMeasurements */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3706,12 +4349,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getAttributesDialogMode", function() { return getAttributesDialogMode; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getSensorAttribute", function() { return getSensorAttribute; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getSensorAttributeAfterUpdate", function() { return getSensorAttributeAfterUpdate; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getCachedSensorsState", function() { return getCachedSensorsState; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getCachedSensors", function() { return getCachedSensors; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getLoaded", function() { return getLoaded; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getTemperatureSensorsState", function() { return getTemperatureSensorsState; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getLastFoundTemperatureMeasurementsByUuid", function() { return getLastFoundTemperatureMeasurementsByUuid; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getTemperatureMeasurementsLoaded", function() { return getTemperatureMeasurementsLoaded; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getTempMeasurements", function() { return getTempMeasurements; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _sensortypes_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./sensortypes.reducer */ "./src/app/store/reducers/sensortypes.reducer.ts");
 /* harmony import */ var _attributes_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./attributes.reducer */ "./src/app/store/reducers/attributes.reducer.ts");
 /* harmony import */ var _sensors_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./sensors.reducer */ "./src/app/store/reducers/sensors.reducer.ts");
 /* harmony import */ var _attributesdialog_reducer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./attributesdialog.reducer */ "./src/app/store/reducers/attributesdialog.reducer.ts");
-/* harmony import */ var _ngrx_store__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ngrx/store */ "./node_modules/@ngrx/store/fesm2015/store.js");
+/* harmony import */ var _cachedsensors_reducer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./cachedsensors.reducer */ "./src/app/store/reducers/cachedsensors.reducer.ts");
+/* harmony import */ var _temperature_reducer__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./temperature.reducer */ "./src/app/store/reducers/temperature.reducer.ts");
+/* harmony import */ var _ngrx_store__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @ngrx/store */ "./node_modules/@ngrx/store/fesm2015/store.js");
+
+
 
 
 
@@ -3723,37 +4377,48 @@ const reducers = {
     attributes: _attributes_reducer__WEBPACK_IMPORTED_MODULE_2__["attributesReducer"],
     sensors: _sensors_reducer__WEBPACK_IMPORTED_MODULE_3__["sensorsReducer"],
     sensorsAttributesDialog: _attributesdialog_reducer__WEBPACK_IMPORTED_MODULE_4__["attributesDialogReducer"],
+    cachedSensors: _cachedsensors_reducer__WEBPACK_IMPORTED_MODULE_5__["cachedSensorsReducer"],
+    temperatureSensors: _temperature_reducer__WEBPACK_IMPORTED_MODULE_6__["temperatureSensorReducer"]
 };
 // NOTE: SensortypesState and selectors
 const getSensortypesState = (state) => state.sensortypes;
-const getAllSensorTypes = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_5__["createSelector"])(getSensortypesState, _sensortypes_reducer__WEBPACK_IMPORTED_MODULE_1__["getSensorTypeItems"]);
-const getSensorTypesLoaded = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_5__["createSelector"])(getSensortypesState, _sensortypes_reducer__WEBPACK_IMPORTED_MODULE_1__["getHasLoaded"]);
-const getSingleSensorType = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_5__["createSelector"])(getSensortypesState, (sensortypes, props) => sensortypes.sensortypes.find(obj => obj.id === props.id));
+const getAllSensorTypes = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_7__["createSelector"])(getSensortypesState, _sensortypes_reducer__WEBPACK_IMPORTED_MODULE_1__["getSensorTypeItems"]);
+const getSensorTypesLoaded = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_7__["createSelector"])(getSensortypesState, _sensortypes_reducer__WEBPACK_IMPORTED_MODULE_1__["getHasLoaded"]);
+const getSingleSensorType = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_7__["createSelector"])(getSensortypesState, (sensortypes, props) => sensortypes.sensortypes.find(obj => obj.id === props.id));
 // NOTE: AttributesState and selectors
 const getAttributesState = (state) => state.attributes;
-const getAllAttributes = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_5__["createSelector"])(getAttributesState, _attributes_reducer__WEBPACK_IMPORTED_MODULE_2__["getAttributes"]);
-const getAttributesLoaded = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_5__["createSelector"])(getAttributesState, _attributes_reducer__WEBPACK_IMPORTED_MODULE_2__["getHasLoaded"]);
-const getSingleAttribute = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_5__["createSelector"])(getAttributesState, (attributes, props) => attributes.items.find(obj => obj.symbol === props.symbol));
+const getAllAttributes = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_7__["createSelector"])(getAttributesState, _attributes_reducer__WEBPACK_IMPORTED_MODULE_2__["getAttributes"]);
+const getAttributesLoaded = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_7__["createSelector"])(getAttributesState, _attributes_reducer__WEBPACK_IMPORTED_MODULE_2__["getHasLoaded"]);
+const getSingleAttribute = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_7__["createSelector"])(getAttributesState, (attributes, props) => attributes.items.find(obj => obj.symbol === props.symbol));
 // NOTE: SensorsState and selectors
 const getSensorsState = (state) => state.sensors;
-const getAllSensors = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_5__["createSelector"])(getSensorsState, _sensors_reducer__WEBPACK_IMPORTED_MODULE_3__["getAllItems"]);
-const getSensorsLoaded = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_5__["createSelector"])(getSensorsState, _sensors_reducer__WEBPACK_IMPORTED_MODULE_3__["getHasLoaded"]);
-const getAmountOfSensorsWhichUseSensorType = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_5__["createSelector"])(getSensorsState, (sensors, props) => {
+const getAllSensors = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_7__["createSelector"])(getSensorsState, _sensors_reducer__WEBPACK_IMPORTED_MODULE_3__["getAllItems"]);
+const getSensorsLoaded = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_7__["createSelector"])(getSensorsState, _sensors_reducer__WEBPACK_IMPORTED_MODULE_3__["getHasLoaded"]);
+const getAmountOfSensorsWhichUseSensorType = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_7__["createSelector"])(getSensorsState, (sensors, props) => {
     if (sensors !== undefined || sensors.items !== undefined || sensors.items !== null || sensors.items.length !== 0) {
         return sensors.items.filter(obj => obj.type === props.sensortype).length;
     }
     return 0;
 });
-const getSingleSensor = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_5__["createSelector"])(getSensorsState, (sensors, props) => sensors.items.find(obj => obj.id === props.id));
-const getUuids = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_5__["createSelector"])(getSensorsState, _sensors_reducer__WEBPACK_IMPORTED_MODULE_3__["getUuids"]);
-const getSensorDetailsMode = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_5__["createSelector"])(getSensorsState, _sensors_reducer__WEBPACK_IMPORTED_MODULE_3__["getSensorDetailsMode"]);
+const getSingleSensor = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_7__["createSelector"])(getSensorsState, (sensors, props) => sensors.items.find(obj => obj.id === props.id));
+const getUuids = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_7__["createSelector"])(getSensorsState, _sensors_reducer__WEBPACK_IMPORTED_MODULE_3__["getUuids"]);
+const getSensorDetailsMode = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_7__["createSelector"])(getSensorsState, _sensors_reducer__WEBPACK_IMPORTED_MODULE_3__["getSensorDetailsMode"]);
 // SensorAttributes dialog
 const getSensorAttributesDialogState = (state) => state.sensorsAttributesDialog;
-const getAttributesDialogOpened = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_5__["createSelector"])(getSensorAttributesDialogState, _attributesdialog_reducer__WEBPACK_IMPORTED_MODULE_4__["getAttributesDialogOpened"]);
-const getSensorsAttributes = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_5__["createSelector"])(getSensorAttributesDialogState, _attributesdialog_reducer__WEBPACK_IMPORTED_MODULE_4__["getSensorsAttributes"]);
-const getAttributesDialogMode = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_5__["createSelector"])(getSensorAttributesDialogState, _attributesdialog_reducer__WEBPACK_IMPORTED_MODULE_4__["getAttributesDialogMode"]);
-const getSensorAttribute = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_5__["createSelector"])(getSensorAttributesDialogState, _attributesdialog_reducer__WEBPACK_IMPORTED_MODULE_4__["getSensorAttribute"]);
-const getSensorAttributeAfterUpdate = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_5__["createSelector"])(getSensorAttributesDialogState, _attributesdialog_reducer__WEBPACK_IMPORTED_MODULE_4__["getSensorAttributeAfterUpdate"]);
+const getAttributesDialogOpened = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_7__["createSelector"])(getSensorAttributesDialogState, _attributesdialog_reducer__WEBPACK_IMPORTED_MODULE_4__["getAttributesDialogOpened"]);
+const getSensorsAttributes = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_7__["createSelector"])(getSensorAttributesDialogState, _attributesdialog_reducer__WEBPACK_IMPORTED_MODULE_4__["getSensorsAttributes"]);
+const getAttributesDialogMode = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_7__["createSelector"])(getSensorAttributesDialogState, _attributesdialog_reducer__WEBPACK_IMPORTED_MODULE_4__["getAttributesDialogMode"]);
+const getSensorAttribute = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_7__["createSelector"])(getSensorAttributesDialogState, _attributesdialog_reducer__WEBPACK_IMPORTED_MODULE_4__["getSensorAttribute"]);
+const getSensorAttributeAfterUpdate = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_7__["createSelector"])(getSensorAttributesDialogState, _attributesdialog_reducer__WEBPACK_IMPORTED_MODULE_4__["getSensorAttributeAfterUpdate"]);
+// NOTE: Cached Sensors
+const getCachedSensorsState = (state) => state.cachedSensors;
+const getCachedSensors = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_7__["createSelector"])(getCachedSensorsState, _cachedsensors_reducer__WEBPACK_IMPORTED_MODULE_5__["getCachedSensors"]);
+const getLoaded = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_7__["createSelector"])(getCachedSensorsState, _cachedsensors_reducer__WEBPACK_IMPORTED_MODULE_5__["getLoaded"]);
+// NOTE: Temperature Sensors
+const getTemperatureSensorsState = (state) => state.temperatureSensors;
+const getLastFoundTemperatureMeasurementsByUuid = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_7__["createSelector"])(getTemperatureSensorsState, (state, props) => state.lastFindItems[props.uuid]);
+const getTemperatureMeasurementsLoaded = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_7__["createSelector"])(getTemperatureSensorsState, _temperature_reducer__WEBPACK_IMPORTED_MODULE_6__["isLoaded"]);
+const getTempMeasurements = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_7__["createSelector"])(getTemperatureSensorsState, _temperature_reducer__WEBPACK_IMPORTED_MODULE_6__["getTempMeasurements"]);
 
 
 /***/ }),
@@ -3898,6 +4563,410 @@ const getHasLoaded = (state) => state.hasLoaded;
 
 /***/ }),
 
+/***/ "./src/app/store/reducers/temperature.reducer.ts":
+/*!*******************************************************!*\
+  !*** ./src/app/store/reducers/temperature.reducer.ts ***!
+  \*******************************************************/
+/*! exports provided: initialState, temperatureSensorReducer, isLoaded, getTempMeasurements */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "initialState", function() { return initialState; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "temperatureSensorReducer", function() { return temperatureSensorReducer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isLoaded", function() { return isLoaded; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getTempMeasurements", function() { return getTempMeasurements; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _actions_index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/index */ "./src/app/store/actions/index.ts");
+
+
+const initialState = {
+    lastFindItems: new Map(),
+    foundItems: new Map(),
+    loaded: false
+};
+function temperatureSensorReducer(state = initialState, action) {
+    switch (action.type) {
+        case _actions_index__WEBPACK_IMPORTED_MODULE_1__["TemperatureSensorActions"].LoadLastLimitedSuccess: {
+            return Object.assign({}, state, { lastFindItems: action.payload.data, loaded: true });
+        }
+        case _actions_index__WEBPACK_IMPORTED_MODULE_1__["TemperatureSensorActions"].LoadSearchItemsSuccess: {
+            return Object.assign({}, state, { foundItems: action.payload.data });
+        }
+        case _actions_index__WEBPACK_IMPORTED_MODULE_1__["TemperatureSensorActions"].ResetFoundItems: {
+            return Object.assign({}, state, { foundItems: new Map() });
+        }
+        default: {
+            return state;
+        }
+    }
+}
+const isLoaded = (state) => state.loaded;
+const getTempMeasurements = (state) => state.foundItems;
+
+
+/***/ }),
+
+/***/ "./src/app/temperature-details/temperature-details.component.css":
+/*!***********************************************************************!*\
+  !*** ./src/app/temperature-details/temperature-details.component.css ***!
+  \***********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3RlbXBlcmF0dXJlLWRldGFpbHMvdGVtcGVyYXR1cmUtZGV0YWlscy5jb21wb25lbnQuY3NzIn0= */");
+
+/***/ }),
+
+/***/ "./src/app/temperature-details/temperature-details.component.ts":
+/*!**********************************************************************!*\
+  !*** ./src/app/temperature-details/temperature-details.component.ts ***!
+  \**********************************************************************/
+/*! exports provided: TemperatureDetailsComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TemperatureDetailsComponent", function() { return TemperatureDetailsComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _ngrx_store__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ngrx/store */ "./node_modules/@ngrx/store/fesm2015/store.js");
+/* harmony import */ var _store_reducers__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../store/reducers */ "./src/app/store/reducers/index.ts");
+/* harmony import */ var _store_actions_index__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../store/actions/index */ "./src/app/store/actions/index.ts");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_7__);
+
+
+
+
+
+
+
+
+let TemperatureDetailsComponent = class TemperatureDetailsComponent {
+    constructor(router, route, store, fb) {
+        this.router = router;
+        this.route = route;
+        this.store = store;
+        this.fb = fb;
+        this.customSearch = false;
+        this.model = this.fb.group({
+            reportedAtFrom: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](),
+            reportedAtTo: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]()
+        });
+        this.search = {};
+        this.uuid = route.snapshot.paramMap.get('uuid');
+        this.store.dispatch(new _store_actions_index__WEBPACK_IMPORTED_MODULE_6__["LoadSearchItemsAction"]({ search: this.createSearchDtoForToday() }));
+        this.store.select(_store_reducers__WEBPACK_IMPORTED_MODULE_5__["getCachedSensors"]).subscribe(data => {
+            data.forEach(item => {
+                if (item.uuid === this.uuid) {
+                    this.temperatureSensor = item;
+                    this.nameOfSensor = this.temperatureSensor.name;
+                    return;
+                }
+            });
+        });
+        this.store.select(_store_reducers__WEBPACK_IMPORTED_MODULE_5__["getTempMeasurements"]).subscribe(data => {
+            console.log("constructor");
+            if (data && data[this.uuid]) {
+                this.measurements = data[this.uuid];
+                let dataarray = [];
+                let labels = [];
+                let colors = [];
+                this.measurements.forEach(item => {
+                    dataarray.push(item.value);
+                    labels.push(this.formatDate(item.reportedAt));
+                    colors.push(this.getColorForCrossedAcceptableValues(item));
+                });
+                console.log(dataarray);
+                this.data = {
+                    legend: false,
+                    labels: labels,
+                    datasets: [
+                        {
+                            backgroundColor: colors,
+                            data: dataarray,
+                            fill: false
+                        }
+                    ]
+                };
+                this.options = {
+                    legend: {
+                        display: false
+                    },
+                    animation: false
+                };
+            }
+        });
+    }
+    formatDate(date) {
+        let timestamp = Date.parse(date);
+        let realDate = new Date();
+        realDate.setTime(timestamp);
+        let t_str = realDate.toLocaleTimeString(navigator.language, { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+        let d_str = realDate.toLocaleDateString(navigator.language, { year: 'numeric', month: '2-digit', day: '2-digit' });
+        return d_str + " " + t_str;
+    }
+    onSubmit() {
+        this.resetSearch();
+        let reportedAtFrom = this.model.get("reportedAtFrom").value;
+        if (reportedAtFrom) {
+            this.search.reportedAtFrom = reportedAtFrom;
+        }
+        let reportedAtTo = this.model.get('reportedAtTo').value;
+        if (reportedAtTo) {
+            this.search.reportedAtTo = reportedAtTo;
+        }
+        this.store.dispatch(new _store_actions_index__WEBPACK_IMPORTED_MODULE_6__["LoadSearchItemsAction"]({ search: this.search }));
+    }
+    canSearchWithCriteria() {
+        let reportedAtFrom = this.model.get("reportedAtFrom").value;
+        let reportedAtTo = this.model.get('reportedAtTo').value;
+        let isFilled = reportedAtFrom || reportedAtTo;
+        return this.customSearch && !isFilled;
+    }
+    resetSearchForm() {
+        this.model.reset();
+    }
+    getColorForCrossedAcceptableValues(measurement) {
+        if (this.measurements && this.measurements.length > 0) {
+            if (this.temperatureSensor.max && (measurement.value > +this.temperatureSensor.max)) {
+                return 'red';
+            }
+            if (this.temperatureSensor.min && (measurement.value < +this.temperatureSensor.min)) {
+                return 'red';
+            }
+        }
+        return 'green';
+    }
+    onLastMonth() {
+        this.resetSearch();
+        let now = moment__WEBPACK_IMPORTED_MODULE_7__(new Date());
+        let yesterdayStart = now.clone().add(-30, 'day');
+        yesterdayStart = yesterdayStart.set('hour', 0);
+        yesterdayStart = yesterdayStart.set('minute', 0);
+        yesterdayStart = yesterdayStart.set('second', 0);
+        let yesterdayEnd = now.clone().add(-1, 'day');
+        yesterdayEnd = yesterdayEnd.set('hour', 23);
+        yesterdayEnd = yesterdayEnd.set('minute', 59);
+        yesterdayEnd = yesterdayEnd.set('second', 59);
+        this.search.reportedAtFrom = yesterdayStart.toDate();
+        this.search.reportedAtTo = yesterdayEnd.toDate();
+        this.store.dispatch(new _store_actions_index__WEBPACK_IMPORTED_MODULE_6__["LoadSearchItemsAction"]({ search: this.search }));
+    }
+    onLastWeek() {
+        this.resetSearch();
+        let now = moment__WEBPACK_IMPORTED_MODULE_7__(new Date());
+        let yesterdayStart = now.clone().add(-7, 'day');
+        yesterdayStart = yesterdayStart.set('hour', 0);
+        yesterdayStart = yesterdayStart.set('minute', 0);
+        yesterdayStart = yesterdayStart.set('second', 0);
+        let yesterdayEnd = now.clone().add(-1, 'day');
+        yesterdayEnd = yesterdayEnd.set('hour', 23);
+        yesterdayEnd = yesterdayEnd.set('minute', 59);
+        yesterdayEnd = yesterdayEnd.set('second', 59);
+        this.search.reportedAtFrom = yesterdayStart.toDate();
+        this.search.reportedAtTo = yesterdayEnd.toDate();
+        this.store.dispatch(new _store_actions_index__WEBPACK_IMPORTED_MODULE_6__["LoadSearchItemsAction"]({ search: this.search }));
+    }
+    onYesterday() {
+        this.resetSearch();
+        let now = moment__WEBPACK_IMPORTED_MODULE_7__(new Date());
+        let yesterdayStart = now.clone().add(-1, 'day');
+        yesterdayStart = yesterdayStart.set('hour', 0);
+        yesterdayStart = yesterdayStart.set('minute', 0);
+        yesterdayStart = yesterdayStart.set('second', 0);
+        let yesterdayEnd = now.clone().add(-1, 'day');
+        yesterdayEnd = yesterdayEnd.set('hour', 23);
+        yesterdayEnd = yesterdayEnd.set('minute', 59);
+        yesterdayEnd = yesterdayEnd.set('second', 59);
+        this.search.reportedAtFrom = yesterdayStart.toDate();
+        this.search.reportedAtTo = yesterdayEnd.toDate();
+        this.store.dispatch(new _store_actions_index__WEBPACK_IMPORTED_MODULE_6__["LoadSearchItemsAction"]({ search: this.search }));
+    }
+    onToday() {
+        this.store.dispatch(new _store_actions_index__WEBPACK_IMPORTED_MODULE_6__["LoadSearchItemsAction"]({ search: this.createSearchDtoForToday() }));
+    }
+    resetSearch() {
+        this.search = {};
+        this.search.uuid = this.uuid;
+    }
+    createSearchDtoForToday() {
+        this.resetSearch();
+        let now = moment__WEBPACK_IMPORTED_MODULE_7__(new Date());
+        now = now.set('hour', 0);
+        now = now.set('minute', 0);
+        now = now.set('second', 0);
+        this.search.reportedAtFrom = now.toDate();
+        return this.search;
+    }
+    ngOnInit() {
+        this.search.uuid = this.uuid;
+        this.search.reportedAtFrom = new Date();
+        this.store.dispatch(new _store_actions_index__WEBPACK_IMPORTED_MODULE_6__["LoadLastLimited"]({ search: this.search }));
+    }
+    onBack() {
+        this.store.dispatch(new _store_actions_index__WEBPACK_IMPORTED_MODULE_6__["ResetFoundItemsAction"]());
+        this.router.navigate(['/dashboard']);
+    }
+};
+TemperatureDetailsComponent.ctorParameters = () => [
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"] },
+    { type: _ngrx_store__WEBPACK_IMPORTED_MODULE_4__["Store"] },
+    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"] }
+];
+TemperatureDetailsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-temperature-details',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./temperature-details.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/temperature-details/temperature-details.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./temperature-details.component.css */ "./src/app/temperature-details/temperature-details.component.css")).default]
+    }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"],
+        _ngrx_store__WEBPACK_IMPORTED_MODULE_4__["Store"],
+        _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"]])
+], TemperatureDetailsComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/temperature-sensor/temperature-sensor.component.css":
+/*!*********************************************************************!*\
+  !*** ./src/app/temperature-sensor/temperature-sensor.component.css ***!
+  \*********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3RlbXBlcmF0dXJlLXNlbnNvci90ZW1wZXJhdHVyZS1zZW5zb3IuY29tcG9uZW50LmNzcyJ9 */");
+
+/***/ }),
+
+/***/ "./src/app/temperature-sensor/temperature-sensor.component.ts":
+/*!********************************************************************!*\
+  !*** ./src/app/temperature-sensor/temperature-sensor.component.ts ***!
+  \********************************************************************/
+/*! exports provided: TemperatureSensorComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TemperatureSensorComponent", function() { return TemperatureSensorComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _ngrx_store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ngrx/store */ "./node_modules/@ngrx/store/fesm2015/store.js");
+/* harmony import */ var _store_reducers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../store/reducers */ "./src/app/store/reducers/index.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _store_actions_index__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../store/actions/index */ "./src/app/store/actions/index.ts");
+
+
+
+
+
+
+let TemperatureSensorComponent = class TemperatureSensorComponent {
+    constructor(store, router) {
+        this.store = store;
+        this.router = router;
+        let search = {};
+        search.lastLimited = 5;
+        if (!this.store.select(_store_reducers__WEBPACK_IMPORTED_MODULE_3__["getTemperatureMeasurementsLoaded"])) {
+            this.store.dispatch(new _store_actions_index__WEBPACK_IMPORTED_MODULE_5__["LoadLastLimited"]({ search }));
+        }
+    }
+    getDate() {
+        if (this.measurements && this.measurements.length > 0) {
+            let timestamp = Date.parse(this.measurements[0].reportedAt.toString());
+            let realDate = new Date();
+            realDate.setTime(timestamp);
+            return realDate.toLocaleDateString(navigator.language, { month: '2-digit', day: '2-digit', year: 'numeric' });
+        }
+    }
+    formatDate(date) {
+        let timestamp = Date.parse(date);
+        let realDate = new Date();
+        realDate.setTime(timestamp);
+        return realDate.toLocaleTimeString(navigator.language, { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+    }
+    getColorForCrossedAcceptableValues(measurement) {
+        if (this.measurements && this.measurements.length > 0) {
+            if (this.temperatureSensor.max && (measurement.value > +this.temperatureSensor.max)) {
+                return 'red';
+            }
+            if (this.temperatureSensor.min && (measurement.value < +this.temperatureSensor.min)) {
+                return 'red';
+            }
+        }
+        return 'green';
+    }
+    toDetails(uuid) {
+        this.router.navigate(['/temperature-details/' + uuid]);
+    }
+    ngOnInit() {
+        if (this.temperatureSensor) {
+            this.store.select(_store_reducers__WEBPACK_IMPORTED_MODULE_3__["getTemperatureMeasurementsLoaded"]).subscribe(data => {
+                if (data) {
+                    this.store.select(_store_reducers__WEBPACK_IMPORTED_MODULE_3__["getLastFoundTemperatureMeasurementsByUuid"], { uuid: this.temperatureSensor.uuid }).subscribe(data => {
+                        this.measurements = data;
+                        let dataarray = [];
+                        let labels = [];
+                        let colors = [];
+                        this.measurements.forEach(item => {
+                            dataarray.push(item.value);
+                            labels.push(this.formatDate(item.reportedAt));
+                            colors.push(this.getColorForCrossedAcceptableValues(item));
+                        });
+                        this.data = {
+                            legend: false,
+                            labels: labels,
+                            datasets: [
+                                {
+                                    backgroundColor: colors,
+                                    data: dataarray
+                                }
+                            ]
+                        };
+                        this.options = {
+                            legend: {
+                                display: false
+                            },
+                            animation: false
+                        };
+                    });
+                }
+            });
+        }
+    }
+};
+TemperatureSensorComponent.ctorParameters = () => [
+    { type: _ngrx_store__WEBPACK_IMPORTED_MODULE_2__["Store"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] }
+];
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
+], TemperatureSensorComponent.prototype, "temperatureSensor", void 0);
+TemperatureSensorComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-temperature-sensor',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./temperature-sensor.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/temperature-sensor/temperature-sensor.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./temperature-sensor.component.css */ "./src/app/temperature-sensor/temperature-sensor.component.css")).default]
+    }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ngrx_store__WEBPACK_IMPORTED_MODULE_2__["Store"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]])
+], TemperatureSensorComponent);
+
+
+
+/***/ }),
+
 /***/ "./src/app/validators/UuidUniquenessValidator.ts":
 /*!*******************************************************!*\
   !*** ./src/app/validators/UuidUniquenessValidator.ts ***!
@@ -3978,7 +5047,7 @@ __webpack_require__.r(__webpack_exports__);
 
 const environment = {
     production: false,
-    host: 'localhost'
+    host: 'xdevicesdev.home'
 };
 /*
  * For easier debugging in development mode, you can import the following file
