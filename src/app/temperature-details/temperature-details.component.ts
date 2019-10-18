@@ -227,12 +227,4 @@ export class TemperatureDetailsComponent implements OnInit {
     this.router.navigate(['/dashboard']);
   }
 
-  // customSearchClicked() {
-  //   if(this.customSearch) {
-  //     // disable others
-  //   } else {
-  //     // enable others
-  //   }
-  // }
-
 }
