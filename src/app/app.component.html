@@ -1,21 +1,18 @@
-<div class="p-grid sample-layout">
+<div class="page" style="margin: .10em">
 
-  <div class="p-col-12 p-col-nogutter">
-    <app-navbar></app-navbar>
-  </div>
+  <div class="section">
+    <div class="header">
+      <app-panel-menu></app-panel-menu>
+    </div>
 
-  <div class="p-col-4 p-md-2 p-col-nogutter">
-    <app-panel-menu></app-panel-menu>
-  </div>
-
-  <div class="p-col-12 p-md-9 p-col-nogutter ui-g-nopad">
-    <div class="p-col-12">
+    <div class="content">
       <router-outlet></router-outlet>
+    </div>
+    <div class="footer" >
+      <app-footer></app-footer>
     </div>
   </div>
 
-  <div class="p-col-12">
-    <app-footer></app-footer>
-  </div>
+
 
 </div>

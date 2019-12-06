@@ -1,0 +1,41 @@
+
+.page {
+
+  /* give the outermost container a predefined size */
+  position: absolute;
+  top: .15em;
+  bottom: .15em;
+  left: .15em;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.section {
+  flex-grow: 1;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  /* for Firefox */
+  min-height: 0;
+}
+
+.header {
+  background: tomato;
+  flex: 0 0 auto;
+}
+
+.footer {
+  flex: 0 0 auto;
+}
+
+.content {
+  flex-grow: 1;
+  margin: .55em;
+  overflow: auto;
+
+  /* for Firefox */
+  min-height: 0;
+}

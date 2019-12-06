@@ -308,7 +308,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"p-grid sample-layout\">\n\n  <div class=\"p-col-12 p-col-nogutter\">\n    <app-navbar></app-navbar>\n  </div>\n\n  <div class=\"p-col-4 p-md-2 p-col-nogutter\">\n    <app-panel-menu></app-panel-menu>\n  </div>\n\n  <div class=\"p-col-12 p-md-9 p-col-nogutter ui-g-nopad\">\n    <div class=\"p-col-12\">\n      <router-outlet></router-outlet>\n    </div>\n  </div>\n\n  <div class=\"p-col-12\">\n    <app-footer></app-footer>\n  </div>\n\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"page\" style=\"margin: .10em\">\n\n  <div class=\"section\">\n    <div class=\"header\">\n      <app-panel-menu></app-panel-menu>\n    </div>\n\n    <div class=\"content\">\n      <router-outlet></router-outlet>\n    </div>\n    <div class=\"footer\" >\n      <app-footer></app-footer>\n    </div>\n  </div>\n\n\n\n</div>\n");
 
 /***/ }),
 
@@ -377,19 +377,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/navbar/navbar.component.html":
-/*!************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/navbar/navbar.component.html ***!
-  \************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<nav class=\"navbar navbar-expand-lg navbar-light bg-light\">\n  <a class=\"navbar-brand\" [routerLink]=\"['/']\">Xdevices</a>\n</nav>\n");
-
-/***/ }),
-
 /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/panel-menu/panel-menu.component.html":
 /*!********************************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/panel-menu/panel-menu.component.html ***!
@@ -399,7 +386,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<p-panelMenu [model]=\"items\" [style]=\"{'width':'200px'}\" [multiple]=\"true\"></p-panelMenu>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<p-menubar [model]=\"items\" styleClass=\"xdevicesmainmenu\">\n  <div>\n    <label style=\"margin-right: .80em; font-size: large\">Xdevices</label>\n  </div>\n\n</p-menubar>\n\n");
 
 /***/ }),
 
@@ -477,7 +464,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<p>\n  Measurements of {{nameOfSensor}}\n</p>\n\n<p>\n  <button pButton class=\"ui-button-info\" type=\"button\" label=\"Last month\" [disabled]=\"customSearch\" (click)=\"onLastMonth()\"></button>\n  |\n  <button pButton class=\"ui-button-info\" type=\"button\" label=\"Last week\" [disabled]=\"customSearch\" (click)=\"onLastWeek()\"></button>\n  |\n  <button pButton class=\"ui-button-info\" type=\"button\" label=\"Yesterday\" [disabled]=\"customSearch\" (click)=\"onYesterday()\"></button>\n  |\n  <button pButton class=\"ui-button-info\" type=\"button\" label=\"Today\" [disabled]=\"customSearch\" (click)=\"onToday()\"></button>\n  |\n  <p-toggleButton [(ngModel)]=\"customSearch\" onLabel=\"Custom search on\" offLabel=\"Custom search off\" [style]=\"{'width':'150px'}\"></p-toggleButton>\n\n</p>\n\n<div *ngIf=\"customSearch\">\n  <form [formGroup]=\"model\">\n    <div class=\"general-top-panel-container\">\n      <p-panel header=\"Searching criteria\" >\n        <div class=\"ui-grid-row\">\n          <div class=\"ui-grid-col-2\">\n            Reported at from:\n          </div>\n          <div class=\"ui-grid-col-6\">\n            <p-calendar [showTime]=\"true\" dateFormat=\"yy-mm-dd\" placeholder=\"Enter date\" formControlName=\"reportedAtFrom\"></p-calendar>\n          </div>\n        </div>\n        <br/>\n        <div class=\"ui-grid-row\">\n          <div class=\"ui-grid-col-2\">\n            Reported at to:\n          </div>\n          <div class=\"ui-grid-col-6\">\n            <p-calendar [showTime]=\"true\" dateFormat=\"yy-mm-dd\" placeholder=\"Enter date\" formControlName=\"reportedAtTo\"></p-calendar>\n          </div>\n        </div>\n        <p-footer>\n          <button pButton class=\"ui-button-info\" type=\"button\" label=\"Reset\" (click)=\"resetSearchForm()\"></button>&nbsp;\n          <button pButton class=\"ui-button-warning\" type=\"button\" label=\"Search\" [disabled]=\"canSearchWithCriteria()\" (click)=\"onSubmit()\"></button>&nbsp;\n        </p-footer>\n      </p-panel>\n    </div>\n  </form>\n</div>\n\n<br/>\n\n<p-chart type=\"line\" [data]=\"data\" [options]=\"options\"  width=\"1200px\" height=\"500px\" [responsive]=\"false\"></p-chart>\n\n<br/>\n<p>\n  <button pButton class=\"ui-button-info\" type=\"button\" label=\"Back\" (click)=\"onBack()\"></button>\n</p>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<p>\n  Measurements of {{nameOfSensor}}\n</p>\n\n<p>\n  <button pButton class=\"ui-button-info\" type=\"button\" label=\"Back\" (click)=\"onBack()\"></button>\n  |\n  <button pButton class=\"ui-button-info\" type=\"button\" label=\"Last month\" [disabled]=\"customSearch\" (click)=\"onLastMonth()\"></button>\n  |\n  <button pButton class=\"ui-button-info\" type=\"button\" label=\"Last week\" [disabled]=\"customSearch\" (click)=\"onLastWeek()\"></button>\n  |\n  <button pButton class=\"ui-button-info\" type=\"button\" label=\"Yesterday\" [disabled]=\"customSearch\" (click)=\"onYesterday()\"></button>\n  |\n  <button pButton class=\"ui-button-info\" type=\"button\" label=\"Today\" [disabled]=\"customSearch\" (click)=\"onToday()\"></button>\n  |\n  <p-toggleButton [(ngModel)]=\"customSearch\" onLabel=\"Custom search on\" offLabel=\"Custom search off\" [style]=\"{'width':'150px'}\"></p-toggleButton>\n\n</p>\n\n<div *ngIf=\"customSearch\">\n  <form [formGroup]=\"model\">\n    <div class=\"general-top-panel-container\">\n      <p-panel header=\"Searching criteria\" >\n        <div class=\"ui-grid-row\">\n          <div class=\"ui-grid-col-2\">\n            Reported at from:\n          </div>\n          <div class=\"ui-grid-col-6\">\n            <p-calendar [showTime]=\"true\" dateFormat=\"yy-mm-dd\" placeholder=\"Enter date\" formControlName=\"reportedAtFrom\"></p-calendar>\n          </div>\n        </div>\n        <br/>\n        <div class=\"ui-grid-row\">\n          <div class=\"ui-grid-col-2\">\n            Reported at to:\n          </div>\n          <div class=\"ui-grid-col-6\">\n            <p-calendar [showTime]=\"true\" dateFormat=\"yy-mm-dd\" placeholder=\"Enter date\" formControlName=\"reportedAtTo\"></p-calendar>\n          </div>\n        </div>\n        <p-footer>\n          <button pButton class=\"ui-button-info\" type=\"button\" label=\"Reset\" (click)=\"resetSearchForm()\"></button>&nbsp;\n          <button pButton class=\"ui-button-warning\" type=\"button\" label=\"Search\" [disabled]=\"canSearchWithCriteria()\" (click)=\"onSubmit()\"></button>&nbsp;\n        </p-footer>\n      </p-panel>\n    </div>\n  </form>\n</div>\n\n<br/>\n\n<p-chart type=\"line\" [data]=\"data\" [options]=\"options\" [height]=\"500\" [width]=\"500\" [responsive]=\"true\"></p-chart>\n\n<br/>\n");
 
 /***/ }),
 
@@ -863,7 +850,7 @@ AppRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FwcC5jb21wb25lbnQuY3NzIn0= */");
+/* harmony default export */ __webpack_exports__["default"] = ("\n.page {\n\n  /* give the outermost container a predefined size */\n  position: absolute;\n  top: .15em;\n  bottom: .15em;\n  left: .15em;\n  width: 100%;\n  display: flex;\n  flex-direction: column;\n}\n\n.section {\n  flex-grow: 1;\n  width: 100%;\n\n  display: flex;\n  flex-direction: column;\n\n  /* for Firefox */\n  min-height: 0;\n}\n\n.header {\n  background: tomato;\n  flex: 0 0 auto;\n}\n\n.footer {\n  flex: 0 0 auto;\n}\n\n.content {\n  flex-grow: 1;\n  margin: .55em;\n  overflow: auto;\n\n  /* for Firefox */\n  min-height: 0;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IjtBQUNBOztFQUVFLG1EQUFtRDtFQUNuRCxrQkFBa0I7RUFDbEIsVUFBVTtFQUNWLGFBQWE7RUFDYixXQUFXO0VBQ1gsV0FBVztFQUNYLGFBQWE7RUFDYixzQkFBc0I7QUFDeEI7O0FBRUE7RUFDRSxZQUFZO0VBQ1osV0FBVzs7RUFFWCxhQUFhO0VBQ2Isc0JBQXNCOztFQUV0QixnQkFBZ0I7RUFDaEIsYUFBYTtBQUNmOztBQUVBO0VBQ0Usa0JBQWtCO0VBQ2xCLGNBQWM7QUFDaEI7O0FBRUE7RUFDRSxjQUFjO0FBQ2hCOztBQUVBO0VBQ0UsWUFBWTtFQUNaLGFBQWE7RUFDYixjQUFjOztFQUVkLGdCQUFnQjtFQUNoQixhQUFhO0FBQ2YiLCJmaWxlIjoic3JjL2FwcC9hcHAuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIlxuLnBhZ2Uge1xuXG4gIC8qIGdpdmUgdGhlIG91dGVybW9zdCBjb250YWluZXIgYSBwcmVkZWZpbmVkIHNpemUgKi9cbiAgcG9zaXRpb246IGFic29sdXRlO1xuICB0b3A6IC4xNWVtO1xuICBib3R0b206IC4xNWVtO1xuICBsZWZ0OiAuMTVlbTtcbiAgd2lkdGg6IDEwMCU7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XG59XG5cbi5zZWN0aW9uIHtcbiAgZmxleC1ncm93OiAxO1xuICB3aWR0aDogMTAwJTtcblxuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xuXG4gIC8qIGZvciBGaXJlZm94ICovXG4gIG1pbi1oZWlnaHQ6IDA7XG59XG5cbi5oZWFkZXIge1xuICBiYWNrZ3JvdW5kOiB0b21hdG87XG4gIGZsZXg6IDAgMCBhdXRvO1xufVxuXG4uZm9vdGVyIHtcbiAgZmxleDogMCAwIGF1dG87XG59XG5cbi5jb250ZW50IHtcbiAgZmxleC1ncm93OiAxO1xuICBtYXJnaW46IC41NWVtO1xuICBvdmVyZmxvdzogYXV0bztcblxuICAvKiBmb3IgRmlyZWZveCAqL1xuICBtaW4taGVpZ2h0OiAwO1xufVxuIl19 */");
 
 /***/ }),
 
@@ -913,37 +900,35 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _navbar_navbar_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./navbar/navbar.component */ "./src/app/navbar/navbar.component.ts");
-/* harmony import */ var _panel_menu_panel_menu_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./panel-menu/panel-menu.component */ "./src/app/panel-menu/panel-menu.component.ts");
-/* harmony import */ var _footer_footer_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./footer/footer.component */ "./src/app/footer/footer.component.ts");
-/* harmony import */ var primeng_primeng__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! primeng/primeng */ "./node_modules/primeng/primeng.js");
-/* harmony import */ var primeng_primeng__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(primeng_primeng__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm2015/animations.js");
-/* harmony import */ var _about_about_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./about/about.component */ "./src/app/about/about.component.ts");
-/* harmony import */ var _sensortypes_list_sensortypes_list_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./sensortypes-list/sensortypes-list.component */ "./src/app/sensortypes-list/sensortypes-list.component.ts");
-/* harmony import */ var primeng_table__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! primeng/table */ "./node_modules/primeng/table.js");
-/* harmony import */ var primeng_table__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(primeng_table__WEBPACK_IMPORTED_MODULE_12__);
-/* harmony import */ var _ngrx_store__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @ngrx/store */ "./node_modules/@ngrx/store/fesm2015/store.js");
-/* harmony import */ var _ngrx_effects__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @ngrx/effects */ "./node_modules/@ngrx/effects/fesm2015/effects.js");
-/* harmony import */ var _store_reducers__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./store/reducers */ "./src/app/store/reducers/index.ts");
-/* harmony import */ var _store_effects__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./store/effects */ "./src/app/store/effects/index.ts");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
-/* harmony import */ var _sensortypes_details_sensortypes_details_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./sensortypes-details/sensortypes-details.component */ "./src/app/sensortypes-details/sensortypes-details.component.ts");
-/* harmony import */ var primeng_toast__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! primeng/toast */ "./node_modules/primeng/toast.js");
-/* harmony import */ var primeng_toast__WEBPACK_IMPORTED_MODULE_19___default = /*#__PURE__*/__webpack_require__.n(primeng_toast__WEBPACK_IMPORTED_MODULE_19__);
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
-/* harmony import */ var _service_sensor_types_service__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./service/sensor-types.service */ "./src/app/service/sensor-types.service.ts");
-/* harmony import */ var _interceptors_http_error_interceptor_service_service__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./interceptors/http-error-interceptor-service.service */ "./src/app/interceptors/http-error-interceptor-service.service.ts");
-/* harmony import */ var _attributes_dictionary_list_attributes_dictionary_list_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./attributes-dictionary-list/attributes-dictionary-list.component */ "./src/app/attributes-dictionary-list/attributes-dictionary-list.component.ts");
-/* harmony import */ var _attributes_dictionary_details_attributes_dictionary_details_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./attributes-dictionary-details/attributes-dictionary-details.component */ "./src/app/attributes-dictionary-details/attributes-dictionary-details.component.ts");
-/* harmony import */ var _sensors_list_sensors_list_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./sensors-list/sensors-list.component */ "./src/app/sensors-list/sensors-list.component.ts");
-/* harmony import */ var _sensor_detail_sensor_detail_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./sensor-detail/sensor-detail.component */ "./src/app/sensor-detail/sensor-detail.component.ts");
-/* harmony import */ var _sensor_detail_attribute_dialog_sensor_detail_attribute_dialog_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./sensor-detail-attribute-dialog/sensor-detail-attribute-dialog.component */ "./src/app/sensor-detail-attribute-dialog/sensor-detail-attribute-dialog.component.ts");
-/* harmony import */ var _eventslogger_eventslogger_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./eventslogger/eventslogger.component */ "./src/app/eventslogger/eventslogger.component.ts");
-/* harmony import */ var _temperature_sensor_temperature_sensor_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./temperature-sensor/temperature-sensor.component */ "./src/app/temperature-sensor/temperature-sensor.component.ts");
-/* harmony import */ var _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./dashboard/dashboard.component */ "./src/app/dashboard/dashboard.component.ts");
-/* harmony import */ var _temperature_details_temperature_details_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./temperature-details/temperature-details.component */ "./src/app/temperature-details/temperature-details.component.ts");
-
+/* harmony import */ var _panel_menu_panel_menu_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./panel-menu/panel-menu.component */ "./src/app/panel-menu/panel-menu.component.ts");
+/* harmony import */ var _footer_footer_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./footer/footer.component */ "./src/app/footer/footer.component.ts");
+/* harmony import */ var primeng_primeng__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! primeng/primeng */ "./node_modules/primeng/primeng.js");
+/* harmony import */ var primeng_primeng__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(primeng_primeng__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm2015/animations.js");
+/* harmony import */ var _about_about_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./about/about.component */ "./src/app/about/about.component.ts");
+/* harmony import */ var _sensortypes_list_sensortypes_list_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./sensortypes-list/sensortypes-list.component */ "./src/app/sensortypes-list/sensortypes-list.component.ts");
+/* harmony import */ var primeng_table__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! primeng/table */ "./node_modules/primeng/table.js");
+/* harmony import */ var primeng_table__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(primeng_table__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var _ngrx_store__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @ngrx/store */ "./node_modules/@ngrx/store/fesm2015/store.js");
+/* harmony import */ var _ngrx_effects__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @ngrx/effects */ "./node_modules/@ngrx/effects/fesm2015/effects.js");
+/* harmony import */ var _store_reducers__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./store/reducers */ "./src/app/store/reducers/index.ts");
+/* harmony import */ var _store_effects__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./store/effects */ "./src/app/store/effects/index.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var _sensortypes_details_sensortypes_details_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./sensortypes-details/sensortypes-details.component */ "./src/app/sensortypes-details/sensortypes-details.component.ts");
+/* harmony import */ var primeng_toast__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! primeng/toast */ "./node_modules/primeng/toast.js");
+/* harmony import */ var primeng_toast__WEBPACK_IMPORTED_MODULE_18___default = /*#__PURE__*/__webpack_require__.n(primeng_toast__WEBPACK_IMPORTED_MODULE_18__);
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var _service_sensor_types_service__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./service/sensor-types.service */ "./src/app/service/sensor-types.service.ts");
+/* harmony import */ var _interceptors_http_error_interceptor_service_service__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./interceptors/http-error-interceptor-service.service */ "./src/app/interceptors/http-error-interceptor-service.service.ts");
+/* harmony import */ var _attributes_dictionary_list_attributes_dictionary_list_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./attributes-dictionary-list/attributes-dictionary-list.component */ "./src/app/attributes-dictionary-list/attributes-dictionary-list.component.ts");
+/* harmony import */ var _attributes_dictionary_details_attributes_dictionary_details_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./attributes-dictionary-details/attributes-dictionary-details.component */ "./src/app/attributes-dictionary-details/attributes-dictionary-details.component.ts");
+/* harmony import */ var _sensors_list_sensors_list_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./sensors-list/sensors-list.component */ "./src/app/sensors-list/sensors-list.component.ts");
+/* harmony import */ var _sensor_detail_sensor_detail_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./sensor-detail/sensor-detail.component */ "./src/app/sensor-detail/sensor-detail.component.ts");
+/* harmony import */ var _sensor_detail_attribute_dialog_sensor_detail_attribute_dialog_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./sensor-detail-attribute-dialog/sensor-detail-attribute-dialog.component */ "./src/app/sensor-detail-attribute-dialog/sensor-detail-attribute-dialog.component.ts");
+/* harmony import */ var _eventslogger_eventslogger_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./eventslogger/eventslogger.component */ "./src/app/eventslogger/eventslogger.component.ts");
+/* harmony import */ var _temperature_sensor_temperature_sensor_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./temperature-sensor/temperature-sensor.component */ "./src/app/temperature-sensor/temperature-sensor.component.ts");
+/* harmony import */ var _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./dashboard/dashboard.component */ "./src/app/dashboard/dashboard.component.ts");
+/* harmony import */ var _temperature_details_temperature_details_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./temperature-details/temperature-details.component */ "./src/app/temperature-details/temperature-details.component.ts");
 
 
 
@@ -981,54 +966,55 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
         declarations: [
             _app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"],
-            _navbar_navbar_component__WEBPACK_IMPORTED_MODULE_5__["NavbarComponent"],
-            _panel_menu_panel_menu_component__WEBPACK_IMPORTED_MODULE_6__["PanelMenuComponent"],
-            _footer_footer_component__WEBPACK_IMPORTED_MODULE_7__["FooterComponent"],
-            _about_about_component__WEBPACK_IMPORTED_MODULE_10__["AboutComponent"],
-            _sensortypes_list_sensortypes_list_component__WEBPACK_IMPORTED_MODULE_11__["SensortypesListComponent"],
-            _sensortypes_details_sensortypes_details_component__WEBPACK_IMPORTED_MODULE_18__["SensortypesDetailsComponent"],
-            _attributes_dictionary_list_attributes_dictionary_list_component__WEBPACK_IMPORTED_MODULE_23__["AttributesDictionaryListComponent"],
-            _attributes_dictionary_details_attributes_dictionary_details_component__WEBPACK_IMPORTED_MODULE_24__["AttributesDictionaryDetailsComponent"],
-            _sensors_list_sensors_list_component__WEBPACK_IMPORTED_MODULE_25__["SensorsListComponent"],
-            _sensor_detail_sensor_detail_component__WEBPACK_IMPORTED_MODULE_26__["SensorDetailComponent"],
-            _sensor_detail_attribute_dialog_sensor_detail_attribute_dialog_component__WEBPACK_IMPORTED_MODULE_27__["SensorDetailAttributeDialogComponent"],
-            _eventslogger_eventslogger_component__WEBPACK_IMPORTED_MODULE_28__["EventsloggerComponent"],
-            _temperature_sensor_temperature_sensor_component__WEBPACK_IMPORTED_MODULE_29__["TemperatureSensorComponent"],
-            _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_30__["DashboardComponent"],
-            _temperature_details_temperature_details_component__WEBPACK_IMPORTED_MODULE_31__["TemperatureDetailsComponent"]
+            _panel_menu_panel_menu_component__WEBPACK_IMPORTED_MODULE_5__["PanelMenuComponent"],
+            _footer_footer_component__WEBPACK_IMPORTED_MODULE_6__["FooterComponent"],
+            _about_about_component__WEBPACK_IMPORTED_MODULE_9__["AboutComponent"],
+            _sensortypes_list_sensortypes_list_component__WEBPACK_IMPORTED_MODULE_10__["SensortypesListComponent"],
+            _sensortypes_details_sensortypes_details_component__WEBPACK_IMPORTED_MODULE_17__["SensortypesDetailsComponent"],
+            _attributes_dictionary_list_attributes_dictionary_list_component__WEBPACK_IMPORTED_MODULE_22__["AttributesDictionaryListComponent"],
+            _attributes_dictionary_details_attributes_dictionary_details_component__WEBPACK_IMPORTED_MODULE_23__["AttributesDictionaryDetailsComponent"],
+            _sensors_list_sensors_list_component__WEBPACK_IMPORTED_MODULE_24__["SensorsListComponent"],
+            _sensor_detail_sensor_detail_component__WEBPACK_IMPORTED_MODULE_25__["SensorDetailComponent"],
+            _sensor_detail_attribute_dialog_sensor_detail_attribute_dialog_component__WEBPACK_IMPORTED_MODULE_26__["SensorDetailAttributeDialogComponent"],
+            _eventslogger_eventslogger_component__WEBPACK_IMPORTED_MODULE_27__["EventsloggerComponent"],
+            _temperature_sensor_temperature_sensor_component__WEBPACK_IMPORTED_MODULE_28__["TemperatureSensorComponent"],
+            _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_29__["DashboardComponent"],
+            _temperature_details_temperature_details_component__WEBPACK_IMPORTED_MODULE_30__["TemperatureDetailsComponent"]
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
             _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"],
-            _angular_common_http__WEBPACK_IMPORTED_MODULE_17__["HttpClientModule"],
-            primeng_primeng__WEBPACK_IMPORTED_MODULE_8__["PanelMenuModule"],
-            primeng_primeng__WEBPACK_IMPORTED_MODULE_8__["MenuModule"],
-            _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_9__["BrowserAnimationsModule"],
-            primeng_primeng__WEBPACK_IMPORTED_MODULE_8__["PanelModule"],
-            primeng_table__WEBPACK_IMPORTED_MODULE_12__["TableModule"],
-            primeng_primeng__WEBPACK_IMPORTED_MODULE_8__["ButtonModule"],
-            _angular_forms__WEBPACK_IMPORTED_MODULE_20__["FormsModule"],
-            _ngrx_store__WEBPACK_IMPORTED_MODULE_13__["StoreModule"].forRoot(_store_reducers__WEBPACK_IMPORTED_MODULE_15__["reducers"]),
-            _ngrx_effects__WEBPACK_IMPORTED_MODULE_14__["EffectsModule"].forRoot(_store_effects__WEBPACK_IMPORTED_MODULE_16__["effects"]),
-            primeng_primeng__WEBPACK_IMPORTED_MODULE_8__["DialogModule"],
-            primeng_toast__WEBPACK_IMPORTED_MODULE_19__["ToastModule"],
-            primeng_primeng__WEBPACK_IMPORTED_MODULE_8__["MessageModule"],
-            primeng_primeng__WEBPACK_IMPORTED_MODULE_8__["TooltipModule"],
-            primeng_primeng__WEBPACK_IMPORTED_MODULE_8__["InputTextModule"],
-            primeng_primeng__WEBPACK_IMPORTED_MODULE_8__["InputTextareaModule"],
-            _angular_forms__WEBPACK_IMPORTED_MODULE_20__["ReactiveFormsModule"],
-            primeng_primeng__WEBPACK_IMPORTED_MODULE_8__["DropdownModule"],
-            primeng_primeng__WEBPACK_IMPORTED_MODULE_8__["InputSwitchModule"],
-            primeng_primeng__WEBPACK_IMPORTED_MODULE_8__["SpinnerModule"],
-            primeng_primeng__WEBPACK_IMPORTED_MODULE_8__["AccordionModule"],
-            primeng_primeng__WEBPACK_IMPORTED_MODULE_8__["CalendarModule"],
-            primeng_primeng__WEBPACK_IMPORTED_MODULE_8__["ChartModule"],
-            primeng_primeng__WEBPACK_IMPORTED_MODULE_8__["CardModule"],
-            primeng_primeng__WEBPACK_IMPORTED_MODULE_8__["ToggleButtonModule"]
+            _angular_common_http__WEBPACK_IMPORTED_MODULE_16__["HttpClientModule"],
+            primeng_primeng__WEBPACK_IMPORTED_MODULE_7__["PanelMenuModule"],
+            primeng_primeng__WEBPACK_IMPORTED_MODULE_7__["MenuModule"],
+            _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_8__["BrowserAnimationsModule"],
+            primeng_primeng__WEBPACK_IMPORTED_MODULE_7__["PanelModule"],
+            primeng_table__WEBPACK_IMPORTED_MODULE_11__["TableModule"],
+            primeng_primeng__WEBPACK_IMPORTED_MODULE_7__["ButtonModule"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_19__["FormsModule"],
+            _ngrx_store__WEBPACK_IMPORTED_MODULE_12__["StoreModule"].forRoot(_store_reducers__WEBPACK_IMPORTED_MODULE_14__["reducers"]),
+            _ngrx_effects__WEBPACK_IMPORTED_MODULE_13__["EffectsModule"].forRoot(_store_effects__WEBPACK_IMPORTED_MODULE_15__["effects"]),
+            primeng_primeng__WEBPACK_IMPORTED_MODULE_7__["DialogModule"],
+            primeng_toast__WEBPACK_IMPORTED_MODULE_18__["ToastModule"],
+            primeng_primeng__WEBPACK_IMPORTED_MODULE_7__["MessageModule"],
+            primeng_primeng__WEBPACK_IMPORTED_MODULE_7__["TooltipModule"],
+            primeng_primeng__WEBPACK_IMPORTED_MODULE_7__["InputTextModule"],
+            primeng_primeng__WEBPACK_IMPORTED_MODULE_7__["InputTextareaModule"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_19__["ReactiveFormsModule"],
+            primeng_primeng__WEBPACK_IMPORTED_MODULE_7__["DropdownModule"],
+            primeng_primeng__WEBPACK_IMPORTED_MODULE_7__["InputSwitchModule"],
+            primeng_primeng__WEBPACK_IMPORTED_MODULE_7__["SpinnerModule"],
+            primeng_primeng__WEBPACK_IMPORTED_MODULE_7__["AccordionModule"],
+            primeng_primeng__WEBPACK_IMPORTED_MODULE_7__["CalendarModule"],
+            primeng_primeng__WEBPACK_IMPORTED_MODULE_7__["ChartModule"],
+            primeng_primeng__WEBPACK_IMPORTED_MODULE_7__["CardModule"],
+            primeng_primeng__WEBPACK_IMPORTED_MODULE_7__["ToggleButtonModule"],
+            primeng_primeng__WEBPACK_IMPORTED_MODULE_7__["MegaMenuModule"],
+            primeng_primeng__WEBPACK_IMPORTED_MODULE_7__["MenubarModule"]
         ],
-        providers: [primeng_primeng__WEBPACK_IMPORTED_MODULE_8__["MessageService"],
-            _service_sensor_types_service__WEBPACK_IMPORTED_MODULE_21__["SensorTypesService"],
-            { provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_17__["HTTP_INTERCEPTORS"], useClass: _interceptors_http_error_interceptor_service_service__WEBPACK_IMPORTED_MODULE_22__["HttpErrorInterceptorServiceService"], multi: true },
+        providers: [primeng_primeng__WEBPACK_IMPORTED_MODULE_7__["MessageService"],
+            _service_sensor_types_service__WEBPACK_IMPORTED_MODULE_20__["SensorTypesService"],
+            { provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_16__["HTTP_INTERCEPTORS"], useClass: _interceptors_http_error_interceptor_service_service__WEBPACK_IMPORTED_MODULE_21__["HttpErrorInterceptorServiceService"], multi: true },
         ],
         bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]]
     })
@@ -1861,51 +1847,6 @@ function compareByType(sensorA, sensorB) {
 
 /***/ }),
 
-/***/ "./src/app/navbar/navbar.component.css":
-/*!*********************************************!*\
-  !*** ./src/app/navbar/navbar.component.css ***!
-  \*********************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL25hdmJhci9uYXZiYXIuY29tcG9uZW50LmNzcyJ9 */");
-
-/***/ }),
-
-/***/ "./src/app/navbar/navbar.component.ts":
-/*!********************************************!*\
-  !*** ./src/app/navbar/navbar.component.ts ***!
-  \********************************************/
-/*! exports provided: NavbarComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NavbarComponent", function() { return NavbarComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-
-
-let NavbarComponent = class NavbarComponent {
-    constructor() { }
-    ngOnInit() {
-    }
-};
-NavbarComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'app-navbar',
-        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./navbar.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/navbar/navbar.component.html")).default,
-        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./navbar.component.css */ "./src/app/navbar/navbar.component.css")).default]
-    }),
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
-], NavbarComponent);
-
-
-
-/***/ }),
-
 /***/ "./src/app/panel-menu/panel-menu.component.css":
 /*!*****************************************************!*\
   !*** ./src/app/panel-menu/panel-menu.component.css ***!
@@ -1915,7 +1856,7 @@ NavbarComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".selected-menu-item {\n  background: lightgrey !important;\n}\n\n.unselected-menu-item {\n  background: none;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFuZWwtbWVudS9wYW5lbC1tZW51LmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxnQ0FBZ0M7QUFDbEM7O0FBRUE7RUFDRSxnQkFBZ0I7QUFDbEIiLCJmaWxlIjoic3JjL2FwcC9wYW5lbC1tZW51L3BhbmVsLW1lbnUuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5zZWxlY3RlZC1tZW51LWl0ZW0ge1xuICBiYWNrZ3JvdW5kOiBsaWdodGdyZXkgIWltcG9ydGFudDtcbn1cblxuLnVuc2VsZWN0ZWQtbWVudS1pdGVtIHtcbiAgYmFja2dyb3VuZDogbm9uZTtcbn1cbiJdfQ== */");
+/* harmony default export */ __webpack_exports__["default"] = (".selected-menu-item {\n  background: lightgrey !important;\n}\n\n.unselected-menu-item {\n  background: none;\n}\n\n.xdevicesmainmenu li {\n  white-space: nowrap;\n}\n\n.xdevicesmainmenu ul {\n  width: auto !important;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFuZWwtbWVudS9wYW5lbC1tZW51LmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxnQ0FBZ0M7QUFDbEM7O0FBRUE7RUFDRSxnQkFBZ0I7QUFDbEI7O0FBRUE7RUFDRSxtQkFBbUI7QUFDckI7O0FBRUE7RUFDRSxzQkFBc0I7QUFDeEIiLCJmaWxlIjoic3JjL2FwcC9wYW5lbC1tZW51L3BhbmVsLW1lbnUuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5zZWxlY3RlZC1tZW51LWl0ZW0ge1xuICBiYWNrZ3JvdW5kOiBsaWdodGdyZXkgIWltcG9ydGFudDtcbn1cblxuLnVuc2VsZWN0ZWQtbWVudS1pdGVtIHtcbiAgYmFja2dyb3VuZDogbm9uZTtcbn1cblxuLnhkZXZpY2VzbWFpbm1lbnUgbGkge1xuICB3aGl0ZS1zcGFjZTogbm93cmFwO1xufVxuXG4ueGRldmljZXNtYWlubWVudSB1bCB7XG4gIHdpZHRoOiBhdXRvICFpbXBvcnRhbnQ7XG59XG4iXX0= */");
 
 /***/ }),
 
@@ -1938,7 +1879,7 @@ let PanelMenuComponent = class PanelMenuComponent {
     ngOnInit() {
         this.items = [
             {
-                label: 'General', expanded: true,
+                label: 'General',
                 items: [
                     { label: 'Dashboard', icon: 'pi pi-fw pi-chart-bar', routerLink: ['dashboard'],
                         command: (event) => this.styleConfig(event) },
@@ -1947,7 +1888,7 @@ let PanelMenuComponent = class PanelMenuComponent {
                 ]
             },
             {
-                label: 'Sensors', expanded: true,
+                label: 'Sensors',
                 items: [
                     { label: 'Sensors register', icon: 'pi pi-fw pi-list', routerLink: ['sensors'],
                         routerLinkActiveOptions: { exact: true },
@@ -1960,7 +1901,7 @@ let PanelMenuComponent = class PanelMenuComponent {
                 ]
             },
             {
-                label: 'Administration', expanded: true,
+                label: 'Administration',
                 items: [
                     {
                         label: 'Eventslogger',
@@ -5096,7 +5037,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_2__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/l0cke/go/src/github.com/xdevices/ui/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /Users/l0cke/go/src/github.com/maxzurawski/ui/src/main.ts */"./src/main.ts");
 
 
 /***/ })

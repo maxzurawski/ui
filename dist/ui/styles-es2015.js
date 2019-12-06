@@ -528,12 +528,12 @@ if (content.locals) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/l0cke/go/src/github.com/xdevices/ui/src/styles.css */"./src/styles.css");
-__webpack_require__(/*! /Users/l0cke/go/src/github.com/xdevices/ui/node_modules/bootstrap/dist/css/bootstrap.css */"./node_modules/bootstrap/dist/css/bootstrap.css");
-__webpack_require__(/*! /Users/l0cke/go/src/github.com/xdevices/ui/node_modules/primeicons/primeicons.css */"./node_modules/primeicons/primeicons.css");
-__webpack_require__(/*! /Users/l0cke/go/src/github.com/xdevices/ui/node_modules/primeng/resources/primeng.css */"./node_modules/primeng/resources/primeng.css");
-__webpack_require__(/*! /Users/l0cke/go/src/github.com/xdevices/ui/node_modules/primeflex/primeflex.css */"./node_modules/primeflex/primeflex.css");
-module.exports = __webpack_require__(/*! /Users/l0cke/go/src/github.com/xdevices/ui/node_modules/primeng/resources/themes/rhea/theme.css */"./node_modules/primeng/resources/themes/rhea/theme.css");
+__webpack_require__(/*! /Users/l0cke/go/src/github.com/maxzurawski/ui/src/styles.css */"./src/styles.css");
+__webpack_require__(/*! /Users/l0cke/go/src/github.com/maxzurawski/ui/node_modules/bootstrap/dist/css/bootstrap.css */"./node_modules/bootstrap/dist/css/bootstrap.css");
+__webpack_require__(/*! /Users/l0cke/go/src/github.com/maxzurawski/ui/node_modules/primeicons/primeicons.css */"./node_modules/primeicons/primeicons.css");
+__webpack_require__(/*! /Users/l0cke/go/src/github.com/maxzurawski/ui/node_modules/primeng/resources/primeng.css */"./node_modules/primeng/resources/primeng.css");
+__webpack_require__(/*! /Users/l0cke/go/src/github.com/maxzurawski/ui/node_modules/primeflex/primeflex.css */"./node_modules/primeflex/primeflex.css");
+module.exports = __webpack_require__(/*! /Users/l0cke/go/src/github.com/maxzurawski/ui/node_modules/primeng/resources/themes/rhea/theme.css */"./node_modules/primeng/resources/themes/rhea/theme.css");
 
 
 /***/ })

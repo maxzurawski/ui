@@ -5,3 +5,11 @@
 .unselected-menu-item {
   background: none;
 }
+
+.xdevicesmainmenu li {
+  white-space: nowrap;
+}
+
+.xdevicesmainmenu ul {
+  width: auto !important;
+}

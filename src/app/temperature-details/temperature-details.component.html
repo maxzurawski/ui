@@ -3,6 +3,8 @@
 </p>
 
 <p>
+  <button pButton class="ui-button-info" type="button" label="Back" (click)="onBack()"></button>
+  |
   <button pButton class="ui-button-info" type="button" label="Last month" [disabled]="customSearch" (click)="onLastMonth()"></button>
   |
   <button pButton class="ui-button-info" type="button" label="Last week" [disabled]="customSearch" (click)="onLastWeek()"></button>
@@ -47,9 +49,6 @@
 
 <br/>
 
-<p-chart type="line" [data]="data" [options]="options"  width="1200px" height="500px" [responsive]="false"></p-chart>
+<p-chart type="line" [data]="data" [options]="options" [height]="500" [width]="500" [responsive]="true"></p-chart>
 
 <br/>
-<p>
-  <button pButton class="ui-button-info" type="button" label="Back" (click)="onBack()"></button>
-</p>

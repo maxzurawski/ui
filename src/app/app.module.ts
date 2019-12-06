@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './navbar/navbar.component';
 import { PanelMenuComponent } from './panel-menu/panel-menu.component';
 import { FooterComponent } from './footer/footer.component';
 import {
@@ -24,7 +23,7 @@ import {
   CalendarModule,
   ChartModule,
   CardModule,
-  ToggleButtonModule
+  ToggleButtonModule, MegaMenuModule, MenubarModule
 } from "primeng/primeng";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { AboutComponent } from './about/about.component';
@@ -53,7 +52,6 @@ import { TemperatureDetailsComponent } from './temperature-details/temperature-d
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
     PanelMenuComponent,
     FooterComponent,
     AboutComponent,
@@ -96,7 +94,9 @@ import { TemperatureDetailsComponent } from './temperature-details/temperature-d
     CalendarModule,
     ChartModule,
     CardModule,
-    ToggleButtonModule
+    ToggleButtonModule,
+    MegaMenuModule,
+    MenubarModule
   ],
   providers: [MessageService,
     SensorTypesService,

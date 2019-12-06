@@ -16,7 +16,7 @@ export class PanelMenuComponent implements OnInit {
   ngOnInit() {
     this.items = [
       {
-        label: 'General', expanded: true,
+        label: 'General',
         items: [
           {label: 'Dashboard', icon: 'pi pi-fw pi-chart-bar', routerLink: ['dashboard'],
             command: (event) => this.styleConfig(event)},
@@ -25,7 +25,7 @@ export class PanelMenuComponent implements OnInit {
         ]
       },
       {
-        label: 'Sensors', expanded: true,
+        label: 'Sensors',
         items: [
           {label: 'Sensors register', icon: 'pi pi-fw pi-list', routerLink: ['sensors'],
             routerLinkActiveOptions: {exact: true},
@@ -38,7 +38,7 @@ export class PanelMenuComponent implements OnInit {
         ]
       },
       {
-        label: 'Administration', expanded: true,
+        label: 'Administration',
         items: [
           {
             label: 'Eventslogger',
